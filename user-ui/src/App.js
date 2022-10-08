@@ -2,7 +2,6 @@ import { Fragment, useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { publicRouters } from "./router";
 import DefaultLayout from "./layouts/DefaultLayout";
-
 import config from "./config";
 
 function App() {
