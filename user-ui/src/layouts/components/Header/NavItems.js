@@ -1,52 +1,52 @@
-import config from "../../../config";
+import config from 'src/config';
 export const navItems = [
   {
     id: 1,
-    title: "Store",
+    title: 'Store',
     path: config.routes.home,
     subnav: [
       {
         id: 1,
-        title: "Best Seller",
+        title: 'Best Seller',
         path: `/products/q=best-seller`,
       },
       {
         id: 2,
-        title: "Lastest",
+        title: 'Lastest',
         path: `/products/q=latest`,
       },
       {
         id: 3,
-        title: "Specials",
+        title: 'Specials',
         path: `/products/q=special`,
       },
     ],
   },
   {
     id: 2,
-    title: "Community",
+    title: 'Community',
     path: config.routes.home,
     subnav: [
       {
         id: 1,
-        title: "Home",
+        title: 'Home',
         path: config.routes.home,
       },
       {
         id: 2,
-        title: "Discussions",
+        title: 'Discussions',
         path: config.routes.home,
       },
     ],
   },
   {
     id: 3,
-    title: "About",
+    title: 'About',
     path: config.routes.about,
   },
   {
     id: 4,
-    title: "Contact",
+    title: 'Contact',
     path: config.routes.contact,
   },
 ];

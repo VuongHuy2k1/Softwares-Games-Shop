@@ -1,0 +1,24 @@
+.container {
+  height: 4.8rem;
+  width: 30%;
+  margin-top: 0.5rem;
+  background-color: #3d454c;
+  opacity: 0.75;
+  border: 1px solid var(--black);
+
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.link {
+  height: 4.8rem;
+  width: 100%;
+  line-height: 4.8rem;
+  text-align: center;
+  font-size: 1.6rem;
+  color: var(--white);
+}
