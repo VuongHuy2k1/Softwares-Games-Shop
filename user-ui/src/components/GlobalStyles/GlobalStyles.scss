@@ -1,0 +1,85 @@
+@import '~normalize.css/normalize.css';
+
+:root {
+  --primary: #fe2c55;
+  --black: #000;
+  --white: #fff;
+  --gray: #ccc;
+  --text-color: #161823;
+
+  --font-family: 'ProximaNova', sans-serif;
+
+  // Header
+  --header-background-color: #171a21;
+  --header-height: 10rem;
+
+  //Content
+  --content-size: 120rem;
+
+  // Side Bar
+  --sidebar-width: 20rem;
+  --sidebar-color: #7ac8d4;
+  --sidebar-border-color: #316688;
+
+  // Store Nav
+  --storenav-height: 3.5rem;
+  --storenav-min-width: 18rem;
+  --storenav-bg-color: #317dbd;
+  --storenav-bg-color-hover: #3fa7ff;
+
+  //Search
+  --border-radius: 6px;
+  --search-box-bg-color: #316282;
+  --search-button-bg-color: #3b6e8c;
+  --search-button-bg-color-hover: #66beef;
+
+  // Body
+  --store-bg-color: linear-gradient(180deg, #1b2838 0%, #1b2838 80%);
+  --form-bg-color: #131c27;
+
+  // Footer
+  --footer-height: 20rem;
+  --footer-icon-font-size: 2.4rem;
+
+  //responsive
+  --content-size-medium: 80rem;
+  --content-size-small: 75rem;
+  --sidebar-width-medium: 16rem;
+  --sidebar-width-small: 16rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  outline: none;
+  border: none;
+}
+
+a,
+ul {
+  text-decoration: none;
+  list-style: none;
+  color: var(--text-color);
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+}
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+/* Tablet < */
+@media (min-width: 739px) {
+}
