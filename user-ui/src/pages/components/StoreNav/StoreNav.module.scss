@@ -1,0 +1,41 @@
+.wrapper {
+  height: var(--storenav-height);
+  background-color: var(--storenav-bg-color);
+  display: flex;
+  user-select: none;
+  justify-content: flex-start;
+}
+
+.store-nav {
+  display: flex;
+  flex-direction: row;
+  flex: 3;
+}
+
+.store-nav-item {
+  text-align: center;
+  flex: 1;
+
+  a {
+    display: block;
+    line-height: var(--storenav-height);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--white);
+    padding: 0 1rem;
+
+    &:hover {
+      background-color: var(--storenav-bg-color-hover);
+      border-bottom: 1px solid var(--white);
+      cursor: pointer;
+    }
+  }
+}
+
+.search-section {
+  flex: 2;
+}
+
+.store-nav-menu {
+  margin-left: -2.8rem;
+}
