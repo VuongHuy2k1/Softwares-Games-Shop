@@ -20,8 +20,7 @@
   grid-area: main-view;
   display: flex;
   flex-direction: row;
-  padding: 3.2rem
-    calc((100% - var(--content-size) - var(--sidebar-width) * 2) / 2);
+  padding: 3.2rem calc((100% - var(--content-size) - var(--sidebar-width) * 2) / 2);
 }
 
 .content {

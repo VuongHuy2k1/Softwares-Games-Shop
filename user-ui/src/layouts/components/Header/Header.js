@@ -1,9 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
+<<<<<<< HEAD
 import classNames from "classnames/bind";
 import config from "../../../config/index.js";
 import images from "../../../assets/images/index.js";
@@ -19,8 +20,23 @@ import useClickOutside from "../../../hooks/useClickOutside.js";
 // import { getCheckout } from '~/store/reducers/checkoutSlice';
 import * as authServices from "../../../services/authServices";
 // import * as imageServices from '~/services/imageServices';
+=======
+import classNames from 'classnames/bind';
+import config from 'src/config';
+import images from 'src/assets/images';
+import Button from 'src/components/Button';
+import Dropdown from 'src/components/Dropdown';
+import { navItems } from './NavItems.js';
+import { useClickOutside } from 'src/hooks';
+import { getUserData, userSelector } from 'src/store/reducers/userSlice';
+import { getCart, cartSelector } from 'src/store/reducers/cartSlice';
+import { getWishlist, wishlistSelector } from 'src/store/reducers/wishlistSlice';
+import { getCheckout } from 'src/store/reducers/checkoutSlice';
+import * as authServices from 'src/services/authServices';
+import * as imageServices from 'src/services/imageServices';
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
 
 function Header() {
@@ -29,53 +45,53 @@ function Header() {
   const [communityDropdown, setCommunityDropdown] = useState(false);
   const [actionDropdown, setActionState] = useState(false);
 
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getUserData());
-  //   dispatch(getCart());
-  //   dispatch(getWishlist());
-  //   dispatch(getCheckout());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUserData());
+    dispatch(getCart());
+    dispatch(getWishlist());
+    dispatch(getCheckout());
+  }, [dispatch]);
 
-  // const user = useSelector(userSelector);
-  // const [userName, setUserName] = useState(undefined);
-  // const [avatar, setAvatar] = useState(undefined);
+  const user = useSelector(userSelector);
+  const [userName, setUserName] = useState(undefined);
+  const [avatar, setAvatar] = useState(undefined);
 
-  // useLayoutEffect(() => {
-  //   if (user.data !== undefined) {
-  //     setUserName(user.data.userName);
-  //     setAvatar(user.data.avatarPath);
-  //   }
-  // }, [user]);
+  useLayoutEffect(() => {
+    if (user.data !== undefined) {
+      setUserName(user.data.userName);
+      setAvatar(user.data.avatarPath);
+    }
+  }, [user]);
 
-  // const cart = useSelector(cartSelector);
-  // const [cartData, setCartData] = useState([]);
-  // useLayoutEffect(() => {
-  //   setCartData(cart.data || []);
-  // }, [cart]);
+  const cart = useSelector(cartSelector);
+  const [cartData, setCartData] = useState([]);
+  useLayoutEffect(() => {
+    setCartData(cart.data || []);
+  }, [cart]);
 
-  // const wishlist = useSelector(wishlistSelector);
-  // const [wishlistData, setWishlistData] = useState([]);
-  // useLayoutEffect(() => {
-  //   setWishlistData(wishlist.data || []);
-  // }, [wishlist]);
+  const wishlist = useSelector(wishlistSelector);
+  const [wishlistData, setWishlistData] = useState([]);
+  useLayoutEffect(() => {
+    setWishlistData(wishlist.data || []);
+  }, [wishlist]);
 
-  // const handleClick = () => {
-  //   setActionState(!actionDropdown);
-  // };
+  const handleClick = () => {
+    setActionState(!actionDropdown);
+  };
 
-  // const ActionMenuRef = useRef();
-  // const handleHide = () => {
-  //   setActionState(false);
-  // };
-  // useClickOutside(ActionMenuRef, handleHide);
+  const ActionMenuRef = useRef();
+  const handleHide = () => {
+    setActionState(false);
+  };
+  useClickOutside(ActionMenuRef, handleHide);
 
   const renderNavItem = navItems.map((item) => {
     switch (item.title) {
-      case "Store":
+      case 'Store':
         return (
           <li
-            className={cx("navbar-item")}
+            className={cx('navbar-item')}
             key={item.id}
             onMouseEnter={() => setStoreDropdown(true)}
             onMouseLeave={() => setStoreDropdown(false)}
@@ -84,10 +100,10 @@ function Header() {
             {storeDropdown && <Dropdown items={item.subnav} navbar />}
           </li>
         );
-      case "Community":
+      case 'Community':
         return (
           <li
-            className={cx("navbar-item")}
+            className={cx('navbar-item')}
             key={item.id}
             onMouseEnter={() => setCommunityDropdown(true)}
             onMouseLeave={() => setCommunityDropdown(false)}
@@ -98,7 +114,7 @@ function Header() {
         );
       default:
         return (
-          <li className={cx("navbar-item")} key={item.id}>
+          <li className={cx('navbar-item')} key={item.id}>
             <Link to={item.path}>{item.title}</Link>
           </li>
         );
@@ -108,39 +124,45 @@ function Header() {
   const ActionMenuItems = [
     {
       id: 1,
-      title: "View Profile",
-      // path: `/profile/${userName}`,
+      title: 'View Profile',
+      path: `/profile/${userName}`,
     },
     {
       id: 2,
-      title: "Logout",
-      path: "#",
+      title: 'Logout',
+      path: '#',
       action: () => {
         const timerId = setTimeout(() => {
           clearTimeout(timerId);
-          // authServices.logout();
+          authServices.logout();
           navigate(config.routes.login, { replace: true });
         }, 2000);
       },
     },
   ];
 
-  // const isLoggedIn = authServices.isLoggedIn();
+  const isLoggedIn = authServices.isLoggedIn();
   return (
+<<<<<<< HEAD
     <header className={cx("wrapper")}>
       <MiniHeader />
 
       <div className={cx("container")}>
         <div className={cx("header-logo")}>
+=======
+    <header className={cx('wrapper')}>
+      <div className={cx('container')}>
+        <div className={cx('header-logo')}>
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
           <Link to={config.routes.home}>
             <img src={images.logo} alt="Gaming store" />
           </Link>
         </div>
         {/* --- NavBar */}
-        <ul className={cx("header-navbar")}>{renderNavItem}</ul>
+        <ul className={cx('header-navbar')}>{renderNavItem}</ul>
         {/* --- Action Menu */}
-        <div className={cx("action-menu-container")}>
-          {/* {isLoggedIn ? (
+        <div className={cx('action-menu-container')}>
+          {isLoggedIn ? (
             <>
               <div className={cx('action-menu')}>
                 <Button wishlist to={config.routes.wishlist} className={cx('action-menu-button')}>
@@ -167,6 +189,7 @@ function Header() {
               </div>
             </>
           ) : (
+<<<<<<< HEAD
             <> */}
           <div className={cx("action-menu")}>
             <Button
@@ -192,6 +215,21 @@ function Header() {
           </div>
           {/* </>
           )} */}
+=======
+            <>
+              <div className={cx('action-menu')}>
+                <Button primary to={config.routes.login} className={cx('action-menu-button')}>
+                  Login
+                </Button>
+              </div>
+              <div className={cx('action-menu')}>
+                <Button text to={config.routes.signup} className={cx('action-menu-button')}>
+                  Register
+                </Button>
+              </div>
+            </>
+          )}
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
         </div>
       </div>
     </header>
