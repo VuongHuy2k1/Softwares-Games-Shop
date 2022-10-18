@@ -1,7 +1,7 @@
 import classNames from "classnames/bind";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import config from "../../../config";
 import styles from "./Sidebar.module.scss";
 // import * as categoryServices from '~/services/categoryServices';
 const cx = classNames.bind(styles);
@@ -18,11 +18,11 @@ function Sidebar() {
   // }, []);
   return (
     <aside className={cx("wrapper")}>
-      {/* <div className={cx('container')}>
+      <div className={cx("container")}>
         <span>DISCOVERY QUEUES</span>
         <Link to={config.routes.home}>Recommendations</Link>
         <Link to={config.routes.home}>New Releases</Link>
-      </div> */}
+      </div>
       <div className={cx("container")}>
         <span>BROWSE BY TAG</span>
         <Link to={`/products/q=best-seller`}>Best Seller</Link>
