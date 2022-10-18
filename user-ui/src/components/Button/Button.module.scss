@@ -3,7 +3,11 @@
   align-items: center;
   justify-content: center;
   min-width: 100px;
+<<<<<<< HEAD
+  // padding: 9px 16px;
+=======
   padding: 9px 16px;
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
   border-radius: 4px;
   font-size: 1.6rem;
   font-weight: 700;
@@ -53,7 +57,12 @@
 
   &:hover {
     border-color: var(--primary);
+<<<<<<< HEAD
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+      #fe2c55;
+=======
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
   }
 }
 
@@ -111,3 +120,87 @@
   padding: 14px 16px;
   min-width: 140px;
 }
+<<<<<<< HEAD
+
+.btn {
+  --body-bg: #0f172a;
+  --btn-gradient: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+  --btn-txt-color: #ffffff;
+  position: relative;
+  border: none;
+  outline: none;
+  display: block;
+}
+
+.btnAnimation {
+  border-radius: 5px;
+}
+
+.btnAnimation:hover {
+  cursor: pointer;
+}
+
+.btnAnimation span {
+  display: block;
+}
+
+.btnAnimation span:nth-child(1) {
+  background-image: var(--btn-gradient);
+  border-radius: 5px;
+}
+
+.btnAnimation span:nth-child(2),
+.btnAnimation span:nth-child(3),
+.btnAnimation span:nth-child(4) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.btnAnimation span:nth-child(4) {
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--btn-gradient);
+  color: var(--btn-txt-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+.btnAnimation:hover span:nth-child(4) {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.btnAnimation span:nth-child(3) {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background-color: var(--body-bg);
+  border-radius: 4px;
+}
+
+.btnAnimation span:nth-child(2) {
+  height: 60%;
+  width: 70%;
+  background-color: var(--header-background-color);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+=======
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4

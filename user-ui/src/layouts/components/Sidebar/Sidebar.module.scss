@@ -4,6 +4,7 @@
   margin-top: calc(var(--storenav-height) * 3);
   background-color: transparent;
   border-top: 1px solid var(--sidebar-border-color);
+  display: block;
 }
 
 .container {
@@ -30,5 +31,12 @@
     &:hover {
       color: var(--white);
     }
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .wrapper {
+    display: none;
+    z-index: 0;
   }
 }

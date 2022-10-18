@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+import { Fragment, useEffect } from "react";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
+import { publicRouters, authRouters } from "./router";
+//Layout
+import DefaultLayout from "./layouts/DefaultLayout";
+import HeaderOnly from "./layouts/HeaderOnly/HeaderOnly";
+
+import config from "./config";
+=======
 import { Fragment, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { publicRoutes, authRoutes, privateRoutes } from 'src/routes';
@@ -5,6 +15,7 @@ import DefaultLayout, { HeaderOnly } from 'src/layouts';
 import { scrollToPosition } from 'src/utils';
 import config from './config';
 import * as authServices from 'src/services/authServices';
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 
 function App() {
   let location = useLocation();
@@ -38,9 +49,15 @@ function App() {
               />
             );
           })}
+<<<<<<< HEAD
+          {authRouters.map((route, index) => {
+            const Page = route.component;
+            // const isLoggedIn = authServices.isLoggedIn();
+=======
           {authRoutes.map((route, index) => {
             const Page = route.component;
             const isLoggedIn = authServices.isLoggedIn();
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
             let Layout = HeaderOnly;
             // Login rồi không vào trang Login, Sign Up, Forget Password được nữa
             return (
@@ -48,6 +65,15 @@ function App() {
                 key={index}
                 path={route.path}
                 element={
+<<<<<<< HEAD
+                  // isLoggedIn ? (
+                  //   <Navigate to={config.routes.home} replace={true} />
+                  // ) : (
+                  <Layout>
+                    <Page />
+                  </Layout>
+                  // )
+=======
                   isLoggedIn ? (
                     <Navigate to={config.routes.home} replace={true} />
                   ) : (
@@ -76,6 +102,7 @@ function App() {
                   ) : (
                     <Navigate to={config.routes.login} replace={true} />
                   )
+>>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
                 }
               />
             );
