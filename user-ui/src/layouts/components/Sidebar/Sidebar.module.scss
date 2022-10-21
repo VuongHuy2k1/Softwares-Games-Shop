@@ -1,0 +1,34 @@
+.wrapper {
+  width: var(--sidebar-width);
+  height: auto;
+  margin-top: calc(var(--storenav-height) * 3);
+  background-color: transparent;
+  border-top: 1px solid var(--sidebar-border-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
+  // background-color: #ccc;
+
+  a,
+  span {
+    text-align: left;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+  }
+
+  span {
+    color: var(--white);
+  }
+
+  a {
+    color: var(--sidebar-color);
+    &:hover {
+      color: var(--white);
+    }
+  }
+}
