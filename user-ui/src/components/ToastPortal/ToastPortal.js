@@ -1,9 +1,9 @@
 import classNames from 'classnames/bind';
 import { useState, forwardRef, useImperativeHandle } from 'react';
-import { useToastPortal, useToastAutoClose } from 'src/hooks';
+import { useToastPortal, useToastAutoClose } from '../../hooks/index';
 import ReactDOM from 'react-dom';
 
-import { uuid } from 'src/utils';
+import { uuid } from '../../utils';
 import Toast from './Toast';
 import styles from './ToastPortal.module.scss';
 

@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import MiniHeader from './MiniHeader.js';
 import classNames from 'classnames/bind';
 import config from 'src/config';
 import images from 'src/assets/images';
@@ -126,6 +127,8 @@ function Header() {
   const isLoggedIn = authServices.isLoggedIn();
   return (
     <header className={cx('wrapper')}>
+      <MiniHeader />
+
       <div className={cx('container')}>
         <div className={cx('header-logo')}>
           <Link to={config.routes.home}>
@@ -165,8 +168,11 @@ function Header() {
           ) : (
             <>
               <div className={cx('action-menu')}>
-                <Button primary to={config.routes.login} className={cx('action-menu-button')}>
-                  Login
+                <Button btn btnAnimation to={config.routes.login} className={cx('action-menu-button')}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span>Login</span>
                 </Button>
               </div>
               <div className={cx('action-menu')}>

@@ -6,6 +6,7 @@ export const scrollToPosition = (top = 0) => {
     document.documentElement.scrollTo({
       top: top,
       left: 0,
+
       behavior: 'smooth',
     });
   } catch (_) {
@@ -27,6 +28,10 @@ export const uuid = () => {
 };
 
 export function currencyFormat(value) {
-  const formatter = new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' });
+  const formatter = new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
+  });
+
   return formatter.format(value);
 }

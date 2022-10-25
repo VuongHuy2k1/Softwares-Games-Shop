@@ -6,11 +6,13 @@ function useEnterPress(ref, handler) {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
       }
+
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
         event.preventDefault();
         handler(event);
       }
     };
+
     document.addEventListener('keydown', listener);
     return () => {
       document.removeEventListener('keydown', listener);

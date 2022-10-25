@@ -26,6 +26,7 @@ export const isLoggedIn = () => {
   if (jwt === undefined || userId === undefined) {
     Cookies.remove('jwt');
     Cookies.remove('user-id');
+
     return false;
   }
 
@@ -41,6 +42,7 @@ export const isLoggedIn = () => {
   } catch (error) {
     Cookies.remove('jwt');
     Cookies.remove('user-id');
+
     console.log(error);
     return false;
   }

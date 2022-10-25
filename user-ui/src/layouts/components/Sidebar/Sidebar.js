@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import styles from './Sidebar.module.scss';
 import * as categoryServices from 'src/services/categoryServices';
+
 const cx = classNames.bind(styles);
 
 function Sidebar() {

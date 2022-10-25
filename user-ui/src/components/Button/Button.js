@@ -8,6 +8,10 @@ const cx = classNames.bind(styles);
 function Button({
   to,
   href,
+
+  btn = false,
+  btnAnimation = false,
+
   primary = false,
   outline = false,
   text = false,
@@ -25,6 +29,7 @@ function Button({
   ...passProps
 }) {
   let Comp = 'button';
+
   const props = {
     onClick,
     ...passProps,
@@ -44,11 +49,15 @@ function Button({
     Comp = Link;
   } else if (href) {
     props.href = href;
+
     Comp = 'a';
   }
 
   const classes = cx('wrapper', {
     [className]: className,
+    btnAnimation,
+    btn,
+
     primary,
     outline,
     text,

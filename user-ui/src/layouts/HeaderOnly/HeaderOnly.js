@@ -1,8 +1,8 @@
 import classNames from 'classnames/bind';
 import PropTypes from 'prop-types';
 
-import Header from 'src/layouts/components/Header';
-import Footer from 'src/layouts/components/Footer';
+import Header from '../components/Header/Header';
+import Footer from '../components/Footer';
 import styles from './HeaderOnly.module.scss';
 
 const cx = classNames.bind(styles);

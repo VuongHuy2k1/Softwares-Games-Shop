@@ -38,9 +38,11 @@ function App() {
               />
             );
           })}
+
           {authRoutes.map((route, index) => {
             const Page = route.component;
             const isLoggedIn = authServices.isLoggedIn();
+
             let Layout = HeaderOnly;
             // Login rồi không vào trang Login, Sign Up, Forget Password được nữa
             return (
