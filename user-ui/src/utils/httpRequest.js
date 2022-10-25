@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import axios from "axios";
-=======
 import axios from 'axios';
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 
 const httpRequest = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,

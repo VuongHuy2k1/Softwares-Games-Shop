@@ -1,16 +1,8 @@
-<<<<<<< HEAD
-import React from "react";
-import ReactDOM from "react-dom/client";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from "react-redux";
-=======
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from 'src/reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 
 import store from './store';
 import App from 'src/App';

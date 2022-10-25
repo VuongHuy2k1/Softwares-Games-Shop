@@ -3,37 +3,26 @@
   flex-direction: column;
   justify-content: center;
   background-image: var(--store-bg-color);
-<<<<<<< HEAD
-  background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181a21 100%) fixed
+
+  background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181a21 100%) fixed no-repeat,
+    url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top
       no-repeat,
-    url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg)
-      center top no-repeat,
     #181a21;
-=======
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 }
 
 .container {
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
-  padding: 3.2rem
-    calc((100% - var(--content-size) - var(--sidebar-width) * 2) / 2);
-=======
+
   padding: 3.2rem calc((100% - var(--content-size) - var(--sidebar-width) * 2) / 2);
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 }
 
 .content {
   flex: 1;
-<<<<<<< HEAD
+
   min-height: 545px;
   height: auto;
-=======
-  height: auto;
-  height: 100vh;
-  min-height: 545px;
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
+
   background-color: transparent;
   margin: 0 var(--sidebar-width);
 }

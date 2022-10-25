@@ -4,23 +4,7 @@ import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-<<<<<<< HEAD
-import classNames from "classnames/bind";
-import config from "../../../config/index.js";
-import images from "../../../assets/images/index.js";
-import Button from "../../../components/Button/Button.js";
-import MiniHeader from "./MiniHeader.js";
-
-import Dropdown from "../../../components/Dropdown/Dropdown.js";
-import { navItems } from "./NavItems.js";
-import useClickOutside from "../../../hooks/useClickOutside.js";
-// import { getUserData, userSelector } from '~/store/reducers/userSlice';
-// import { getCart, cartSelector } from '~/store/reducers/cartSlice';
-// import { getWishlist, wishlistSelector } from '~/store/reducers/wishlistSlice';
-// import { getCheckout } from '~/store/reducers/checkoutSlice';
-import * as authServices from "../../../services/authServices";
-// import * as imageServices from '~/services/imageServices';
-=======
+import MiniHeader from './MiniHeader.js';
 import classNames from 'classnames/bind';
 import config from 'src/config';
 import images from 'src/assets/images';
@@ -34,7 +18,6 @@ import { getWishlist, wishlistSelector } from 'src/store/reducers/wishlistSlice'
 import { getCheckout } from 'src/store/reducers/checkoutSlice';
 import * as authServices from 'src/services/authServices';
 import * as imageServices from 'src/services/imageServices';
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
 
 import styles from './Header.module.scss';
 const cx = classNames.bind(styles);
@@ -143,17 +126,11 @@ function Header() {
 
   const isLoggedIn = authServices.isLoggedIn();
   return (
-<<<<<<< HEAD
-    <header className={cx("wrapper")}>
+    <header className={cx('wrapper')}>
       <MiniHeader />
 
-      <div className={cx("container")}>
-        <div className={cx("header-logo")}>
-=======
-    <header className={cx('wrapper')}>
       <div className={cx('container')}>
         <div className={cx('header-logo')}>
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
           <Link to={config.routes.home}>
             <img src={images.logo} alt="Gaming store" />
           </Link>
@@ -189,37 +166,13 @@ function Header() {
               </div>
             </>
           ) : (
-<<<<<<< HEAD
-            <> */}
-          <div className={cx("action-menu")}>
-            <Button
-              btn
-              btnAnimation
-              to={config.routes.login}
-              className={cx("action-menu-button")}
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span>Login</span>
-            </Button>
-          </div>
-          <div className={cx("action-menu")}>
-            <Button
-              text
-              to={config.routes.signup}
-              className={cx("action-menu-button")}
-            >
-              Register
-            </Button>
-          </div>
-          {/* </>
-          )} */}
-=======
             <>
               <div className={cx('action-menu')}>
-                <Button primary to={config.routes.login} className={cx('action-menu-button')}>
-                  Login
+                <Button btn btnAnimation to={config.routes.login} className={cx('action-menu-button')}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span>Login</span>
                 </Button>
               </div>
               <div className={cx('action-menu')}>
@@ -229,7 +182,6 @@ function Header() {
               </div>
             </>
           )}
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
         </div>
       </div>
     </header>

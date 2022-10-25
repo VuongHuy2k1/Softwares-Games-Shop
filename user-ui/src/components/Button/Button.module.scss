@@ -3,11 +3,9 @@
   align-items: center;
   justify-content: center;
   min-width: 100px;
-<<<<<<< HEAD
+
   // padding: 9px 16px;
-=======
-  padding: 9px 16px;
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
+
   border-radius: 4px;
   font-size: 1.6rem;
   font-weight: 700;
@@ -57,12 +55,8 @@
 
   &:hover {
     border-color: var(--primary);
-<<<<<<< HEAD
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
-      #fe2c55;
-=======
+
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
   }
 }
 
@@ -120,7 +114,6 @@
   padding: 14px 16px;
   min-width: 140px;
 }
-<<<<<<< HEAD
 
 .btn {
   --body-bg: #0f172a;
@@ -202,5 +195,3 @@
     transform: translate(-50%, -50%) rotate(180deg);
   }
 }
-=======
->>>>>>> a8b2e304a5952c50aa9934d10fc721134cccd8e4
