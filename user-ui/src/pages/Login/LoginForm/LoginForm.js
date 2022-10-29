@@ -82,30 +82,28 @@ function LoginForm() {
       <div className={cx('wrapper')}>
         <div className={cx('title')}>LOGIN</div>
         <div className={cx('container')}>
-          <>
-            <span className={cx('username-label')}>User Name</span>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('username-input')}
               type="text"
-              placeholder="Enter your username"
+              placeholder=" "
               value={usernameInput}
               onChange={(e) => {
                 setUsernameInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('password-label')}>Password</span>
+            <span>User Name</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('password-input')}
               type="password"
-              placeholder="Password"
+              placeholder=" "
               value={passwordInput}
               onChange={(e) => {
                 setPasswordInput(e.currentTarget.value);
               }}
             />
-          </>
+            <span>Password</span>
+          </div>
           {loading ? (
             <div className={cx('loading')}>
               <span></span>

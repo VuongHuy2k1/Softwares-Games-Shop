@@ -10,6 +10,7 @@
   border: 1px solid var(--black);
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
   padding-bottom: 2rem;
+  user-select: none;
 }
 
 .title {
@@ -17,36 +18,74 @@
   font-size: 3.2rem;
   color: var(--white);
   font-weight: normal;
+  margin-bottom: 2rem;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-
+  align-items: center;
   width: 50%;
 }
 
-.label {
-  font-size: 1.6rem;
-  color: var(--white);
-}
-
-.input,
-.content-input {
+.inputBox {
+  position: relative;
   width: 100%;
-  font-size: 1.6rem;
-  padding: 8px 1rem;
-  color: var(--black);
-  border-radius: 3px;
-}
-.input {
-  margin-bottom: 2rem;
-}
-.content-input {
-  resize: none;
-  margin-bottom: 4rem;
+
+  input,
+  textarea {
+    font-size: 1.6rem;
+    width: 100%;
+    padding: 1.2rem 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    color: var(--white);
+    background-color: transparent;
+    border: 2px solid var(--white);
+    border-radius: 3px;
+    &:focus ~ span,
+    &:not(:placeholder-shown) ~ span {
+      transform: translateX(0) translateY(-1.6rem);
+      padding: 0 0.5rem;
+      font-size: 1.2rem;
+      color: #47bfff;
+    }
+    &:focus,
+    &:not(:placeholder-shown) {
+      border: 2px solid #47bfff;
+    }
+  }
+
+  textarea {
+    resize: none;
+
+    &::-webkit-scrollbar {
+      border-radius: 0;
+      width: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(168, 168, 168, 0.9);
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 0;
+      background-color: rgba(255, 255, 255, 0);
+    }
+  }
+
+  span {
+    position: absolute;
+    left: 1.2rem;
+    top: 1rem;
+    font-size: 1.6rem;
+    color: var(--white);
+    background-color: var(--form-bg-color);
+    letter-spacing: 2px;
+    pointer-events: none;
+    user-select: none;
+    transition: 0.5s;
+  }
 }
 
 .submit-button {
@@ -54,8 +93,6 @@
   width: 12rem;
   background-color: var(--primary);
   color: var(--white);
-  //   align-self: center;
-
   &:hover {
     text-decoration: underline;
   }
