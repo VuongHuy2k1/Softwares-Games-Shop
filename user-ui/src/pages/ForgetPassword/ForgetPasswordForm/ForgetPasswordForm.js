@@ -87,54 +87,50 @@ function ForgetPasswordForm() {
       <div className={cx('wrapper')}>
         <div className={cx('title')}>RESET PASSWORD</div>
         <div className={cx('container')}>
-          <>
-            <span className={cx('label')}>Username</span>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('username-input')}
               type="text"
-              placeholder="Enter your Username"
+              placeholder=" "
               value={userInput}
               onChange={(e) => {
                 setUserInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>Email</span>
+            <span>Username</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('username-input')}
               type="text"
-              placeholder="Enter your Email"
+              placeholder=" "
               value={emailInput}
               onChange={(e) => {
                 setEmailInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>New Password</span>
+            <span>Email</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('password-input')}
               type="password"
-              placeholder="New Password"
+              placeholder=" "
               value={newPasswordInput}
               onChange={(e) => {
                 setNewPasswordInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>Re-Password</span>
+            <span>New Password</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('password-input')}
               type="password"
-              placeholder="Re-Password"
+              placeholder=" "
               value={rePasswordInput}
               onChange={(e) => {
                 setRePasswordInput(e.currentTarget.value);
               }}
             />
-          </>
+            <span>Re-Password</span>
+          </div>
           {loading ? (
             <div className={cx('loading')}>
               <span></span>

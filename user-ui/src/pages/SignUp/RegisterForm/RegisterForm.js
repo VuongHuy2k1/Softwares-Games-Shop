@@ -90,54 +90,50 @@ function RegisterForm() {
       <div className={cx('wrapper')}>
         <div className={cx('title')}>CREATE YOUR ACCOUNT</div>
         <div className={cx('container')}>
-          <>
-            <span className={cx('label')}>User Name</span>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('username-input')}
               type="text"
-              placeholder="Enter your username"
+              placeholder=" "
               value={usernameInput}
               onChange={(e) => {
                 setUsernameInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>Password</span>
+            <span>User Name</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('password-input')}
               type="password"
-              placeholder="Password"
+              placeholder=" "
               value={passwordInput}
               onChange={(e) => {
                 setPasswordInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>Re-Password</span>
+            <span>Password</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('password-input')}
               type="password"
-              placeholder="Re-Password"
+              placeholder=" "
               value={rePasswordInput}
               onChange={(e) => {
                 setRePasswordInput(e.currentTarget.value);
               }}
             />
-          </>
-          <>
-            <span className={cx('label')}>Email</span>
+            <span>Re-Password</span>
+          </div>
+          <div className={cx('inputBox')}>
             <input
-              className={cx('email-input')}
               type="email"
-              placeholder="Email"
+              placeholder=" "
               value={emailInput}
               onChange={(e) => {
                 setEmailInput(e.currentTarget.value);
               }}
             />
-          </>
+            <span>Email</span>
+          </div>
           {loading ? (
             <div className={cx('loading')}>
               <span></span>

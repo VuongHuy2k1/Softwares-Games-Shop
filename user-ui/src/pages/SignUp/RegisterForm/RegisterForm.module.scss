@@ -19,34 +19,52 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .title {
   font-size: 2.8rem;
   text-align: center;
-
   margin-bottom: 3rem;
 }
 
-.label {
-  align-self: center;
-
-  font-size: 1.6rem;
+.inputBox {
+  position: relative;
   width: var(--input-width);
-  margin-bottom: 0.5rem;
-}
-
-.username-input,
-.password-input,
-.email-input {
-  align-self: center;
-
-  font-size: 1.6rem;
-  width: calc(var(--input-width) - 1rem);
-  padding: 0.5rem 0.5rem;
-  margin-bottom: 2rem;
-  color: var(--black);
-  background-color: #fff;
+  input {
+    font-size: 1.6rem;
+    width: calc(var(--input-width) - 1rem);
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    color: var(--white);
+    background-color: transparent;
+    border: 2px solid var(--white);
+    border-radius: 5px;
+    &:focus ~ span,
+    &:not(:placeholder-shown) ~ span {
+      transform: translateX(0) translateY(-1.6rem);
+      padding: 0 0.5rem;
+      font-size: 1.2rem;
+      color: #47bfff;
+    }
+    &:focus,
+    &:not(:placeholder-shown) {
+      border: 2px solid #47bfff;
+    }
+  }
+  span {
+    position: absolute;
+    left: 1.2rem;
+    top: 1rem;
+    font-size: 1.6rem;
+    color: var(--white);
+    background-color: var(--form-bg-color);
+    letter-spacing: 2px;
+    pointer-events: none;
+    user-select: none;
+    transition: 0.5s;
+  }
 }
 
 .button {

@@ -36,7 +36,7 @@ function Category() {
       <StoreNav />
       {(genre === undefined && page === undefined) || (genre === 'undefined' && page === 'undefined') ? (
         <>
-          <CategoryItems data={categories} />;
+          <CategoryItems data={categories || []} />;
         </>
       ) : (
         <ProductList pagination={true} typePage={'category'} title={title} />

@@ -89,35 +89,38 @@ function ContactForm() {
       <div className={cx('wrapper')}>
         <h2 className={cx('title')}>Contact Us</h2>
         <div className={cx('container')}>
-          <div className={cx('label')}>Title</div>
-          <input
-            className={cx('input')}
-            placeholder="Title"
-            ref={inputRef}
-            onChange={(e) => {
-              setTitle(e.currentTarget.value);
-            }}
-            value={title}
-          />
-          <div className={cx('label')}>Your Email</div>
-          <input
-            className={cx('input')}
-            placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.currentTarget.value);
-            }}
-            value={email}
-          />
-          <div className={cx('label')}>Content</div>
-          <textarea
-            rows={10}
-            className={cx('content-input')}
-            placeholder="Content"
-            onChange={(e) => {
-              setContent(e.currentTarget.value);
-            }}
-            value={content}
-          />
+          <div className={cx('inputBox')}>
+            <input
+              placeholder=" "
+              ref={inputRef}
+              onChange={(e) => {
+                setTitle(e.currentTarget.value);
+              }}
+              value={title}
+            />
+            <span>Title</span>
+          </div>
+          <div className={cx('inputBox')}>
+            <input
+              placeholder=" "
+              onChange={(e) => {
+                setEmail(e.currentTarget.value);
+              }}
+              value={email}
+            />
+            <span>Your Email</span>
+          </div>
+          <div className={cx('inputBox')}>
+            <textarea
+              rows={10}
+              placeholder=" "
+              onChange={(e) => {
+                setContent(e.currentTarget.value);
+              }}
+              value={content}
+            />
+            <span>Content</span>
+          </div>
           {loading ? (
             <div className={cx('loading')}>
               <span></span>
