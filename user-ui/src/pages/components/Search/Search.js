@@ -53,7 +53,6 @@ function Search() {
   return (
     <div className={cx('search')} ref={searchRef}>
       <div className={cx('search-box')}>
-        <div className={cx('spacing')}></div>
         <input
           className={cx('search-input')}
           type="text"

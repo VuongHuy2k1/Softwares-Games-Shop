@@ -2,8 +2,10 @@
   height: var(--storenav-height);
   background-color: var(--storenav-bg-color);
   display: flex;
+  // flex-direction: column;
   user-select: none;
   justify-content: flex-start;
+  // margin-bottom: calc(var(--storenav-height) * 2);
 }
 
 .store-nav {

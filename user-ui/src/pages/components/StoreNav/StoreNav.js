@@ -52,7 +52,6 @@ function StoreNav() {
   return (
     <div className={cx('wrapper')}>
       <ul className={cx('store-nav')}>{renderStoreNavItem}</ul>
-
       <div className={cx('search-section')}>
         <Search></Search>
       </div>

@@ -1,27 +1,31 @@
 .search {
-  margin-top: 1px;
+  display: flex;
+  justify-content: flex-end;
+  --search-element-height: calc(var(--storenav-height) - 0.2rem);
 }
 
 .search-box {
-  height: 100%;
-  display: flex;
-  flex-direction: row;
+  width: 100%;
   border-radius: 5px;
-}
-
-.spacing {
-  flex: 5;
+  position: relative;
 }
 
 .search-input {
-  padding: 0 2rem;
-  background-color: var(--search-box-bg-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  height: var(--search-element-height);
+  width: 40%;
+  padding: 0 calc(var(--storenav-height) + 2rem) 0 2rem;
+
   border: 1px solid transparent;
-  border-top-left-radius: var(--border-radius);
-  border-bottom-left-radius: var(--border-radius);
+  border-radius: var(--border-radius);
+
+  background-color: var(--search-box-bg-color);
   font-size: 1.2rem;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
-  flex: 4;
+  transition: 0.25s;
 
   &::placeholder {
     color: var(--black);
@@ -32,28 +36,41 @@
     border: 1px solid var(--black);
     color: var(--white);
   }
+
+  &:hover ~ .search-button,
+  &:focus ~ .search-button {
+    border: 1px solid var(--black);
+  }
 }
 
 .search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: calc(var(--storenav-height) - 0.4rem);
-  height: calc(var(--storenav-height) - 0.4rem);
-  border: 1px solid var(--black);
+  align-self: center;
+
+  width: var(--search-element-height);
+  height: var(--search-element-height);
+
+  border: 1px solid transparent;
   border-top-right-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  margin-right: 2px;
+
   background-color: var(--search-button-bg-color);
-  align-self: center;
-  flex: 1;
   overflow: hidden;
+  transition: 0.25s;
+
   svg {
     font-size: 1.6rem;
   }
 
   &:hover {
     background-color: var(--search-button-bg-color-hover);
+    border: 1px solid var(--black);
     cursor: pointer;
   }
 }
