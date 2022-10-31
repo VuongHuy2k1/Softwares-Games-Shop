@@ -80,6 +80,7 @@ function ProductList({ pagination = false, typePage = '', type = '', title = 'Li
       }
       setValue(result.items);
       setReviewValue(result.items[0]);
+      setReviewIndex(0);
       setTotalPages(result.pageCount);
     };
 
