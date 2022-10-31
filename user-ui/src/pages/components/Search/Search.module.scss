@@ -17,7 +17,7 @@
 
   height: var(--search-element-height);
   width: 40%;
-  padding: 0 calc(var(--storenav-height) + 2rem) 0 2rem;
+  padding: 0 calc(var(--storenav-height) + 3rem) 0 2rem;
 
   border: 1px solid transparent;
   border-radius: var(--border-radius);
@@ -26,6 +26,7 @@
   font-size: 1.2rem;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
   transition: 0.25s;
+  color: var(--white);
 
   &::placeholder {
     color: var(--black);
@@ -34,7 +35,6 @@
   &:hover,
   &:focus {
     border: 1px solid var(--black);
-    color: var(--white);
   }
 
   &:hover ~ .search-button,
@@ -75,9 +75,21 @@
   }
 }
 
+.clear-button {
+  position: absolute;
+  right: calc(var(--storenav-height) + 1rem);
+  top: 50%;
+  transform: translateY(50%);
+
+  svg {
+    font-size: 1.6rem;
+  }
+}
+
 // Searh results dropdown
 .search-results {
-  display: absolute;
+  position: relative;
+  top: var(--storenav-height);
   background-color: #fff;
   height: auto;
   margin-top: 2px;

@@ -29,16 +29,16 @@ const publicRoutes = [
 
   { path: config.routes.product, component: Product, layout: HeaderOnly },
 
-  { path: config.routes.products, component: Products, layout: HeaderOnly },
-  { path: config.routes.allProduct, component: Products, layout: HeaderOnly },
-  { path: config.routes.allProductWithDefaultPagination, component: Products, layout: HeaderOnly },
-  { path: config.routes.allProductWithPagination, component: Products, layout: HeaderOnly },
+  { path: config.routes.products, component: Products },
+  { path: config.routes.allProduct, component: Products },
+  { path: config.routes.allProductWithDefaultPagination, component: Products },
+  { path: config.routes.allProductWithPagination, component: Products },
 
   { path: config.routes.search, component: Search },
   { path: config.routes.searchWithPagination, component: Search },
   { path: config.routes.searchWithDefaultPagination, component: Search },
-  { path: config.routes.categoryWithPagination, component: Category },
 
+  { path: config.routes.categoryWithPagination, component: Category },
   { path: config.routes.categoryWithDefaultPagination, component: Category },
   { path: config.routes.categoryWithGenre, component: Category },
   { path: config.routes.category, component: Category, layout: HeaderOnly },

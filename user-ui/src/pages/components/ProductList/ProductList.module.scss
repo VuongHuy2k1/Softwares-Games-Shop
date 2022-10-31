@@ -43,6 +43,7 @@
   background-color: var(--form-bg-color);
   display: flex;
   flex-direction: row;
+  margin-top: 2rem;
   justify-content: space-between;
   align-content: center;
   border-bottom-left-radius: 4px;
@@ -153,7 +154,7 @@
 .review {
   flex: 2;
   background-color: #95bbd4;
-  max-height: 84rem;
+  max-height: 90rem;
   margin-top: 8px;
 }
 

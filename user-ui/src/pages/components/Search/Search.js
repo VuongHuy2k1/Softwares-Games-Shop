@@ -1,4 +1,4 @@
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -16,6 +16,7 @@ function Search() {
   const [showResult, setShowResult] = useState(false);
   const [totalRecords, setTotalRecords] = useState(0);
   const searchRef = useRef();
+  const searchInputRef = useRef();
 
   const handleSearch = (e) => {
     setSearchValue(e.target.value);
@@ -28,9 +29,17 @@ function Search() {
   };
   useClickOutside(searchRef, handleHideResult);
   const handleClick = () => {
-    setShowResult(false);
     setSearchValue('');
+    setSearchResult([]);
+    setShowResult(false);
   };
+  const handleClear = () => {
+    setSearchValue('');
+    setSearchResult([]);
+    setShowResult(false);
+    searchInputRef.current.focus();
+  };
+
   const debouncedValue = useDebounce(searchValue, 500);
   useEffect(() => {
     if (!debouncedValue.trim()) {
@@ -51,24 +60,31 @@ function Search() {
   }, [debouncedValue]);
 
   return (
-    <div className={cx('search')} ref={searchRef}>
-      <div className={cx('search-box')}>
-        <input
-          className={cx('search-input')}
-          type="text"
-          placeholder="Search . . ."
-          value={searchValue}
-          onChange={handleSearch}
-          onFocus={handleShow}
-        />
-        <Link
-          type="button"
-          className={cx('search-button')}
-          to={searchValue === '' ? '#' : `/search/q=${searchValue}`}
-          onClick={handleClick}
-        >
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </Link>
+    <div ref={searchRef}>
+      <div className={cx('search')}>
+        <div className={cx('search-box')}>
+          <input
+            className={cx('search-input')}
+            type="text"
+            placeholder="Search . . ."
+            value={searchValue}
+            onChange={handleSearch}
+            onFocus={handleShow}
+            ref={searchInputRef}
+          />
+          {searchValue !== '' && (
+            <span className={cx('clear-button')} onClick={handleClear}>
+              <FontAwesomeIcon icon={faXmark} />
+            </span>
+          )}
+          <Link
+            className={cx('search-button')}
+            to={searchValue === '' ? '#' : `/search/q=${searchValue}`}
+            onClick={handleClick}
+          >
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </Link>
+        </div>
       </div>
       {showResult && searchResult.length > 0 && <SearchResults data={searchResult} totalRecords={totalRecords} />}
     </div>
