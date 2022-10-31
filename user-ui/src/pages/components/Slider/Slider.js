@@ -49,7 +49,7 @@ export default function Slider() {
   const moveDot = (index) => {
     setSlideIndex(index);
   };
-
+  console.log(slideValue);
   return (
     <div className={cx('container-slider')}>
       {slideValue.map((item, index) => {
@@ -59,13 +59,13 @@ export default function Slider() {
               <img src={imageServices.getImage(item.listImage[0])} alt="" />
             </Link>
             <div className={cx('detail-wrapper')}>
-              <Link to={`/product/${item.gameId}`} className={cx('detail-link')}>
+              <Link to={`/product/${item.gameID}`} className={cx('detail-link')}>
                 <div className={cx('detail-content')}>
                   <div className={cx('title')}>{item.name}</div>
                   <div className={cx('category-items')}>
                     {item.genreName.map((category, index) => {
                       return (
-                        <div key={index} className={cx('category-item')} href="/">
+                        <div key={index} className={cx('category-item')}>
                           {category}
                         </div>
                       );

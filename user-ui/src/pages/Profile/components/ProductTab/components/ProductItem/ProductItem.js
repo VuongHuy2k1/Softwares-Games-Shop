@@ -17,11 +17,11 @@ function ProductItem({ data }) {
           <h2 className={cx('name')}>
             <Link to={`/product/${data.gameID}`}>{data.name}</Link>
           </h2>
-          <div className={cx('date')}>
+          {/* <div className={cx('date')}>
             Release date: <strong>14/04/2015</strong>
-          </div>
+          </div> */}
           <div className={cx('money')}>
-            Origin Price: <strong>{currencyFormat(data.price)}</strong>
+            Paid: <strong>{currencyFormat(data.price)}</strong>
           </div>
           {data.discount > 0 && (
             <div className={cx('money')}>

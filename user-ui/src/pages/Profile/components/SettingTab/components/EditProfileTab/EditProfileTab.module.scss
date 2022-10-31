@@ -42,13 +42,15 @@
   width: 70%;
   font-size: 1.8rem;
   color: var(--black);
-  padding: 0rem 1rem;
+  padding: 0.5rem 1.6rem;
+  border: 1px solid var(--black);
+  border-radius: 4px;
 }
 .input-date {
-  width: 40%;
+  width: 30%;
   font-size: 1.8rem;
   color: var(--black);
-  padding: 0rem 1rem;
+  padding: 0.5rem 2rem 0.5rem 0;
   text-align: center;
 }
 .action {
