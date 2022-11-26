@@ -178,3 +178,22 @@
     }
   }
 }
+@media (max-width: 739px) {
+  .search-box {
+    display: flex;
+    justify-content: center;
+  }
+  .search-button {
+    position: relative;
+    zoom: 2.2;
+  }
+  .search-input {
+    position: relative;
+    width: 100%;
+    font-size: 2rem;
+    zoom: 2.2;
+  }
+  .search {
+    margin: 2rem;
+  }
+}

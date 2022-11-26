@@ -22,3 +22,12 @@
   font-size: 1.6rem;
   color: var(--white);
 }
+@media (max-width: 739px) {
+  .container {
+    width: 80%;
+    opacity: 1;
+    border-radius: 6px;
+    margin: 8px 0px;
+    border: none;
+  }
+}

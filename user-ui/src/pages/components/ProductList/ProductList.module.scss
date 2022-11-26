@@ -153,7 +153,7 @@
 // review
 .review {
   flex: 2;
-  background-color: #95bbd4;
+  // background-color: #95bbd4;
   max-height: 90rem;
   margin-top: 8px;
 }
@@ -234,5 +234,64 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 739px) {
+  .container {
+    min-height: 160rem;
+  }
+  .review {
+    display: none;
+  }
+  .item-img {
+    height: 24rem;
+    width: 32rem;
+  }
+  .product-item {
+    height: 28rem;
+    zoom: 1.2;
+  }
+  .item-wrapper {
+    height: 24rem;
+  }
+  .active {
+    // display: none;
+    // background: #506577;
+
+    // background-color: none;
+    margin-right: 1.5rem;
+
+    background-color: #131e28;
+    color: var(--white);
+  }
+  .review-container {
+    display: none;
+  }
+  .item-category {
+    font-size: 2rem;
+  }
+  .item-title {
+    font-size: 2.2rem;
+  }
+  .item-detail {
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+  .discount-final-price {
+    font-size: 2.4rem;
+  }
+  .discount-orginal-price {
+    font-size: 2rem;
+  }
+  .discount-prices {
+    font-size: 2.4rem;
+    margin-right: 1rem;
+  }
+  .header {
+    zoom: 2;
+    display: flex;
+    align-content: center;
+    align-items: center;
   }
 }

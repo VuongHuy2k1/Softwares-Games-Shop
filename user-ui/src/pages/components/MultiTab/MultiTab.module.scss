@@ -49,3 +49,13 @@
 .content {
   width: 100%;
 }
+@media (max-width: 739px) {
+  .wrapper {
+  }
+  .header-wrapper {
+    height: 10rem;
+  }
+  .header {
+    zoom: 2;
+  }
+}

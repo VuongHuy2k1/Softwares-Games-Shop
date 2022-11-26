@@ -34,9 +34,19 @@
   }
 }
 
-@media screen and (max-width: 739px) {
-  // .wrapper {
-  //   display: none;
-  //   z-index: 0;
-  // }
+@media (max-width: 739px) {
+  .wrapper {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .container {
+    a,
+    span {
+      font-size: 3rem;
+      line-height: 7.4rem;
+    }
+    a {
+      margin-left: 2rem;
+    }
+  }
 }

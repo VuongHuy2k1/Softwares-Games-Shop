@@ -22,23 +22,23 @@ export const navItems = [
       // },
     ],
   },
-  {
-    id: 2,
-    title: 'Community',
-    path: config.routes.home,
-    subnav: [
-      // {
-      //   id: 1,
-      //   title: 'Home',
-      //   path: config.routes.home,
-      // },
-      // {
-      //   id: 2,
-      //   title: 'Discussions',
-      //   path: config.routes.home,
-      // },
-    ],
-  },
+  // {
+  //   id: 2,
+  //   title: 'Community',
+  //   path: config.routes.home,
+  //   subnav: [
+  //     // {
+  //     //   id: 1,
+  //     //   title: 'Home',
+  //     //   path: config.routes.home,
+  //     // },
+  //     // {
+  //     //   id: 2,
+  //     //   title: 'Discussions',
+  //     //   path: config.routes.home,
+  //     // },
+  //   ],
+  // },
   {
     id: 3,
     title: 'About',

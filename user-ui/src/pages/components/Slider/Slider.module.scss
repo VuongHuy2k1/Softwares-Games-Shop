@@ -125,3 +125,24 @@
 .discount-final-price {
   margin: 0;
 }
+@media (max-width: 739px) {
+  .detail-link {
+    display: none;
+  }
+  .slide {
+    img {
+      width: 100%;
+    }
+  }
+  .btn-slide {
+    display: none;
+  }
+  .detail-wrapper {
+    margin-right: 0;
+    display: none;
+  }
+  .container-slider {
+    width: 100%;
+    zoom: 1.8;
+  }
+}

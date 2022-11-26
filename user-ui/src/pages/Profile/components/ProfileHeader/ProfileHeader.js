@@ -52,42 +52,44 @@ function ProfileHeader() {
             </>
           )}
         </div>
-        <div className={cx('avatar')}>
-          <img alt="avatar" src={imageServices.getImage(userData.avatarPath)} className={cx('avatar-img')} />
-          {editState && (
-            <>
-              <button type="button" className={cx('avatar-button')} onClick={handleChangeAvatar}>
-                <FontAwesomeIcon icon={faCamera} className={cx('icon')} />
+        <div className={cx('avatar-mobile')}>
+          <div className={cx('avatar')}>
+            <img alt="avatar" src={imageServices.getImage(userData.avatarPath)} className={cx('avatar-img')} />
+            {editState && (
+              <>
+                <button type="button" className={cx('avatar-button')} onClick={handleChangeAvatar}>
+                  <FontAwesomeIcon icon={faCamera} className={cx('icon')} />
+                </button>
+              </>
+            )}
+          </div>
+          <div className={cx('user-info')}>
+            <h1 className={cx('user-name')}>{userData.userName}</h1>
+            <h1 className={cx('user-fullname')}>{`${userData.lastName || ''} ${userData.firstName || ''}`}</h1>
+            {editState ? (
+              <button
+                type="button"
+                className={cx('cancel-button')}
+                onClick={() => {
+                  setEditState(false);
+                }}
+              >
+                <FontAwesomeIcon icon={faXmark} className={cx('icon')} />
+                Cancel
               </button>
-            </>
-          )}
-        </div>
-        <div className={cx('user-info')}>
-          <h1 className={cx('user-name')}>{userData.userName}</h1>
-          <h1 className={cx('user-fullname')}>{`${userData.lastName || ''} ${userData.firstName || ''}`}</h1>
-          {editState ? (
-            <button
-              type="button"
-              className={cx('cancel-button')}
-              onClick={() => {
-                setEditState(false);
-              }}
-            >
-              <FontAwesomeIcon icon={faXmark} className={cx('icon')} />
-              Cancel
-            </button>
-          ) : (
-            <button
-              type="button"
-              className={cx('edit-button')}
-              onClick={() => {
-                setEditState(true);
-              }}
-            >
-              <FontAwesomeIcon icon={faGear} className={cx('icon')} />
-              Edit Pictures
-            </button>
-          )}
+            ) : (
+              <button
+                type="button"
+                className={cx('edit-button')}
+                onClick={() => {
+                  setEditState(true);
+                }}
+              >
+                <FontAwesomeIcon icon={faGear} className={cx('icon')} />
+                Edit Pictures
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <ImageEditor typeImage={typeImage} ref={imgRef} />

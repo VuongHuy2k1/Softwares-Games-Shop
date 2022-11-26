@@ -1,4 +1,4 @@
-@import "~normalize.css/normalize.css";
+@import '~normalize.css/normalize.css';
 
 :root {
   --primary: #fe2c55;
@@ -7,7 +7,7 @@
   --gray: #ccc;
   --text-color: #161823;
 
-  --font-family: "ProximaNova", sans-serif;
+  --font-family: 'ProximaNova', sans-serif;
 
   // Header
   --header-background-color: #171a21;
@@ -82,4 +82,16 @@ button {
 }
 /* Tablet < */
 @media (min-width: 739px) {
+}
+@media (max-width: 739px) {
+  h2 {
+    zoom: 1.2;
+  }
+
+  path {
+    zoom: 1.8;
+  }
+  body {
+    zoom: 0.36;
+  }
 }
