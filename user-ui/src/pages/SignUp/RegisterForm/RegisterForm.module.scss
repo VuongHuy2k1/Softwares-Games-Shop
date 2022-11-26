@@ -121,3 +121,22 @@
     transform: rotate(360deg);
   }
 }
+@media (max-width: 739px) {
+  .wrapper {
+    background-color: transparent;
+    box-shadow: none;
+    height: 220vh;
+
+    justify-content: flex-start;
+    border: none;
+    width: auto;
+    margin: 24rem 0 0 0;
+  }
+  .title,
+  .container {
+    zoom: 2;
+  }
+  .link {
+    zoom: 1.2;
+  }
+}

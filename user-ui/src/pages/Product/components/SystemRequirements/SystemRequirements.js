@@ -19,7 +19,7 @@ function SystemRequirements({ data }) {
         <h2 className={cx('header-title')}>System Requirements</h2>
         <div className={cx('container')}>
           <div className={cx('minimum-requirement')}>
-            <ul>
+            <ul className={cx('list')}>
               <li>
                 <h2 className={cx('title')}>Minimum:</h2>
               </li>
@@ -45,7 +45,7 @@ function SystemRequirements({ data }) {
             </ul>
           </div>
           <div className={cx('recommended-requirement')}>
-            <ul>
+            <ul className={cx('list')}>
               <li>
                 <h2 className={cx('title')}>Recommended:</h2>
               </li>

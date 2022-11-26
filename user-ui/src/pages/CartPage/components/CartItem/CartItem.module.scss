@@ -63,3 +63,29 @@
     }
   }
 }
+@media (max-width: 739px) {
+  .wrapper {
+    height: 240vh;
+  }
+  .item-price {
+    zoom: 1.8;
+    width: 40%;
+  }
+  .item-name {
+    width: 60%;
+    zoom: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .cart-item {
+    height: 20rem;
+    width: 99%;
+  }
+  .img {
+    zoom: 1.8;
+  }
+  .item-detail {
+    width: 100%;
+  }
+}

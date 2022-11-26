@@ -4,15 +4,16 @@
   // justify-content: center;
   display: grid;
   grid-template-areas:
-    "top-bar"
-    "main-view"
-    "footer";
+    'top-bar'
+    'main-view'
+    'footer';
   // grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  height: 100%;
+  height: auto;
   min-height: 100%;
   position: relative;
-  width: 100%;
+  width: fit-content;
+  min-width: 100%;
   background-image: var(--store-bg-color);
 }
 
@@ -40,4 +41,14 @@
 .siderbar {
   display: block;
   z-index: 100;
+}
+@media (max-width: 739px) {
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .container {
+    padding: 0;
+    margin: 0;
+  }
 }

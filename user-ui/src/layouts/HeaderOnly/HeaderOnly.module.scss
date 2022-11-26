@@ -3,7 +3,9 @@
   flex-direction: column;
   justify-content: center;
   background-image: var(--store-bg-color);
-
+  width: fit-content;
+  min-width: 100%;
+  height: auto;
   background: radial-gradient(rgba(24, 26, 33, 0) 0%, #181a21 100%) fixed no-repeat,
     url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg) center top
       no-repeat,
@@ -25,4 +27,25 @@
 
   background-color: transparent;
   margin: 0 var(--sidebar-width);
+}
+@media (max-width: 739px) {
+  .content {
+    margin: 0;
+    background-image: url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 240vh;
+  }
+
+  .container {
+    padding: 0;
+    background-image: url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .wrapper {
+    justify-content: flex-start;
+  }
 }

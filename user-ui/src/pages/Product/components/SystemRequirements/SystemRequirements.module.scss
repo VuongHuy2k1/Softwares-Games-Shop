@@ -55,3 +55,26 @@
     margin-left: 2rem;
   }
 }
+@media (max-width: 739px) {
+  .wrapper {
+    border-bottom: solid 4rem #162330;
+    margin-top: 2rem;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .list {
+    margin-left: 2rem;
+    li {
+      strong {
+        color: #67c1f5 !important;
+      }
+      zoom: 2;
+    }
+  }
+  .header-title {
+    font-weight: 700;
+    width: 60%;
+    zoom: 2;
+  }
+}
