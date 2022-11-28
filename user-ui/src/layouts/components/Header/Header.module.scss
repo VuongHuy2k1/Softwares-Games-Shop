@@ -1,7 +1,7 @@
 .wrapper {
   height: var(--header-height);
   background-color: var(--header-background-color);
-
+  box-shadow: rgb(38 57 77) 0px 20px 90px -10px;
   display: flex;
   flex-direction: column;
   align-items: center;

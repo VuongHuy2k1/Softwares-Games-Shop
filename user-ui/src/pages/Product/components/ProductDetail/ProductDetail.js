@@ -76,6 +76,7 @@ function ProductDetail({ data }) {
     addToWishlist();
   };
   const cart = useSelector(cartSelector);
+
   const [cartData, setCartData] = useState([]);
   useEffect(() => {
     setCartData(cart.data || []);
@@ -106,16 +107,14 @@ function ProductDetail({ data }) {
                   />
                   <h2 className={cx('product-name')}>{value.name}</h2>
                   <div className={cx('product-description')}>{value.description}</div>
+                  <div className={cx('product-development')}>
+                    <div className={cx('title')}>DEVELOPER:</div>
+                  </div>
                   {/* <div className={cx('product-release-date')}>
                     <div className={cx('title')}>RELEASE DATE:</div>
                     <div className={cx('date')}>{new Date(value.createdDate).toLocaleDateString(undefined)}</div>
                   </div>
-                  <div className={cx('product-development')}>
-                    <div className={cx('title')}>DEVELOPER:</div>
-                    <Link to="#" className={cx('link')}>
-                      Rockstar North
-                    </Link>
-                  </div>
+                 
                   <div className={cx('product-publisher')}>
                     <div className={cx('title')}>PUBLISHER:</div>
                     <Link to="#" className={cx('link')}>

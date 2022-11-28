@@ -90,7 +90,8 @@
 .search-results {
   position: relative;
   top: var(--storenav-height);
-  background-color: #fff;
+  background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+    linear-gradient(180deg, #575860 11.6%, #3a4852 54.73%, #2c2d34 100%);
   height: auto;
   margin-top: 2px;
   z-index: 3;
@@ -99,13 +100,14 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #575860;
+  background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+    linear-gradient(180deg, #575860 11.6%, #3a4852 54.73%, #2c2d34 100%);
   box-shadow: 0 0 8px #000000;
 }
 
 .header {
   height: 3rem;
-  background-color: #575860;
+
   padding-left: 0.8rem;
   z-index: 3;
 
@@ -125,7 +127,7 @@
 .result {
   height: 6.4rem;
   padding: 0 0.8rem;
-  background-color: #575860;
+
   border-top: 0.5px solid var(--black);
 
   &:hover {
@@ -162,7 +164,7 @@
   display: flex;
   text-align: center;
   height: 2rem;
-  background-color: #575860;
+
   border-top: 0.5px solid var(--black);
   z-index: 3;
 
