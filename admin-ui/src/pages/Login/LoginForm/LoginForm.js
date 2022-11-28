@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import * as authServices from 'services/authServices';
+import * as userServices from 'services/userServices';
 import ToastPortal from 'components/ToastPortal';
 import config from 'configs/index';
 import styles from './LoginForm.module.scss';
@@ -20,10 +21,10 @@ function LoginForm() {
     const toastRef = useRef();
     const buttonRef = useRef();
     const Notify = useNotification(toastRef);
+
     // var mediumRegex = new RegExp(
     //   '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
     // );
-    // console.log(mediumRegex.test(passwordInput));
 
     const login = async () => {
         setLoading(true);
@@ -40,14 +41,23 @@ function LoginForm() {
         }
 
         if (response.isSuccess === true) {
-            Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
-            Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
-            Notify('success', 'Login Successfully');
-            const timerId = setTimeout(() => {
-                clearTimeout(timerId);
-                setLoading(false);
-                navigate(config.routes.dashboard, { replace: true });
-            }, 3000);
+            const profileApi = async () => {
+                const result = await userServices.getUserProfile(response.resultObj.userId);
+                if (result.resultObj.roles[0] === 'admin') {
+                    Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
+                    Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
+                    Notify('success', 'Login Successfully');
+                    const timerId = setTimeout(() => {
+                        clearTimeout(timerId);
+                        setLoading(false);
+                        navigate(config.routes.dashboard, { replace: true });
+                    }, 2000);
+                } else {
+                    setLoading(false);
+                    Notify('error', 'Không phải tài khoản Admin');
+                }
+            };
+            profileApi();
         }
     };
 

@@ -29,8 +29,8 @@
 
 .username-label,
 .password-label {
-  align-self: center;
-
+  // align-self: center;
+  margin-left: 20px;
   font-size: 1.6rem;
   width: var(--input-width);
   margin-bottom: 0.5rem;
@@ -39,14 +39,16 @@
 .username-input,
 .password-input {
   align-self: center;
-
   font-size: 1.6rem;
   width: calc(var(--input-width) - 1rem);
-  padding: 0.5rem 0.5rem;
+  // padding: 0.5rem 0.5rem;
+  padding: 0.8rem;
   margin-bottom: 2rem;
   border: none;
+  border-radius: 15px;
   color: var(--black);
   background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .button {

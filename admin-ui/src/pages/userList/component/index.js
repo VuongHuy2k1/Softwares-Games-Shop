@@ -34,8 +34,14 @@ export function stableSort(array, comparator) {
 
 const headCells = [
     {
+        id: 'userName',
+        numeric: true,
+        disablePadding: false,
+        label: 'User name'
+    },
+    {
         id: 'firstName',
-        numeric: false,
+        numeric: true,
         disablePadding: true,
         label: 'First name'
     },
@@ -44,12 +50,6 @@ const headCells = [
         numeric: true,
         disablePadding: false,
         label: 'Last name'
-    },
-    {
-        id: 'userName',
-        numeric: true,
-        disablePadding: false,
-        label: 'User name'
     },
     {
         id: 'phoneNumber',

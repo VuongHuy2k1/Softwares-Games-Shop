@@ -19,7 +19,6 @@ const UserProfile = () => {
         };
         profileApi();
     }, []);
-    console.log(user);
 
     return (
         <>

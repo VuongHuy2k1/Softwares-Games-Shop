@@ -11,15 +11,13 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined';
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
-// import { DarkModeContext } from '../../context/darkModeContext';
-import { useContext } from 'react';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
-    // const { dispatch } = useContext(DarkModeContext);
     return (
         <div className={cx('sidebar')}>
             <div className={cx('top')}>
