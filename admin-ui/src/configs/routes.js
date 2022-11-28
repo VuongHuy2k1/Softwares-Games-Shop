@@ -2,11 +2,17 @@ const routes = {
     dashboard: '/',
     testApi: '/api',
     login: '/login',
-    game: '/game',
+
+    listGame: '/list-game',
     newGame: '/new-game',
+    editGame: '/edit-game/:id',
+    profileGame: '/game-profile/:id',
+
     user: '/user',
+    editUser: '/edit-user/:id',
     userProfile: '/user-profile/:id',
     newUser: '/new-user',
+
     signup: '/register',
     forgetPassword: '/forgetpassword'
     // cart: '/cart',

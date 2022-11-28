@@ -27,6 +27,15 @@ export const getUserProfile = async (id) => {
         console.log(error);
     }
 };
+
+export const putUser = async (data) => {
+    try {
+        const res = await httpRequest.put(`Users`, data);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
 //
 //
 //

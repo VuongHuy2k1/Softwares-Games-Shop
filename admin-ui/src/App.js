@@ -3,7 +3,6 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
 import { adminRoutes, authRoutes } from './routes';
 import EmptyLayout from 'layout/EmptyLayout/index';
-import MinimalLayout from 'layout/MinimalLayout/index';
 import MainLayout from 'layout/MainLayout/index';
 
 import { scrollToPosition } from 'utils';

@@ -2,20 +2,25 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import {
+    Grid,
+    Box,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TablePagination,
+    TableRow,
+    Paper,
+    IconButton,
+    FormControlLabel,
+    Switch,
+    LinearProgress
+} from '@mui/material';
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as userServices from 'services/userServices';
 import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit } from 'react-icons/ai';
+import { set } from 'lodash';
 
 function createData(id, firstName, lastName, phoneNumber, roleAssign, userName) {
     return {
@@ -38,25 +43,27 @@ EnhancedTableHead.propTypes = {
 export default function UserTable() {
     const [ro, setRo] = useState([]);
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchApi = async () => {
-            const result = await userServices.getUserTable(1, 10);
-            // setTitle(`Genre: ${result.name} - Page ${page || 1}`);
-            setRo(result.resultObj.items);
-        };
-        fetchApi();
-    }, []);
-
-    const rows = ro.map((value) => {
-        return createData(value.id, value.firstName, value.lastName, value.phoneNumber, value.roleAssign, value.userName);
-    });
-
+    const [loading, setLoading] = useState(true);
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('calories');
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await userServices.getUserTable(1, 30);
+            setRo(result.resultObj.items);
+            if (ro != undefined) {
+                setLoading(false);
+            }
+        };
+        fetchApi();
+    }, [loading]);
+
+    const rows = ro.map((value) => {
+        return createData(value.id, value.firstName, value.lastName, value.phoneNumber, value.roleAssign, value.userName);
+    });
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -65,18 +72,20 @@ export default function UserTable() {
     };
 
     const deleteApi = async (id) => {
+        setLoading(true);
         const result = await userServices.deleteUser(id);
     };
 
-    const onChangeProfile = (event, id) => {
+    const onClickProfile = (event, id) => {
         navigate('/user-profile/' + id);
+    };
+    const onClickEdit = (event, id) => {
+        navigate('/edit-user/' + id);
     };
 
     const handleClick = (event, userName, id) => {
         if (confirm('Are you sure you want to delete ' + userName + '?')) {
             deleteApi(id);
-        } else {
-            console.log('Thing was not saved to the database.');
         }
     };
 
@@ -113,9 +122,9 @@ export default function UserTable() {
                                             <TableCell component="th" id={labelId} scope="row" padding="none">
                                                 {row.name}
                                             </TableCell>
+                                            <TableCell align="right">{row.userName}</TableCell>
                                             <TableCell align="right">{row.firstName}</TableCell>
                                             <TableCell align="right">{row.lastName}</TableCell>
-                                            <TableCell align="right">{row.userName}</TableCell>
                                             <TableCell align="right">{row.phoneNumber}</TableCell>
                                             <TableCell align="right">
                                                 <IconButton onClick={(event) => handleClick(event, row.userName, row.id)}>
@@ -123,12 +132,12 @@ export default function UserTable() {
                                                 </IconButton>
                                             </TableCell>
                                             <TableCell align="right">
-                                                <IconButton onClick={(event) => onChangeProfile(event, row.id)}>
+                                                <IconButton onClick={(event) => onClickProfile(event, row.id)}>
                                                     <AiOutlineEye />
                                                 </IconButton>
                                             </TableCell>
                                             <TableCell align="right">
-                                                <IconButton>
+                                                <IconButton onClick={(event) => onClickEdit(event, row.id)}>
                                                     <AiOutlineEdit />
                                                 </IconButton>
                                             </TableCell>
@@ -147,6 +156,15 @@ export default function UserTable() {
                             )}
                         </TableBody>
                     </Table>
+                    <Grid item xs={12}>
+                        {loading ? (
+                            <Box sx={{ width: '100%' }}>
+                                <LinearProgress />
+                            </Box>
+                        ) : (
+                            <></>
+                        )}
+                    </Grid>
                 </TableContainer>
                 <TablePagination
                     rowsPerPageOptions={[5, 10, 25]}

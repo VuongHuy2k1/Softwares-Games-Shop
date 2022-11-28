@@ -16,7 +16,7 @@ const game = {
             id: 'list-game',
             title: 'List game',
             type: 'item',
-            url: '/game',
+            url: '/list-game',
             icon: icons.GrGamepad
         },
         {

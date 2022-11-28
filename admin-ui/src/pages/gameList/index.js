@@ -1,16 +1,33 @@
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TablePagination from '@mui/material/TablePagination';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import {
+    Grid,
+    Box,
+    LinearProgress,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TablePagination,
+    TableRow,
+    Paper,
+    IconButton,
+    FormControlLabel,
+    Switch
+} from '@mui/material';
+
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TablePagination from '@mui/material/TablePagination';
+// import TableRow from '@mui/material/TableRow';
+// import Paper from '@mui/material/Paper';
+// import IconButton from '@mui/material/IconButton';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Switch from '@mui/material/Switch';
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as gameServices from 'services/gameServices';
 import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit } from 'react-icons/ai';
@@ -35,15 +52,21 @@ EnhancedTableHead.propTypes = {
 
 export default function GameTable() {
     const [ro, setRowss] = useState([]);
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
+    const [reLoad, setReLoad] = useState(1);
 
     useEffect(() => {
         const fetchApi = async () => {
             const result = await gameServices.getGameTable(1, 100);
-            // setTitle(`Genre: ${result.name} - Page ${page || 1}`);
             setRowss(result.items);
+            if (ro != undefined) {
+                setLoading(false);
+            }
+            setReLoad(2);
         };
         fetchApi();
-    }, []);
+    }, [reLoad]);
     const rows = ro.map((value, index) => {
         return createData(
             value.gameID,
@@ -71,14 +94,20 @@ export default function GameTable() {
 
     const deleteApi = async (id) => {
         const result = await gameServices.deleteGame(id);
+        setReLoad(4);
     };
 
     const handleClick = (event, name, gameID) => {
-        if (confirm('Are you sure you want to delete ' + name + ' + ' + gameID + '?')) {
+        if (confirm('Are you sure you want to delete ' + name)) {
             deleteApi(gameID);
-        } else {
-            console.log('Thing was not saved to the database.');
         }
+    };
+
+    const onClickProfile = (event, id) => {
+        navigate('/game-profile/' + id);
+    };
+    const onClickEdit = (event, id) => {
+        navigate('/edit-game/' + id);
     };
 
     const handleChangePage = (event, newPage) => {
@@ -116,14 +145,21 @@ export default function GameTable() {
                                             <TableCell align="right">{row.discount}</TableCell>
                                             <TableCell align="left">{row.description}</TableCell>
                                             <TableCell align="right">{row.genreName}</TableCell>
-                                            <TableCell align="right" onClick={(event) => handleClick(event, row.name, row.gameID)}>
-                                                <AiOutlineDelete />
+
+                                            <TableCell align="right">
+                                                <IconButton onClick={(event) => handleClick(event, row.name, row.gameID)}>
+                                                    <AiOutlineDelete />
+                                                </IconButton>
                                             </TableCell>
                                             <TableCell align="right">
-                                                <AiOutlineEye />
+                                                <IconButton onClick={(event) => onClickProfile(event, row.gameID)}>
+                                                    <AiOutlineEye />
+                                                </IconButton>
                                             </TableCell>
                                             <TableCell align="right">
-                                                <AiOutlineEdit />
+                                                <IconButton onClick={(event) => onClickEdit(event, row.gameID)}>
+                                                    <AiOutlineEdit />
+                                                </IconButton>
                                             </TableCell>
                                         </TableRow>
                                     );
@@ -139,6 +175,15 @@ export default function GameTable() {
                             )}
                         </TableBody>
                     </Table>
+                    <Grid item xs={12}>
+                        {loading ? (
+                            <Box sx={{ width: '100%' }}>
+                                <LinearProgress />
+                            </Box>
+                        ) : (
+                            <></>
+                        )}
+                    </Grid>
                 </TableContainer>
                 <TablePagination
                     rowsPerPageOptions={[8, 10, 25]}
