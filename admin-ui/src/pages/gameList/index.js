@@ -30,7 +30,7 @@ import {
 // import Switch from '@mui/material/Switch';
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as gameServices from 'services/gameServices';
-import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit, AiOutlineFileAdd } from 'react-icons/ai';
 
 function createData(gameID, name, price, discount, description, genreName) {
     return {
@@ -102,7 +102,9 @@ export default function GameTable() {
             deleteApi(gameID);
         }
     };
-
+    const onClickGenre = (event, id) => {
+        navigate('/edit-game-genre/' + id);
+    };
     const onClickProfile = (event, id) => {
         navigate('/game-profile/' + id);
     };
@@ -145,7 +147,11 @@ export default function GameTable() {
                                             <TableCell align="right">{row.discount}</TableCell>
                                             <TableCell align="left">{row.description}</TableCell>
                                             <TableCell align="right">{row.genreName}</TableCell>
-
+                                            <TableCell align="right">
+                                                <IconButton onClick={(event) => onClickGenre(event, row.name, row.gameID)}>
+                                                    <AiOutlineFileAdd />
+                                                </IconButton>
+                                            </TableCell>
                                             <TableCell align="right">
                                                 <IconButton onClick={(event) => handleClick(event, row.name, row.gameID)}>
                                                     <AiOutlineDelete />

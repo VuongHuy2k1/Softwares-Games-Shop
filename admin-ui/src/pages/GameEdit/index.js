@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
-import config from 'configs/index';
 import * as gameService from 'services/gameServices';
 
 // ============================|| FIREBASE - REGISTER ||============================ //
@@ -11,7 +10,6 @@ import * as gameService from 'services/gameServices';
 const EditGame = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
     const [image, setImage] = useState();
 
     const [game, setGame] = useState();
@@ -80,20 +78,7 @@ const EditGame = () => {
     const updateGame = async (gameAPI) => {
         // setLoading(true);
         // Make Api call
-        const gamePut = {
-            GameID: gameAPI.gameID,
-            Name: gameAPI.name,
-            Price: gameAPI.price,
-            Discount: gameAPI.discount,
-            Description: gameAPI.description,
-            Gameplay: gameAPI.gameplay,
-            ThumbnailImage: gameAPI.ThumbnailImage,
-            Status: gameAPI.Status,
-            SRM: gameAPI.SRM,
-            SRR: gameAPI.SRR
-        };
         const response = await gameService.putGame(gameAPI);
-        console.log(gameAPI);
     };
 
     const onSubmit = (e) => {

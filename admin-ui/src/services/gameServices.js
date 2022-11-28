@@ -88,27 +88,24 @@ export const putGame = async (game) => {
     formdata.append('Gameplay', game.Gameplay);
     formdata.append('Status', game.Status);
     formdata.append('ThumbnailImage', game.ThumbnailImage);
-    formdata.append('SRM.OS', game.SRM.OS);
-    formdata.append('SRM.Processor', game.SRM.Processor);
-    formdata.append('SRM.Memory', game.SRM.Memory);
-    formdata.append('SRM.Graphics', game.SRM.Graphics);
-    formdata.append('SRM.Storage', game.SRM.Storage);
-    formdata.append('SRM.AdditionalNotes', game.SRM.AdditionalNotes);
-    formdata.append('SRM.Soundcard', game.SRM.Soundcard);
-    formdata.append('SRR.OS', game.SRR.OS);
-    formdata.append('SRR.Processor', game.SRR.Processor);
-    formdata.append('SRR.Memory', game.SRR.Memory);
-    formdata.append('SRR.Graphics', game.SRR.Graphics);
-    formdata.append('SRR.Storage', game.SRR.Storage);
-    formdata.append('SRR.AdditionalNotes', game.SRR.AdditionalNotes);
-    formdata.append('SRR.Soundcard', game.SRR.Soundcard);
+    formdata.append('SRM.OS', game.SRM.os);
+    formdata.append('SRM.Processor', game.SRM.processor);
+    formdata.append('SRM.Memory', game.SRM.memory);
+    formdata.append('SRM.Graphics', game.SRM.graphics);
+    formdata.append('SRM.Storage', game.SRM.storage);
+    formdata.append('SRM.AdditionalNotes', game.SRM.additionalNotes);
+    formdata.append('SRM.Soundcard', game.SRM.soundcard);
+    formdata.append('SRR.OS', game.SRR.os);
+    formdata.append('SRR.Processor', game.SRR.processor);
+    formdata.append('SRR.Memory', game.SRR.memory);
+    formdata.append('SRR.Graphics', game.SRR.graphics);
+    formdata.append('SRR.Storage', game.SRR.storage);
+    formdata.append('SRR.AdditionalNotes', game.SRR.additionalNotes);
+    formdata.append('SRR.Soundcard', game.SRR.soundcard);
+    console.log(game.SRM);
     const id = game.GameID;
     try {
-        const res = await httpRequest.put(`Games/${id}`, formdata, {
-            headers: {
-                Authorization: `Bearer ${jwt_token}`
-            }
-        });
+        const res = await httpRequest.put(`Games/${id}`, formdata);
         return res;
     } catch (error) {
         console.log(error);

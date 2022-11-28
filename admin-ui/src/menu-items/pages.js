@@ -1,36 +1,27 @@
 // assets
 import { LoginOutlined, ProfileOutlined } from '@ant-design/icons';
-import { GrGamepad } from 'react-icons/gr';
+import { BsMailbox } from 'react-icons/bs';
 
 // icons
 const icons = {
     LoginOutlined,
     ProfileOutlined,
-    GrGamepad
+    BsMailbox
 };
 
 // ==============================|| MENU ITEMS - EXTRA PAGES ||============================== //
 
 const pages = {
-    id: 'page',
-    title: 'Page',
+    id: 'contact',
+    title: 'Contact',
     type: 'group',
     children: [
         {
-            id: 'login1',
-            title: 'Login',
+            id: 'contact',
+            title: 'Contact',
             type: 'item',
-            url: '/login',
-            icon: icons.LoginOutlined,
-            target: true
-        },
-        {
-            id: 'register1',
-            title: 'Register',
-            type: 'item',
-            url: '/register',
-            icon: icons.ProfileOutlined,
-            target: true
+            url: '/contact',
+            icon: icons.BsMailbox
         }
     ]
 };

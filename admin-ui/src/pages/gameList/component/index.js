@@ -56,7 +56,7 @@ const headCells = [
         id: 'discount',
         numeric: true,
         disablePadding: false,
-        label: 'discount'
+        label: 'Discount'
     },
     {
         id: 'description',

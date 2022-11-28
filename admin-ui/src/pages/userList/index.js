@@ -20,7 +20,7 @@ import {
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as userServices from 'services/userServices';
 import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit } from 'react-icons/ai';
-import { set } from 'lodash';
+import { GrUserAdmin } from 'react-icons/gr';
 
 function createData(id, firstName, lastName, phoneNumber, roleAssign, userName) {
     return {
@@ -82,6 +82,9 @@ export default function UserTable() {
     const onClickEdit = (event, id) => {
         navigate('/edit-user/' + id);
     };
+    const onClickRole = (event, id) => {
+        navigate('/edit-user-role/' + id);
+    };
 
     const handleClick = (event, userName, id) => {
         if (confirm('Are you sure you want to delete ' + userName + '?')) {
@@ -139,6 +142,11 @@ export default function UserTable() {
                                             <TableCell align="right">
                                                 <IconButton onClick={(event) => onClickEdit(event, row.id)}>
                                                     <AiOutlineEdit />
+                                                </IconButton>
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                <IconButton onClick={(event) => onClickRole(event, row.id)}>
+                                                    <GrUserAdmin />
                                                 </IconButton>
                                             </TableCell>
                                             <TableCell></TableCell>

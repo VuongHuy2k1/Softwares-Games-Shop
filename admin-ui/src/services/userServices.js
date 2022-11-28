@@ -36,6 +36,25 @@ export const putUser = async (data) => {
         console.log(error);
     }
 };
+
+export const getRole = async () => {
+    try {
+        const res = await httpRequest.get(`Roles`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const putRoleUser = async (id, role) => {
+    try {
+        const res = await httpRequest.get(`Users/${id}/roles`, role);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 //
 //
 //
