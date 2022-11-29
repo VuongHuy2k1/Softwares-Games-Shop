@@ -85,7 +85,6 @@
 }
 .prev-button {
   margin-left: 0rem;
-  margin-right: 110rem;
 }
 .next-button {
   margin-right: 0rem;
@@ -93,10 +92,9 @@
 
 //Product item
 .product-item {
-  margin: 2rem 0rem;
+  margin: 4rem 0rem;
   height: 16rem;
   background-color: transparent;
-  transition: opacity ease-in-out 0.4s;
 }
 .product-item:hover .item-img {
   width: 16rem;
@@ -123,7 +121,7 @@
   display: flex;
   line-height: 8rem;
   // margin-right: 1.5rem;
-  margin: 6rem 0;
+  margin: 4rem 0;
   // background-color: #131e28;
   background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
   color: var(--white);
@@ -180,7 +178,7 @@
   filter: drop-shadow(0px 0px 10px rgba(50, 3, 15, 0.4));
   box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
   border-radius: 0.4rem;
-  transition: top 0.6s, opacity 0.5s;
+  transition: 0.4s, opacity 0.5s;
 }
 
 .item-detail {
