@@ -159,7 +159,7 @@ function Header() {
                     </Link>
                     {actionDropdown && <Dropdown items={ActionMenuItems} actionMenu />}
                   </div>
-                  <Link to="" className={cx('avatar')}>
+                  <Link to={`/profile/${userName}`} className={cx('avatar')}>
                     <img alt="avatar" src={imageServices.getImage(avatar)} />
                   </Link>
                 </div>
