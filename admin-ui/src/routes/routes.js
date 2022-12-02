@@ -4,6 +4,7 @@ import config from '../configs/index';
 import Login from '../pages/Login/index';
 import Dashboard from 'pages/Dashboard/index';
 import Contact from 'pages/Contact/index';
+import RecentOrders from 'pages/RecentOrders/index';
 
 import User from 'pages/UserList/index';
 import NewUser from 'pages/UserNew/index';
@@ -21,6 +22,7 @@ import GameGenre from 'pages/GameGenre/index';
 const adminRoutes = [
     { path: config.routes.dashboard, component: Dashboard },
     { path: config.routes.contact, component: Contact },
+    { path: config.routes.recentOrders, component: RecentOrders },
 
     { path: config.routes.listGame, component: Game },
     { path: config.routes.newGame, component: NewGame },
