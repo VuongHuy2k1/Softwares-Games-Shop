@@ -1,19 +1,21 @@
 // assets
 import { LoginOutlined, ProfileOutlined } from '@ant-design/icons';
 import { BsMailbox } from 'react-icons/bs';
+import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 
 // icons
 const icons = {
     LoginOutlined,
     ProfileOutlined,
-    BsMailbox
+    BsMailbox,
+    RiMoneyDollarCircleLine
 };
 
 // ==============================|| MENU ITEMS - EXTRA PAGES ||============================== //
 
 const pages = {
     id: 'contact',
-    title: 'Contact',
+    title: 'Client',
     type: 'group',
     children: [
         {
@@ -22,6 +24,13 @@ const pages = {
             type: 'item',
             url: '/contact',
             icon: icons.BsMailbox
+        },
+        {
+            id: 'recentOrders',
+            title: 'Recent Orders',
+            type: 'item',
+            url: '/recent-orders',
+            icon: icons.RiMoneyDollarCircleLine
         }
     ]
 };
