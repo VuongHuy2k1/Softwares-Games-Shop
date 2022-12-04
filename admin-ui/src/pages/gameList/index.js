@@ -12,25 +12,16 @@ import {
     TableContainer,
     TablePagination,
     TableRow,
+    Typography,
     Paper,
     IconButton,
     FormControlLabel,
     Switch
 } from '@mui/material';
 
-// import Table from '@mui/material/Table';
-// import TableBody from '@mui/material/TableBody';
-// import TableCell from '@mui/material/TableCell';
-// import TableContainer from '@mui/material/TableContainer';
-// import TablePagination from '@mui/material/TablePagination';
-// import TableRow from '@mui/material/TableRow';
-// import Paper from '@mui/material/Paper';
-// import IconButton from '@mui/material/IconButton';
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Switch from '@mui/material/Switch';
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as gameServices from 'services/gameServices';
-import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit, AiOutlineFileAdd } from 'react-icons/ai';
+import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit, AiOutlineFileAdd, AiOutlineSetting } from 'react-icons/ai';
 
 function createData(gameID, name, price, discount, description, genreName) {
     return {
@@ -98,7 +89,7 @@ export default function GameTable() {
     };
 
     const handleClick = (event, name, gameID) => {
-        if (confirm('Are you sure you want to delete ' + name)) {
+        if (confirm('Bạn chắc chắn xoá game: ' + name + '?')) {
             deleteApi(gameID);
         }
     };
@@ -129,6 +120,15 @@ export default function GameTable() {
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
     return (
         <Box sx={{ width: '100%' }}>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Danh sách trò chơi
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer>
                     <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
@@ -148,8 +148,8 @@ export default function GameTable() {
                                             <TableCell align="left">{row.description}</TableCell>
                                             <TableCell align="right">{row.genreName}</TableCell>
                                             <TableCell align="right">
-                                                <IconButton onClick={(event) => onClickGenre(event, row.name, row.gameID)}>
-                                                    <AiOutlineFileAdd />
+                                                <IconButton onClick={(event) => onClickGenre(event, row.gameID)}>
+                                                    <AiOutlineSetting />
                                                 </IconButton>
                                             </TableCell>
                                             <TableCell align="right">
@@ -201,7 +201,7 @@ export default function GameTable() {
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
             </Paper>
-            <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" />
+            {/* <FormControlLabel control={<Switch checked={dense} onChange={handleChangeDense} />} label="Dense padding" /> */}
         </Box>
     );
 }

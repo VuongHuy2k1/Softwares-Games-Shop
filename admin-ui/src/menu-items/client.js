@@ -1,27 +1,38 @@
 // assets
 import { LoginOutlined, ProfileOutlined } from '@ant-design/icons';
 import { BsMailbox } from 'react-icons/bs';
+import { RiMoneyDollarCircleLine } from 'react-icons/ri';
 
 // icons
 const icons = {
     LoginOutlined,
     ProfileOutlined,
-    BsMailbox
+    BsMailbox,
+    RiMoneyDollarCircleLine
 };
 
 // ==============================|| MENU ITEMS - EXTRA PAGES ||============================== //
 
 const pages = {
     id: 'contact',
-    title: 'Contact',
+    title: 'Thống kê',
     type: 'group',
     children: [
         {
             id: 'contact',
-            title: 'Contact',
+            title: 'Phản hồi từ khách hàng',
             type: 'item',
             url: '/contact',
-            icon: icons.BsMailbox
+            icon: icons.BsMailbox,
+            breadcrumbs: false
+        },
+        {
+            id: 'recentOrders',
+            title: 'Danh sách đơn hàng',
+            type: 'item',
+            url: '/recent-orders',
+            icon: icons.RiMoneyDollarCircleLine,
+            breadcrumbs: false
         }
     ]
 };

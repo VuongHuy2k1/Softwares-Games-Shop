@@ -12,22 +12,24 @@ const icons = {
 
 const user = {
     id: 'user',
-    title: 'User',
+    title: 'Tài khoản',
     type: 'group',
     children: [
         {
             id: 'user-list',
-            title: 'List user',
+            title: 'Danh sách tài khoản',
             type: 'item',
             url: '/user',
-            icon: icons.AiOutlineUser
+            icon: icons.AiOutlineUser,
+            breadcrumbs: false
         },
         {
             id: 'new-user',
-            title: 'New user',
+            title: 'Thêm tài khoản mới',
             type: 'item',
             url: '/new-user',
-            icon: icons.AiOutlineUserAdd
+            icon: icons.AiOutlineUserAdd,
+            breadcrumbs: false
         }
     ]
 };

@@ -1,5 +1,4 @@
 import Cookies from 'js-cookie';
-import { getUserProfile } from './userServices';
 
 import { httpRequest } from 'utils/index';
 import jwtDecode from 'jwt-decode';

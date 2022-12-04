@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { httpRequest } from 'utils';
+import { httpRequest } from 'utils/index';
 
 export const getUserTable = async (index, page) => {
     try {
@@ -48,7 +48,12 @@ export const getRole = async () => {
 
 export const putRoleUser = async (id, role) => {
     try {
-        const res = await httpRequest.get(`Users/${id}/roles`, role);
+        const jwt_token = Cookies.get('jwt');
+        const res = await httpRequest.put(`Users/${id}/roles`, role, {
+            headers: {
+                Authorization: `Bearer ${jwt_token}`
+            }
+        });
         return res;
     } catch (error) {
         console.log(error);

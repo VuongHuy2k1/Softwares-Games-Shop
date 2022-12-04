@@ -46,7 +46,7 @@ function LoginForm() {
                 if (result.resultObj.roles[0] === 'admin' || result.resultObj.roles[1] === 'admin') {
                     Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
                     Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
-                    Notify('success', 'Login Successfully');
+                    Notify('success', 'Đăng nhập thành công');
                     const timerId = setTimeout(() => {
                         clearTimeout(timerId);
                         setLoading(false);
@@ -64,20 +64,20 @@ function LoginForm() {
     const handleClick = () => {
         var msg = '';
         if (usernameInput === '') {
-            msg = 'Please re-fill your Username';
+            msg = 'Hãy điền tên đăng nhập';
             if (passwordInput === '') {
-                msg = 'Please re-fill your Username and Password';
+                msg = 'Hãy điền tên đăng nhập và mật khẩu';
             }
             Notify('warning', msg);
             return;
         }
         if (passwordInput === '') {
-            msg = 'Please re-fill your Password';
+            msg = 'Hãy điền mật khẩu';
             Notify('warning', msg);
             return;
         }
         if (passwordInput.length < 6) {
-            msg = 'Password must have at least 6 characters';
+            msg = 'Mật khẩu phải ít nhất 6 ký tự';
             Notify('warning', msg);
             return;
         }
@@ -93,7 +93,7 @@ function LoginForm() {
                 {/* <div className={cx('title')}>LOGIN</div> */}
                 <div className={cx('container')}>
                     <>
-                        <span className={cx('username-label')}>User Name</span>
+                        <span className={cx('username-label')}>Tên đăng nhập</span>
                         <input
                             className={cx('username-input')}
                             type="text"
@@ -105,7 +105,7 @@ function LoginForm() {
                         />
                     </>
                     <>
-                        <span className={cx('password-label')}>Password</span>
+                        <span className={cx('password-label')}>Mật khẩu</span>
                         <input
                             className={cx('password-input')}
                             type="password"
@@ -122,11 +122,11 @@ function LoginForm() {
                         </div>
                     ) : (
                         <button className={cx('button')} onClick={handleClick}>
-                            Login
+                            Đăng nhập
                         </button>
                     )}
                     <Link to={config.routes.forgetPassword} className={cx('link')} ref={buttonRef}>
-                        Forgot your Password?
+                        Quên mật khẩu ?
                     </Link>
                 </div>
             </div>
