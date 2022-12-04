@@ -3,11 +3,14 @@
   flex-direction: column;
   height: auto;
   width: 100%;
-
-  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  background: url(https://cdn.akamai.steamstatic.com/store/promo/autumn2022/content_bg_tile2.png?v=4) repeat-y center
+    top;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 
-  margin-top: 5rem;
+  filter: drop-shadow(12px 12px 7px rgba(50, 3, 15, 0.5));
+  margin-top: 12rem;
 }
 
 .container {
@@ -17,30 +20,47 @@
 }
 
 .header {
-  height: 5rem;
-  background-color: var(--form-bg-color);
-  padding-left: 2rem;
-  margin-bottom: 1rem;
+  // height: 5rem;
+  // background-color: var(--form-bg-color);
+  // padding-left: 2rem;
+  // margin-bottom: 1rem;
+  // border-top-left-radius: 4px;
+  // border-top-right-radius: 4px;
+  border-bottom: solid 2px burlywood;
+  width: 80%;
+  display: flex;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  margin-bottom: 10px;
+  font-family: 'Motiva Sans', Sans-serif;
+  font-weight: 600;
+
+  color: #ffffff;
+  padding: 10px;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
+  justify-content: center;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 2.4rem;
     line-height: 5rem;
     color: var(--white);
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 660;
   }
 }
 
 .content {
-  flex: 3;
+  flex: 2;
   height: auto;
 }
 
 .footer {
   height: 3rem;
-  background-color: var(--form-bg-color);
+
   display: flex;
   flex-direction: row;
   margin-top: 2rem;
@@ -72,24 +92,77 @@
 
 //Product item
 .product-item {
-  height: 8rem;
-  margin: 8px 0;
+  margin: 4rem 0rem;
+  height: 16rem;
   background-color: transparent;
-
-  transition: opacity ease-in-out 0.4s;
+}
+.product-item:hover .item-img {
+  width: 16rem;
+  transition: top 0.6s, opacity 0.5s;
 }
 
-.item-wrapper {
+.product-item:hover .item-wrapper {
   display: flex;
-  flex-direction: row;
-
-  line-height: 8rem;
-  margin-right: 1.5rem;
-
-  background-color: #131e28;
-  color: var(--white);
+  .item-title {
+    display: flex;
+  }
+  .item-content {
+    display: flex;
+  }
+  .discount-prices {
+    display: flex;
+  }
+  .prices {
+    display: none;
+  }
 }
+.item-wrapper {
+  flex-direction: row;
+  display: flex;
+  line-height: 8rem;
+  // margin-right: 1.5rem;
+  margin: 4rem 0;
+  // background-color: #131e28;
+  background: linear-gradient(-60deg, rgba(226, 244, 255, 0.3) 5%, rgba(84, 107, 115, 0.3) 95%);
+  color: var(--white);
+  box-shadow: rgb(6 6 6) 3px 3px 6px 0px inset, rgb(8 8 8 / 50%) -3px -3px 6px 1px inset;
+  height: 14rem;
+  align-items: center;
+  .item-title {
+    display: none;
+  }
+  .item-content {
+    display: none;
+  }
+  .discount-prices {
+    display: none;
+  }
+}
+.prices {
+  display: flex;
+  background: -webkit-linear-gradient(315deg, #213c55 5%, #016968 95%);
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  color: white;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 
+  .discount-final-price,
+  .discount-orginal-price,
+  .discount-orginal-price {
+    padding: 1rem;
+  }
+  .discount {
+    margin: 0;
+    height: 100%;
+    padding: 1rem;
+  }
+}
+.img {
+  position: relative;
+}
 .active {
   margin-right: 0;
 
@@ -98,10 +171,14 @@
 }
 
 .item-img {
-  height: 8rem;
-  width: 16rem;
+  height: 16rem;
+  width: 68rem;
   outline: 0;
   object-fit: cover;
+  filter: drop-shadow(0px 0px 10px rgba(50, 3, 15, 0.4));
+  box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
+  border-radius: 0.4rem;
+  transition: 0.4s, opacity 0.5s;
 }
 
 .item-detail {
@@ -110,8 +187,7 @@
   align-items: center;
   flex-direction: row;
   margin-left: 2rem;
-
-  p {
+  justify-content: space-around p {
     font-size: 1.4rem;
     text-align: left;
     color: var(--white);
@@ -121,22 +197,25 @@
 .item-content {
   display: flex;
   flex-direction: column;
+  margin-right: -3rem;
 }
 
 .item-title {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: 600;
   width: 40rem;
 }
 
 .item-category {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   opacity: 0.75;
 }
 
 .discount-prices {
   display: flex;
   flex-direction: column;
+  margin-right: 2rem;
+  zoom: 1.4;
 }
 
 .discount-orginal-price {
@@ -149,11 +228,23 @@
   text-align: right;
   font-size: 1.4rem;
 }
-
+.discount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  font-size: 1.4rem;
+  width: 2ren;
+  background: #a1cd44;
+  color: black;
+  margin-bottom: 1rem;
+  align-content: center;
+  font-weight: 700;
+}
 // review
 .review {
   flex: 2;
-  background-color: #95bbd4;
+  // background-color: #95bbd4;
   max-height: 90rem;
   margin-top: 8px;
 }
@@ -161,12 +252,14 @@
 .review-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  // justify-content: center;
 
   width: 100%;
   height: 100%;
 
-  color: var(--black);
+  color: var(--white);
 }
 
 .review-title {
@@ -195,7 +288,7 @@
 }
 
 .review-img {
-  margin-top: 1rem;
+  margin: 2rem 0;
   width: 32rem;
   height: 16rem;
   object-fit: cover;
@@ -234,5 +327,79 @@
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@media (max-width: 739px) {
+  .container {
+    min-height: 160rem;
+  }
+  .review {
+    display: none;
+  }
+  .item-img {
+    height: 24rem;
+    width: 32rem;
+  }
+  .product-item {
+    height: 28rem;
+    zoom: 1.2;
+  }
+  .item-wrapper {
+    height: 24rem;
+  }
+  .active {
+    // display: none;
+    // background: #506577;
+
+    // background-color: none;
+    margin-right: 1.5rem;
+
+    background-color: #131e28;
+    color: var(--white);
+  }
+  .review-container {
+    display: none;
+  }
+  .item-category {
+    font-size: 2rem;
+  }
+  .item-title {
+    font-size: 2.2rem;
+  }
+  .item-detail {
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+  }
+  .discount-final-price {
+    font-size: 2.4rem;
+  }
+  .discount-orginal-price {
+    font-size: 2rem;
+  }
+  .discount-prices {
+    font-size: 2.4rem;
+    margin-right: 1rem;
+  }
+  .header {
+    zoom: 2;
+    display: flex;
+    align-content: center;
+    align-items: center;
+  }
+  .item-wrapper {
+    display: flex;
+    .item-title {
+      display: flex;
+    }
+    .item-content {
+      display: flex;
+    }
+    .discount-prices {
+      display: flex;
+    }
+    .prices {
+      display: none;
+    }
   }
 }

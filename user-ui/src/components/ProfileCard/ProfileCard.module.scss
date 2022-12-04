@@ -80,3 +80,8 @@
   color: var(--white);
   margin-right: 2rem;
 }
+@media (max-width: 739px) {
+  .wrapper {
+    zoom: 2;
+  }
+}

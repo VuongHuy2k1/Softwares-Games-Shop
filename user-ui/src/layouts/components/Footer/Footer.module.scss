@@ -50,3 +50,13 @@
   flex: 1;
   user-select: none;
 }
+@media (max-width: 739px) {
+  .wrapper {
+    height: auto;
+  }
+}
+@media (max-width: 739px) {
+  .wrapper {
+    zoom: 1.6;
+  }
+}

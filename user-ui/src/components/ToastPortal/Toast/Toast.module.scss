@@ -100,3 +100,10 @@
     transform: translateX(-2rem);
   }
 }
+
+@media (max-width: 739px) {
+  .toast {
+    zoom: 2;
+    bottom: 12rem;
+  }
+}

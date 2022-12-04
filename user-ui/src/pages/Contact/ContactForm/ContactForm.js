@@ -45,7 +45,7 @@ function ContactForm() {
       Notify('error', response.message);
     }
     if (response.isSuccess === true) {
-      Notify('success', 'Register Successfully');
+      Notify('success', 'Successfully');
       const timerId = setTimeout(() => {
         setTitle('');
         setEmail('');

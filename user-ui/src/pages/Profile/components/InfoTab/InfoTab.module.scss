@@ -68,3 +68,14 @@
   color: var(--white);
   opacity: 0.75;
 }
+@media (max-width: 739px) {
+  .title {
+    zoom: 1.8;
+  }
+  .wrapper {
+    zoom: 1.4;
+  }
+  .content {
+    zoom: 1.2;
+  }
+}
