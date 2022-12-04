@@ -14,6 +14,8 @@ import Products from 'src/pages/Products';
 import Search from 'src/pages/Search';
 import Login from 'src/pages/Login';
 import SignUp from 'src/pages/SignUp';
+import SendCodeForm from 'src/pages/SendCodeForm';
+import SignUpCheck from 'src/pages/SignUpCheck';
 import ForgetPassword from 'src/pages/ForgetPassword';
 import CartPage from 'src/pages/CartPage';
 import WishListPage from 'src/pages/WishListPage';
@@ -47,6 +49,7 @@ const publicRoutes = [
 // Private routes
 const privateRoutes = [
   { path: config.routes.profile, component: Profile },
+
   { path: config.routes.cart, component: CartPage },
   { path: config.routes.wishlist, component: WishListPage },
   { path: config.routes.checkout, component: CheckoutPage },
@@ -55,7 +58,9 @@ const privateRoutes = [
 // Auth routes
 const authRoutes = [
   { path: config.routes.login, component: Login },
+  { path: config.routes.sendCode, component: SendCodeForm },
   { path: config.routes.signup, component: SignUp },
+  { path: config.routes.signupCheck, component: SignUpCheck },
   { path: config.routes.forgetPassword, component: ForgetPassword },
 ];
 

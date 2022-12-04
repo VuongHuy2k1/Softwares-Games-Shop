@@ -5,6 +5,8 @@ const routes = {
   profile: '/profile/:nickname',
   login: '/login',
   signup: '/register',
+  signupCheck: '/register/check',
+  sendCode: '/sendCode',
   forgetPassword: '/forgetpassword',
   cart: '/cart',
   wishlist: '/wishlist',

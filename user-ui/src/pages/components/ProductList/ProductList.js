@@ -130,7 +130,7 @@ function ProductList({ pagination = false, typePage = '', type = '', title = 'Li
                       setReviewValue(value[index]);
                     }}
                   >
-                    <ProductItem data={item} isActive={index === reviewIndex} />
+                    <ProductItem data={item} isActive={index === reviewIndex} isShow={index === reviewIndex} />
                   </div>
                 );
               })}

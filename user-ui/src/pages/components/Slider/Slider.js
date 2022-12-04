@@ -49,50 +49,63 @@ export default function Slider() {
   const moveDot = (index) => {
     setSlideIndex(index);
   };
-  console.log(slideValue);
+
   return (
-    <div className={cx('container-slider')}>
-      {slideValue.map((item, index) => {
-        return (
-          <div className={slideIndex === index + 1 ? cx('slide', 'active-anim') : cx('slide')} key={item.gameID}>
-            <div className={cx('img')}>
-              <Link to={`/product/${item.gameID}`}>
-                <img src={imageServices.getImage(item.listImage[0])} alt=""></img>
-              </Link>
-              <div className={cx('img-hover')}>
-                <img src={imageServices.getImage(item.listImage[1])} alt=""></img>
-              </div>
-              <div className={cx('detail-wrapper')}>
-                <Link to={`/product/${item.gameID}`} className={cx('detail-link')}>
-                  <div className={cx('detail-content')}>
-                    <div className={cx('title')}>{item.name}</div>
-                    <div className={cx('category-items')}>
-                      {item.genreName.map((category, index) => {
-                        return (
-                          <div key={index} className={cx('category-item')}>
-                            {category}
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <div className={cx('discount-prices')}>
-                      {item.discount > 0 && (
-                        <div className={cx('discount-orginal-price')}>{currencyFormat(item.price)}</div>
-                      )}
-                      <div className={cx('discount-final-price')}>
-                        {currencyFormat(item.price * (1 - item.discount / 100))}
+    <div className={cx('warpper')}>
+      <div className={cx('container-slider')}>
+        {slideValue.map((item, index) => {
+          return (
+            <div className={slideIndex === index + 1 ? cx('slide', 'active-anim') : cx('slide')} key={item.gameID}>
+              <div className={cx('img')}>
+                <div className={cx('img-slide')}>
+                  <Link to={`/product/${item.gameID}`}>
+                    <img src={imageServices.getImage(item.listImage[0])} alt=""></img>
+                  </Link>
+                </div>
+
+                <div className={cx('detail-wrapper')}>
+                  <Link to={`/product/${item.gameID}`} className={cx('detail-link')}>
+                    <div className={cx('detail-content')}>
+                      <div className={cx('title')}>{item.name}</div>
+
+                      <div className={cx('screen')}>
+                        {item.listImage?.map((img, index) => {
+                          if (index < 5 && index > 0) {
+                            return (
+                              <div className={cx('screen-img')}>
+                                <img src={imageServices.getImage(img)}></img>
+                              </div>
+                            );
+                          }
+                        })}
+                      </div>
+                      <div className={cx('category-items')}>
+                        {item.genreName.map((category, index) => {
+                          return (
+                            <div key={index} className={cx('category-item')}>
+                              {category}
+                            </div>
+                          );
+                        })}
+                      </div>
+                      <div className={cx('discount-prices')}>
+                        {item.discount > 0 && (
+                          <div className={cx('discount-orginal-price')}>{currencyFormat(item.price)}</div>
+                        )}
+                        <div className={cx('discount-final-price')}>
+                          {currencyFormat(item.price * (1 - item.discount / 100))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
-      <SliderButton moveSlide={nextSlide} direction={'next'} />
-      <SliderButton moveSlide={prevSlide} direction={'prev'} />
-
+          );
+        })}
+        <SliderButton moveSlide={nextSlide} direction={'next'} />
+        <SliderButton moveSlide={prevSlide} direction={'prev'} />
+      </div>
       <div className={cx('container-dots')}>
         {Array.from({ length: slideValue.length }).map((item, index) => (
           <div

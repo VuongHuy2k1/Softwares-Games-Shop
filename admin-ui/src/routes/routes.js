@@ -2,20 +2,20 @@ import config from '../configs/index';
 
 // Pages
 import Login from '../pages/Login/index';
-import Dashboard from 'pages/Dashboard/index';
-import Contact from 'pages/Contact/index';
+import Dashboard from '../pages/dashboard/index';
+import Contact from '../pages/Contact/index';
 
-import User from 'pages/UserList/index';
-import NewUser from 'pages/UserNew/index';
-import EditUser from 'pages/UserEdit/index';
-import UserProfile from 'pages/UserProfile/index';
-import UserRole from 'pages/UserRole/index';
+import User from '../pages/userList/index';
+import NewUser from '../pages/UserNew/index';
+import EditUser from '../pages/UserEdit/index';
+import UserProfile from '../pages/userProfile/index';
+import UserRole from '../pages/UserRole/index';
 
-import Game from 'pages/GameList/index';
-import NewGame from 'pages/GameNew/index';
-import EditGame from 'pages/GameEdit/index';
-import ProfileGame from 'pages/GameProfile/index';
-import GameGenre from 'pages/GameGenre/index';
+import Game from '../pages/gameList/index';
+import NewGame from '../pages/GameNew/index';
+import EditGame from '../pages/GameEdit/index';
+import ProfileGame from '../pages/GameProfile/index';
+import GameGenre from '../pages/GameGenre/index';
 
 // Route
 const adminRoutes = [

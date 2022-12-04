@@ -73,7 +73,9 @@ button {
   outline: none;
   border: none;
 }
-
+body {
+  zoom: 0.9;
+}
 /* > PC low resolution */
 @media (min-width: 1024px) and (max-width: 1239px) {
 }
