@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-
+import PropTypes from 'prop-types';
+import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -15,8 +16,77 @@ import Paper from '@mui/material/Paper';
 import { SlArrowDown, SlArrowUp } from 'react-icons/sl';
 import { getOrder } from 'services/clientServices';
 
-export default function CollapsibleTable() {
+function Row(props) {
+    const { row } = props;
     const [open, setOpen] = useState(false);
+    const [order, setOrder] = useState([]);
+
+    useEffect(() => {
+        const fetchApi = async () => {
+            const result = await getOrder();
+            setOrder(result.resultObj);
+        };
+        fetchApi();
+    }, []);
+    return (
+        <React.Fragment>
+            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+                <TableCell>
+                    <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
+                        {open ? <SlArrowUp /> : <SlArrowDown />}
+                    </IconButton>
+                    Danh sách game
+                </TableCell>
+                <TableCell component="th" scope="row">
+                    {order[row]?.username}
+                </TableCell>
+                <TableCell align="right">{order[row]?.totalPrice}</TableCell>
+                <TableCell align="right">
+                    <div type="date">{order[row]?.purchasedate}</div>
+                </TableCell>
+            </TableRow>
+            <TableRow>
+                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <Box sx={{ margin: 1 }}>
+                            {/* <Typography variant="h6" gutterBottom component="div">
+                                Game
+                            </Typography> */}
+                            <Table size="small" aria-label="purchases">
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>Tên</TableCell>
+                                        <TableCell>Giá</TableCell>
+                                        <TableCell>Giảm giá(%)</TableCell>
+                                        <TableCell align="right">Tổng($)</TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    {order[row]?.listgame.map((gameRow) => (
+                                        <TableRow key={gameRow.gameID}>
+                                            <TableCell>{gameRow.name}</TableCell>
+                                            <TableCell>{gameRow.price}</TableCell>
+                                            <TableCell>{gameRow.discount} %</TableCell>
+                                            <TableCell align="right">
+                                                {Math.round(gameRow.price - (gameRow.price * gameRow.discount) / 100)}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </Box>
+                    </Collapse>
+                </TableCell>
+            </TableRow>
+        </React.Fragment>
+    );
+}
+
+Row.propTypes = {
+    row: PropTypes.number.isRequired
+};
+
+export default function RecentOrder() {
     const [orderRecent, setOrderRecent] = useState([]);
 
     useEffect(() => {
@@ -26,73 +96,37 @@ export default function CollapsibleTable() {
         };
         fetchApi();
     }, []);
-    console.log(orderRecent);
 
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell />
-                        <TableCell>User name</TableCell>
-                        <TableCell align="right">Total Price</TableCell>
-                        <TableCell align="right">Game</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {orderRecent.map((order) => (
-                        <>
-                            <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-                                <TableCell>
-                                    <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
-                                        {open ? <SlArrowUp /> : <SlArrowDown />}
-                                    </IconButton>
-                                </TableCell>
-                                <TableCell component="th" scope="row">
-                                    {order.userName}
-                                </TableCell>
-                                <TableCell align="right">{order.price}</TableCell>
-                                <TableCell align="right">{order.purchaseDate}</TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-                                    <Collapse in={open} timeout="auto" unmountOnExit>
-                                        <Box sx={{ margin: 1 }}>
-                                            <Typography variant="h6" gutterBottom component="div">
-                                                Game
-                                            </Typography>
-                                            <Table size="small" aria-label="purchases">
-                                                <TableHead>
-                                                    <TableRow>
-                                                        <TableCell>Name</TableCell>
-                                                        <TableCell>Price</TableCell>
-                                                        <TableCell align="right">Amount</TableCell>
-                                                        <TableCell align="right">Total price ($)</TableCell>
-                                                    </TableRow>
-                                                </TableHead>
-                                                <TableBody>
-                                                    {order.game.map((gameRow) => (
-                                                        <TableRow key={gameRow.date}>
-                                                            <TableCell component="th" scope="row">
-                                                                {gameRow.date}
-                                                            </TableCell>
-                                                            <TableCell>{gameRow.customerId}</TableCell>
-                                                            <TableCell align="right">{gameRow.amount}</TableCell>
-                                                            <TableCell align="right">
-                                                                {Math.round(gameRow.amount * row.price * 100) / 100}
-                                                            </TableCell>
-                                                        </TableRow>
-                                                    ))}
-                                                </TableBody>
-                                            </Table>
-                                        </Box>
-                                    </Collapse>
-                                </TableCell>
-                            </TableRow>
-                        </>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <>
+            <Grid container spacing={3}>
+                <Grid item xs={12}></Grid>
+                <Grid item xs={4}>
+                    <Typography variant="h1" component="h2">
+                        Danh sách đơn mua
+                    </Typography>
+                </Grid>
+            </Grid>
+            <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell />
+                            <TableCell>Tên tài khoản</TableCell>
+                            <TableCell align="right">Tổng tiền</TableCell>
+                            <TableCell align="right">Ngày mua</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {orderRecent?.map((row, index) => (
+                            <Row key={row.cartID} row={index} />
+                        ))}
+                        {/* <TableRow>
+                            <TableCell align="right">Total:</TableCell>
+                        </TableRow> */}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </>
     );
 }

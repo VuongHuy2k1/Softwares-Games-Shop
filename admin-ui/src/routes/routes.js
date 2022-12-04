@@ -3,6 +3,7 @@ import config from '../configs/index';
 // Pages
 import Login from '../pages/Login/index';
 import Dashboard from 'pages/Dashboard/index';
+import Dash from 'pages/Dashboard/dashboad';
 import Contact from 'pages/Contact/index';
 import RecentOrders from 'pages/RecentOrders/index';
 
@@ -20,7 +21,7 @@ import GameGenre from 'pages/GameGenre/index';
 
 // Route
 const adminRoutes = [
-    { path: config.routes.dashboard, component: Dashboard },
+    { path: config.routes.dashboard, component: Dash },
     { path: config.routes.contact, component: Contact },
     { path: config.routes.recentOrders, component: RecentOrders },
 

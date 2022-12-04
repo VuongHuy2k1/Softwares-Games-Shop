@@ -14,17 +14,19 @@ const game = {
     children: [
         {
             id: 'list-game',
-            title: 'List game',
+            title: 'Danh sách trò chơi',
             type: 'item',
             url: '/list-game',
-            icon: icons.GrGamepad
+            icon: icons.GrGamepad,
+            breadcrumbs: false
         },
         {
             id: 'new-game',
-            title: 'New game',
+            title: 'Thêm trò chơi mới',
             type: 'item',
             url: '/new-game',
-            icon: icons.GrAddCircle
+            icon: icons.GrAddCircle,
+            breadcrumbs: false
         }
     ]
 };
