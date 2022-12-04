@@ -1,7 +1,8 @@
 import classNames from 'classnames/bind';
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
+import { getSingUpDataSuccess } from 'src/store/reducers/singUp';
 import ToastPortal from 'src/components/ToastPortal';
 import config from 'src/config';
 import { useNotification } from 'src/hooks';
@@ -12,7 +13,10 @@ import styles from './RegisterForm.module.scss';
 const cx = classNames.bind(styles);
 
 function RegisterForm() {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
+
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [rePasswordInput, setRePasswordInput] = useState('');
@@ -35,14 +39,17 @@ function RegisterForm() {
       Notify('error', response.message);
     }
     if (response.isSuccess === true) {
-      Notify('success', 'Register Successfully');
+      Notify('success', 'You must enter code to activate account ');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
-        navigate(config.routes.login, { replace: true });
-      }, 3000);
+        dispatch(getSingUpDataSuccess({ data: { usernameInput, passwordInput } }));
+
+        navigate(config.routes.signupCheck, { replace: true });
+      }, 2000);
     }
   };
+
   const handleClick = () => {
     var msg = '';
     if (usernameInput === '') {

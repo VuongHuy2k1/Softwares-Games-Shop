@@ -14,6 +14,7 @@ const cx = classNames.bind(styles);
 function ShoppingCart() {
   const dispatch = useDispatch();
   const cart = useSelector(cartSelector);
+
   const [cartData, setCartData] = useState([]);
   useEffect(() => {
     dispatch(getCart());

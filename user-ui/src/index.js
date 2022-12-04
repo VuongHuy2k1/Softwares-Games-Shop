@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from 'src/reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import ScrollButton from './components/ScrollButton/Button/ScrollButton';
 
 import store from './store';
 import App from 'src/App';
@@ -15,6 +16,7 @@ root.render(
     <Router>
       <GlobalStyles>
         <App />
+        <ScrollButton />
       </GlobalStyles>
     </Router>
   </Provider>,

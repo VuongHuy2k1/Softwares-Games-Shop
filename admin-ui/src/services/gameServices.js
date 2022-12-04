@@ -29,6 +29,7 @@ export const getProfileGame = async (id) => {
 };
 
 export const postNewGame = async (game) => {
+    console.log(game, 'a');
     const jwt_token = Cookies.get('jwt');
     const formdata = new FormData();
     formdata.append('FileGame', game.FileGame);

@@ -2,6 +2,7 @@ import config from '../configs/index';
 
 // Pages
 import Login from '../pages/Login/index';
+<<<<<<< HEAD
 import Dashboard from 'pages/Dashboard/index';
 import Dash from 'pages/Dashboard/dashboad';
 import Contact from 'pages/Contact/index';
@@ -18,12 +19,27 @@ import NewGame from 'pages/GameNew/index';
 import EditGame from 'pages/GameEdit/index';
 import ProfileGame from 'pages/GameProfile/index';
 import GameGenre from 'pages/GameGenre/index';
+=======
+import Dashboard from '../pages/dashboard/index';
+import Contact from '../pages/Contact/index';
+
+import User from '../pages/userList/index';
+import NewUser from '../pages/UserNew/index';
+import EditUser from '../pages/UserEdit/index';
+import UserProfile from '../pages/userProfile/index';
+import UserRole from '../pages/UserRole/index';
+
+import Game from '../pages/gameList/index';
+import NewGame from '../pages/GameNew/index';
+import EditGame from '../pages/GameEdit/index';
+import ProfileGame from '../pages/GameProfile/index';
+import GameGenre from '../pages/GameGenre/index';
+>>>>>>> 34cdbff2ea5dfd9edce1c839fdeb01ad557d8ecd
 
 // Route
 const adminRoutes = [
     { path: config.routes.dashboard, component: Dash },
     { path: config.routes.contact, component: Contact },
-    { path: config.routes.recentOrders, component: RecentOrders },
 
     { path: config.routes.listGame, component: Game },
     { path: config.routes.newGame, component: NewGame },

@@ -5,8 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ToastPortal from 'src/components/ToastPortal';
 import config from 'src/config';
 import { useNotification } from 'src/hooks';
-// import { Link } from 'react-router-dom';
-// import config from 'src/config';
+
 import styles from './ForgetPasswordForm.module.scss';
 import * as userServices from 'src/services/userServices';
 import useEnterPress from 'src/hooks/useEnterPress';
@@ -18,6 +17,7 @@ function ForgetPasswordForm() {
   const [emailInput, setEmailInput] = useState('');
   const [newPasswordInput, setNewPasswordInput] = useState('');
   const [rePasswordInput, setRePasswordInput] = useState('');
+  const [codeInput, setCodeInput] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -77,6 +77,11 @@ function ForgetPasswordForm() {
       Notify('warning', msg);
       return;
     }
+    if (codeInput === '') {
+      msg = 'Please enter the code we sent to your email ';
+      Notify('warning', msg);
+      return;
+    }
     editPassword();
   };
 
@@ -96,7 +101,7 @@ function ForgetPasswordForm() {
                 setUserInput(e.currentTarget.value);
               }}
             />
-            <span>Username</span>
+            <span>Your Name</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -107,8 +112,9 @@ function ForgetPasswordForm() {
                 setEmailInput(e.currentTarget.value);
               }}
             />
-            <span>Email</span>
+            <span>Your Email</span>
           </div>
+
           <div className={cx('inputBox')}>
             <input
               type="password"
@@ -131,6 +137,17 @@ function ForgetPasswordForm() {
             />
             <span>Re-Password</span>
           </div>
+          <div className={cx('inputBox')}>
+            <input
+              type="text"
+              placeholder=" "
+              value={codeInput}
+              onChange={(e) => {
+                setCodeInput(e.currentTarget.value);
+              }}
+            />
+            <span>Your Code</span>
+          </div>
           {loading ? (
             <div className={cx('loading')}>
               <span></span>
@@ -140,6 +157,9 @@ function ForgetPasswordForm() {
               Submit
             </button>
           )}
+          <Link to={config.routes.sendCode} className={cx('link')}>
+            You want to get the code back
+          </Link>
           <Link to={config.routes.login} className={cx('link')}>
             Back to Login!
           </Link>

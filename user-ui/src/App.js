@@ -3,6 +3,7 @@ import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { publicRoutes, authRoutes, privateRoutes } from 'src/routes';
 import DefaultLayout, { HeaderOnly } from 'src/layouts';
 import { scrollToPosition } from 'src/utils';
+
 import config from './config';
 import * as authServices from 'src/services/authServices';
 

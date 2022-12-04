@@ -1,37 +1,29 @@
 import classNames from 'classnames/bind';
 import { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import * as authServices from 'src/services/authServices';
 import ToastPortal from 'src/components/ToastPortal';
 import config from 'src/config';
-import styles from './LoginForm.module.scss';
+import styles from './Sent.module.scss';
 import Cookies from 'js-cookie';
 import { useNotification } from 'src/hooks';
 import useEnterPress from 'src/hooks/useEnterPress';
 
 const cx = classNames.bind(styles);
 
-function LoginForm() {
+function SentForm() {
   const navigate = useNavigate();
   const [usernameInput, setUsernameInput] = useState('');
-  const [passwordInput, setPasswordInput] = useState('');
   const [loading, setLoading] = useState(false);
   const toastRef = useRef();
   const buttonRef = useRef();
   const Notify = useNotification(toastRef);
-  // var mediumRegex = new RegExp(
-  //   '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})',
-  // );
-  // console.log(mediumRegex.test(passwordInput));
 
-  const login = async () => {
+  const send = async () => {
     setLoading(true);
     // Make Api call
-    const response = await authServices.login({
+    const response = await authServices.sendCode({
       userName: usernameInput,
-      password: passwordInput,
-      rememberMe: false,
     });
 
     if (response.isSuccess === false) {
@@ -42,12 +34,12 @@ function LoginForm() {
     if (response.isSuccess === true) {
       Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
       Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
-      Notify('success', 'Login Successfully');
+      Notify('success', 'We have sent the code to your email');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
-        navigate(config.routes.home, { replace: true });
-      }, 3000);
+        navigate(-1);
+      }, 2000);
     }
   };
 
@@ -55,24 +47,10 @@ function LoginForm() {
     var msg = '';
     if (usernameInput === '') {
       msg = 'Please re-fill your Username';
-      if (passwordInput === '') {
-        msg = 'Please re-fill your Username and Password';
-      }
       Notify('warning', msg);
       return;
     }
-    if (passwordInput === '') {
-      msg = 'Please re-fill your Password';
-      Notify('warning', msg);
-      return;
-    }
-    if (passwordInput.length < 6) {
-      msg = 'Password must have at least 6 characters';
-      Notify('warning', msg);
-      return;
-    }
-
-    login();
+    send();
   };
 
   useEnterPress(buttonRef, handleClick);
@@ -80,7 +58,7 @@ function LoginForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>LOGIN</div>
+        <div className={cx('title')}>RESEND CODE</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -93,32 +71,16 @@ function LoginForm() {
             />
             <span>User Name</span>
           </div>
-          <div className={cx('inputBox')}>
-            <input
-              type="password"
-              placeholder=" "
-              value={passwordInput}
-              onChange={(e) => {
-                setPasswordInput(e.currentTarget.value);
-              }}
-            />
-            <span>Password</span>
-          </div>
+
           {loading ? (
             <div className={cx('loading')}>
               <span></span>
             </div>
           ) : (
             <button className={cx('button')} onClick={handleClick}>
-              Login
+              Send
             </button>
           )}
-          <Link to={config.routes.forgetPassword} className={cx('link')} ref={buttonRef}>
-            Forgot your Password?
-          </Link>
-          <Link to={config.routes.signupCheck} className={cx('link')} ref={buttonRef}>
-            You have not activated your account?
-          </Link>
         </div>
       </div>
       <ToastPortal ref={toastRef} autoClose={true} />
@@ -126,4 +88,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SentForm;

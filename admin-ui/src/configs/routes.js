@@ -2,7 +2,6 @@ const routes = {
     dashboard: '/',
     testApi: '/api',
     login: '/login',
-    recentOrders: 'recent-orders',
 
     listGame: '/list-game',
     newGame: '/new-game',

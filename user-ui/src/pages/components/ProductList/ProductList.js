@@ -9,7 +9,7 @@ import config from 'src/config';
 import ProductItem from './ProductItem';
 import ProductReview from './ProductReview';
 import * as productServices from 'src/services/productServices';
-import { TbArrowBigLeftLines } from 'react-icons/tb';
+// import { TbArrowBigLeftLines } from 'react-icons/tb';
 import styles from './ProductList.module.scss';
 const cx = classNames.bind(styles);
 function ProductList({ pagination = false, typePage = '', type = '', title = 'List Product' }) {
@@ -130,7 +130,7 @@ function ProductList({ pagination = false, typePage = '', type = '', title = 'Li
                       setReviewValue(value[index]);
                     }}
                   >
-                    <ProductItem data={item} isActive={index === reviewIndex} />
+                    <ProductItem data={item} isActive={index === reviewIndex} isShow={index === reviewIndex} />
                   </div>
                 );
               })}

@@ -6,7 +6,7 @@ import { Grid, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-import * as contactServices from 'services/clientServices';
+import * as contactServices from 'services/contactServices';
 
 export default function ActionAreaCard() {
     const [contact, setContact] = useState([]);
