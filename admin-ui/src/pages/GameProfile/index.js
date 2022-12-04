@@ -28,49 +28,49 @@ const ProfileGame = () => {
                 <Grid item xs={12}>
                     <Stack spacing={1}>
                         <Typography variant="h1" component="h2">
-                            Game information
+                            Thông tin trò chơi
                         </Typography>
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Name</InputLabel>
+                        <InputLabel>Tên</InputLabel>
                         <TextField value={game.name ? game.name : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Price</InputLabel>
+                        <InputLabel>Giá</InputLabel>
                         <TextField value={game.price ? game.price : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Discount</InputLabel>
+                        <InputLabel>Giảm giá (%)</InputLabel>
                         <TextField value={game.discount ? game.discount : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Genre</InputLabel>
+                        <InputLabel>Thể lo</InputLabel>
                         <TextField value={game.genreName ? game.genreName : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Description</InputLabel>
+                        <InputLabel>Mô tả</InputLabel>
                         <TextField value={game.description ? game.description : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Gameplay</InputLabel>
+                        <InputLabel>Lỗi chơi</InputLabel>
                         <TextField value={game.gameplay ? game.gameplay : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Image</InputLabel>
+                        <InputLabel>Hình</InputLabel>
                         <ImageList sx={{ height: 180 }} cols={5} rowHeight={164}>
                             {game?.listImage?.map((item) => (
                                 <ImageListItem key={item.id}>
@@ -87,12 +87,12 @@ const ProfileGame = () => {
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>System Requirement Minimum</InputLabel>
+                        <InputLabel>Cấu hình tối thiểu</InputLabel>
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>System Requirement Recommended</InputLabel>
+                        <InputLabel>Cấu hình đề nghị</InputLabel>
                     </Stack>
                 </Grid>
 

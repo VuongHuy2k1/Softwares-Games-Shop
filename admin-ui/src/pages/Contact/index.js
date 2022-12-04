@@ -6,7 +6,7 @@ import { Grid, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
-import * as contactServices from 'services/contactServices';
+import * as contactServices from 'services/clientServices';
 
 export default function ActionAreaCard() {
     const [contact, setContact] = useState([]);
@@ -23,6 +23,12 @@ export default function ActionAreaCard() {
 
     return (
         <Grid container spacing={3}>
+            <Grid item xs={1}></Grid>
+            <Grid item xs={12}>
+                <Typography variant="h1" component="h2">
+                    Phản hồi từ khách hàng
+                </Typography>
+            </Grid>
             {contact.map((contact) => (
                 <Grid item xs={4}>
                     <Card sx={{ maxWidth: 345, maxHeight: 300 }}>
@@ -36,10 +42,10 @@ export default function ActionAreaCard() {
                                         variant="h5"
                                         component="div"
                                     >
-                                        Gmail: {contact.email}
+                                        Email: {contact.email}
                                     </Typography>
                                     <Typography variant="subtitle1" gutterBottom>
-                                        Content:
+                                        Nội dung:
                                         <Typography variant="body1" color="text.secondary">
                                             {contact.content}
                                         </Typography>

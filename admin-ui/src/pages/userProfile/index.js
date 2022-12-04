@@ -26,25 +26,25 @@ const UserProfile = () => {
                 <Grid item xs={12}>
                     <Stack spacing={1}>
                         <Typography variant="h1" component="h2">
-                            Account information
+                            Thông tin tài khoản
                         </Typography>
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>First name</InputLabel>
+                        <InputLabel>Họ</InputLabel>
                         <TextField value={user.firstName ? user.firstName : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Last name</InputLabel>
+                        <InputLabel>Tên</InputLabel>
                         <TextField value={user.lastName ? user.lastName : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>User name</InputLabel>
+                        <InputLabel>Tên tài khoản</InputLabel>
                         <TextField value={user.userName ? user.userName : ' '} variant="standard" />
                     </Stack>
                 </Grid>
@@ -56,7 +56,7 @@ const UserProfile = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Phone number</InputLabel>
+                        <InputLabel>Số điện thoại</InputLabel>
                         <TextField value={user.phoneNumber ? user.phoneNumber : ' '} variant="standard" />
                     </Stack>
                 </Grid>

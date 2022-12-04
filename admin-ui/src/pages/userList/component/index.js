@@ -56,6 +56,25 @@ const headCells = [
         numeric: true,
         disablePadding: false,
         label: 'Phone number'
+    },
+    {
+        id: 'xem',
+        numeric: true,
+        disablePadding: false,
+        label: 'Xem'
+    },
+
+    {
+        id: 'sua',
+        numeric: true,
+        disablePadding: false,
+        label: 'Sửa'
+    },
+    {
+        id: 'phanquyen',
+        numeric: true,
+        disablePadding: false,
+        label: 'Phân quyền'
     }
 ];
 
