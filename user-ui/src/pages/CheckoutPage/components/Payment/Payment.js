@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
 import ToastPortal from 'src/components/ToastPortal';
 import Button from 'src/components/Button';
@@ -29,9 +30,10 @@ function Payment() {
     if (response.isSuccess === true) {
       Notify('success', 'Checkout Successfully');
       const timerId = setTimeout(() => {
+        dispatch(getCart());
         navigate(config.routes.profile);
         clearTimeout(timerId);
-      }, 2000);
+      }, 4000);
     }
 
     if (response.isSuccess === false) {
@@ -100,14 +102,57 @@ function Payment() {
               <Button className={cx('cancel-button')} onClick={handleCancelClick} disabled={loading}>
                 Cancel
               </Button>
-              {loading ? (
+              {cartData.length === 0 ? (
                 <div className={cx('loading')}>
                   <span></span>
                 </div>
               ) : (
-                <Button className={cx('checkout-button')} onClick={handlePurchaseClick}>
-                  Purchase
-                </Button>
+                <>
+                  {/* <Button className={cx('checkout-button')} onClick={handlePurchaseClick}>
+                    Purchase
+                  </Button> */}
+                  <PayPalScriptProvider
+                    options={{
+                      'client-id': 'ASuVgm59VUYNn7EugcX1zJ_PkfJ76_h07z2NQQyjSGD8_PBOe_L0d0SVgW9GDNXEOVZYJX8dTUkl3ecP',
+                      components: 'buttons',
+                      currency: 'USD',
+                    }}
+                  >
+                    <PayPalButtons
+                      style={{
+                        layout: 'horizontal',
+                        color: 'black',
+                        shape: 'rect',
+                        height: 32,
+                        label: 'paypal',
+                      }}
+                      createOrder={async (data, actions) => {
+                        const total = cartData.reduce(
+                          (total, current) => total + current.price * (1 - current.discount / 100),
+                          0,
+                        );
+                        const convertedCurrency = total / 24000;
+                        const roundedTotal = Math.round(convertedCurrency * 100) / 100;
+                        console.log(roundedTotal);
+                        return actions.order.create({
+                          purchase_units: [
+                            {
+                              amount: {
+                                value: roundedTotal,
+                              },
+                            },
+                          ],
+                        });
+                      }}
+                      onApprove={async (data, actions) => {
+                        // Your code here after capture the order
+                        const order = await actions.order.capture();
+                        console.log(order);
+                        handlePurchaseClick();
+                      }}
+                    />
+                  </PayPalScriptProvider>
+                </>
               )}
             </div>
           </div>
