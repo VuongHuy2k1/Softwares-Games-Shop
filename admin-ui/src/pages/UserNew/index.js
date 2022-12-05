@@ -50,7 +50,7 @@ const NewUser = () => {
             }
             if (response.isSuccess === true) {
                 // Notify('success', 'Register Successfully');
-                setNotify('Successfully');
+                setNotify('Thành công');
 
                 const timerId = setTimeout(() => {
                     clearTimeout(timerId);
@@ -80,6 +80,15 @@ const NewUser = () => {
 
     return (
         <>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Thêm tài khoản mới
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <Formik
                 initialValues={{
                     userName: '',
@@ -111,7 +120,7 @@ const NewUser = () => {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="userName">User Name*</InputLabel>
+                                    <InputLabel htmlFor="userName">Tên tài khoản*</InputLabel>
                                     <OutlinedInput
                                         id="userName"
                                         type="userName"
@@ -134,7 +143,7 @@ const NewUser = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="email">Email Address*</InputLabel>
+                                    <InputLabel htmlFor="email">Email *</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.email && errors.email)}
@@ -158,7 +167,7 @@ const NewUser = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="password">Password*</InputLabel>
+                                    <InputLabel htmlFor="password">Mật khẩu*</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.password && errors.password)}
@@ -188,8 +197,7 @@ const NewUser = () => {
                                         inputProps={{}}
                                     />
                                     <Typography variant="caption" display="block" gutterBottom>
-                                        * Password must be at least 6 characters, must have 1 special character, 1 number, 1 uppercase
-                                        letter
+                                        * Mật khẩu phải có ít nhất 6 ký tự và phải có 1 ký tự đặc biệt, 1 số, 1 chữ in hoa
                                     </Typography>
                                     {touched.password && errors.password && (
                                         <FormHelperText error id="helper-text-password-signup">
@@ -212,7 +220,7 @@ const NewUser = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="confirmPassword">Repeat Password</InputLabel>
+                                    <InputLabel htmlFor="confirmPassword">Nhập lại mật khẩu</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.confirmPassword && errors.confirmPassword)}

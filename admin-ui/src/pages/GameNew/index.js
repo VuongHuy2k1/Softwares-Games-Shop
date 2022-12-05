@@ -14,7 +14,8 @@ import {
     Select,
     Switch,
     FormControl,
-    Input
+    Input,
+    Typography
 } from '@mui/material';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
@@ -32,6 +33,7 @@ const NewGame = () => {
     const [genreName, setGenreName] = useState();
     const [genreSelect, setgenreSelect] = useState('');
     const [image, setImage] = useState();
+    const [fileGame, setFileGame] = useState();
 
     const handleChangeSelectGenre = (event) => {
         setgenreSelect(event.target.value);
@@ -62,7 +64,20 @@ const NewGame = () => {
         };
     }, [image]);
 
-    const createGame = async (GameName, Price, Discount, Description, Gameplay, Genre, Status, ThumbnailImage, SRM, SRR) => {
+    const handleChangeFileGame = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        file.preview = URL.createObjectURL(file);
+        setFileGame(file);
+    };
+
+    useEffect(() => {
+        return () => {
+            fileGame && URL.revokeObjectURL(fileGame.url);
+        };
+    }, [fileGame]);
+
+    const createGame = async (GameName, Price, Discount, Description, Gameplay, Genre, Status, ThumbnailImage, fileGame, SRM, SRR) => {
         setLoading(true);
         // Make Api call
         const game = {
@@ -74,6 +89,7 @@ const NewGame = () => {
             Genre: Genre,
             Status: Status,
             ThumbnailImage: ThumbnailImage,
+            FileGame: fileGame,
             SRM: SRM,
             SRR: SRR
         };
@@ -83,7 +99,7 @@ const NewGame = () => {
             setLoading(false);
             setNotify(response.message);
         } else {
-            setNotify('Create game Successfully');
+            setNotify('Tạo game thành công');
             const timerId = setTimeout(() => {
                 clearTimeout(timerId);
                 setLoading(false);
@@ -94,6 +110,15 @@ const NewGame = () => {
 
     return (
         <>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Thêm trò chơi mới
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <Formik
                 initialValues={{
                     gameName: '',
@@ -103,6 +128,7 @@ const NewGame = () => {
                     gameplay: '',
                     genre: 1,
                     thumbnailImage: '',
+                    fileGame: '',
                     SRMOS: undefined,
                     SRMProcessor: '',
                     SRMMemory: '',
@@ -119,9 +145,9 @@ const NewGame = () => {
                     SRRSoundcard: ''
                 }}
                 validationSchema={Yup.object().shape({
-                    gameName: Yup.string().max(255).required('Game name is required'),
-                    description: Yup.string().max(255).required('This input is required'),
-                    gameplay: Yup.string().max(255).required('This input is required')
+                    gameName: Yup.string().max(255).required('Bạn chưa nhập tên'),
+                    description: Yup.string().max(255).required('Bạn chưa nhập mô tả'),
+                    gameplay: Yup.string().max(255).required('Bạn chưa nhập lối chơi')
                 })}
                 onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
                     try {
@@ -153,6 +179,7 @@ const NewGame = () => {
                             genreSelect,
                             status,
                             image,
+                            fileGame,
                             values.SRM,
                             values.SRR
                         );
@@ -171,7 +198,7 @@ const NewGame = () => {
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="gameName">Game Name*</InputLabel>
+                                    <InputLabel htmlFor="gameName">Tên *</InputLabel>
                                     <OutlinedInput
                                         id="gameName"
                                         value={values.gameName}
@@ -192,7 +219,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="price">Price *</InputLabel>
+                                    <InputLabel htmlFor="price">Giá *</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.price && errors.price)}
@@ -216,7 +243,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="discount">Discount *</InputLabel>
+                                    <InputLabel htmlFor="discount">Giảm giá(%) *</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.discount && errors.discount)}
@@ -239,7 +266,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="description">Description</InputLabel>
+                                    <InputLabel htmlFor="description">Mô tả *</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.description && errors.description)}
@@ -262,7 +289,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={12}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="gameplay">Gameplay</InputLabel>
+                                    <InputLabel htmlFor="gameplay">Lối chơi *</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.gameplay && errors.gameplay)}
@@ -285,7 +312,7 @@ const NewGame = () => {
 
                             <Grid item xs={4}>
                                 <Stack spacing={1}>
-                                    <InputLabel id="genre">Genre</InputLabel>
+                                    <InputLabel id="genre">Thể loại</InputLabel>
                                     <FormControl fullWidth>
                                         {/* <InputLabel id="genre">Genre</InputLabel> */}
                                         <Select
@@ -307,7 +334,7 @@ const NewGame = () => {
                                 </Stack>
                             </Grid>
 
-                            <Grid item xs={2}>
+                            <Grid item xs={8}>
                                 <Stack spacing={1}>
                                     <InputLabel>Active ?</InputLabel>
                                     <Switch checked={active} onChange={handleActive} inputProps={{ 'aria-label': 'controlled' }} />
@@ -316,26 +343,39 @@ const NewGame = () => {
 
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="imgIp">Image</InputLabel>
+                                    <InputLabel htmlFor="imgIp">Hình</InputLabel>
                                     <Input
                                         id="imgIp"
                                         type="file"
                                         name="name"
                                         onChange={handleChangeFile}
                                         // accept="image/png, image/jpeg"
-                                        value={values.ThumbnailImage}
+                                        value={values.thumbnailImage}
+                                    />
+                                </Stack>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Stack spacing={1}>
+                                    <InputLabel htmlFor="gameIP">File game</InputLabel>
+                                    <Input
+                                        id="gameIP"
+                                        type="file"
+                                        name="name"
+                                        onChange={handleChangeFileGame}
+                                        // accept="image/png, image/jpeg"
+                                        value={values.fileGame}
                                     />
                                 </Stack>
                             </Grid>
 
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel>System Requirement Minimum</InputLabel>
+                                    <InputLabel>Cấu hình tối thiểu</InputLabel>
                                 </Stack>
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel>System Requirement Recommended</InputLabel>
+                                    <InputLabel>Cấu hình đề nghị</InputLabel>
                                 </Stack>
                             </Grid>
                             <Grid item xs={6}>
@@ -650,7 +690,7 @@ const NewGame = () => {
                                             variant="contained"
                                             color="primary"
                                         >
-                                            Create game
+                                            Thêm trò chơi
                                         </Button>
                                     </AnimateButton>
                                 )}

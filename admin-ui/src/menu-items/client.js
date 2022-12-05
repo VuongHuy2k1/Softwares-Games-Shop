@@ -15,22 +15,27 @@ const icons = {
 
 const pages = {
     id: 'contact',
-    title: 'Client',
+
+    title: 'Thống kê',
+
     type: 'group',
     children: [
         {
             id: 'contact',
-            title: 'Contact',
+            title: 'Phản hồi từ khách hàng',
             type: 'item',
             url: '/contact',
-            icon: icons.BsMailbox
+
+            icon: icons.BsMailbox,
+            breadcrumbs: false
         },
         {
             id: 'recentOrders',
-            title: 'Recent Orders',
+            title: 'Danh sách đơn hàng',
             type: 'item',
             url: '/recent-orders',
-            icon: icons.RiMoneyDollarCircleLine
+            icon: icons.RiMoneyDollarCircleLine,
+            breadcrumbs: false
         }
     ]
 };

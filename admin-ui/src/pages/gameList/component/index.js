@@ -44,30 +44,55 @@ const headCells = [
         id: 'name',
         numeric: false,
         disablePadding: true,
-        label: 'Name'
+        label: 'Tên'
     },
     {
         id: 'price',
         numeric: true,
         disablePadding: false,
-        label: 'Price'
+        label: 'Giá'
     },
     {
         id: 'discount',
         numeric: true,
         disablePadding: false,
-        label: 'Discount'
+        label: 'Giảm giá (%)'
     },
     {
         id: 'description',
         disablePadding: false,
-        label: 'Description'
+        label: 'Mô tả'
     },
     {
         id: 'genreName',
         numeric: true,
         disablePadding: false,
-        label: 'Genre Name'
+        label: 'Thể loại'
+    },
+    {
+        id: 'genrePut',
+        numeric: true,
+        disablePadding: false,
+        label: 'Thay đổi thể loại'
+    },
+    {
+        id: 'delete',
+        numeric: true,
+        disablePadding: false,
+        label: 'Xoá'
+    },
+    {
+        id: 'xem',
+        numeric: true,
+        disablePadding: false,
+        label: 'Xem'
+    },
+    ,
+    {
+        id: 'sua',
+        numeric: true,
+        disablePadding: false,
+        label: 'Sửa'
     }
 ];
 

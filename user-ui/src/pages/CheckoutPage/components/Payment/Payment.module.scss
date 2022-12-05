@@ -111,15 +111,15 @@
   height: 3.2rem;
   width: 12rem;
   padding: 0;
-  border-radius: 0;
-  background-color: #516801;
+  border-radius: 0 3px 3px 0;
+  background-color: #2c2e2f;
   color: var(--white);
   font-size: 1.4rem;
   text-shadow: -1px -1px 0px rgb(0 0 0 / 10%);
 
   &:hover {
-    background: #8eb504;
-    color: var(--black);
+    background: #353738;
+    color: var(--white);
   }
 }
 

@@ -1,17 +1,17 @@
 // material-ui
 import { Grid, Stack, InputLabel } from '@mui/material';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import * as userServices from 'services/userServices';
 import { Checkbox, Typography, TextField, FormGroup, FormControlLabel, Box, Button } from '@mui/material';
 import AnimateButton from 'components/@extended/AnimateButton';
 
-// ============================|| FIREBASE - REGISTER ||============================ //
-
 const UserRole = () => {
     const { id } = useParams();
     const [user, setUser] = useState([]);
     const [rolesApi, setRolesApi] = useState([]);
+    const navigate = useNavigate();
     const [adminCheck, setAdminCheck] = useState(false);
     const [userCheck, setUserCheck] = useState(false);
 
@@ -23,7 +23,6 @@ const UserRole = () => {
             setUser(result.resultObj);
             setRolesApi(roleApi);
             result.resultObj.roles.map((role) => {
-                console.log(role);
                 if (role === 'User') {
                     setUserCheck(true);
                 } else if (role === 'admin') {
@@ -35,8 +34,11 @@ const UserRole = () => {
         checkedAble();
     }, []);
 
-    const putRoleUser = async (id, data) => {
-        const result = await userServices.putRoleUser(id, data);
+    const putRoleUser = async (id, role) => {
+        const response = await userServices.putRoleUser(user.id, role);
+        if (response.data.isSuccess === true) {
+            navigate('/user');
+        }
     };
 
     const onChangeUser = (e) => {
@@ -55,75 +57,38 @@ const UserRole = () => {
     };
 
     const saveClick = (e) => {
-        if (userCheck & adminCheck) {
-            const rolePut = {
-                id: user.id,
-                roles: [
-                    {
-                        id: rolesApi[0].id,
-                        name: rolesApi[0].name,
-                        selected: true
-                    },
-                    {
-                        id: rolesApi[1].id,
-                        name: rolesApi[1].name,
-                        selected: true
-                    }
-                ]
-            };
-            putRoleUser(user.id, rolePut);
-        } else if (userCheck) {
-            const rolePut = {
-                id: user.id,
-                roles: [
-                    {
-                        id: rolesApi[0].id,
-                        name: rolesApi[0].name,
-                        selected: true
-                    }
-                ]
-            };
-            putRoleUser(user.id, rolePut);
-        } else if (adminCheck) {
-            const rolePut = {
-                id: user.id,
-                roles: [
-                    {
-                        id: rolesApi[1].id,
-                        name: rolesApi[1].name,
-                        selected: true
-                    }
-                ]
-            };
-            putRoleUser(user.id, rolePut);
-        } else {
-            const rolePut = {
-                id: user.id,
-                roles: [
-                    {
-                        id: '',
-                        name: '',
-                        selected: true
-                    }
-                ]
-            };
-            putRoleUser(user.id, rolePut);
-        }
+        const rolePut = {
+            Id: user.id,
+            Roles: [
+                {
+                    Id: rolesApi[0].id,
+                    Name: 'User',
+                    Selected: userCheck
+                },
+                {
+                    Id: rolesApi[1].id,
+                    Name: 'admin',
+                    Selected: adminCheck
+                }
+            ]
+        };
+        putRoleUser(user.id, rolePut);
     };
+
     return (
         <>
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
                         <Typography variant="h1" component="h2">
-                            Change User Role
+                            Thay đổi quyền
                         </Typography>
                     </Stack>
                 </Grid>
 
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>User name</InputLabel>
+                        <InputLabel>Tên tài khoản</InputLabel>
                         <TextField value={user.userName ? user.userName : ' '} variant="standard" />
                     </Stack>
                 </Grid>
@@ -136,7 +101,7 @@ const UserRole = () => {
 
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        <InputLabel>Role</InputLabel>
+                        <InputLabel>Quyền</InputLabel>
                         <FormGroup>
                             <FormControlLabel
                                 onChange={(e) => {
@@ -144,7 +109,7 @@ const UserRole = () => {
                                 }}
                                 name="User"
                                 control={<Checkbox />}
-                                label="User"
+                                label="Người dùng"
                                 checked={userCheck}
                             />
                             <FormControlLabel
@@ -152,7 +117,7 @@ const UserRole = () => {
                                     onChangeAdmin(e);
                                 }}
                                 control={<Checkbox />}
-                                label="Admin"
+                                label="Quản trị viên"
                                 name="admin"
                                 checked={adminCheck}
                             />
