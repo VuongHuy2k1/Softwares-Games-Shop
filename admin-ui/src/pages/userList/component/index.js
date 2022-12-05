@@ -58,6 +58,12 @@ const headCells = [
         label: 'Phone number'
     },
     {
+        id: 'xoa',
+        numeric: true,
+        disablePadding: false,
+        label: 'Xoá'
+    },
+    {
         id: 'xem',
         numeric: true,
         disablePadding: false,

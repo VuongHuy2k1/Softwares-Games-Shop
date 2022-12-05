@@ -6,7 +6,6 @@ import jwtDecode from 'jwt-decode';
 export const login = async (user) => {
     try {
         const res = await httpRequest.post('Users/authenticate', user);
-
         return res.data;
     } catch (error) {
         if (error.code === 'ERR_NETWORK') {

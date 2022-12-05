@@ -53,7 +53,6 @@ const NewGame = () => {
 
     const handleChangeFile = (e) => {
         const file = e.target.files[0];
-        console.log(file);
         file.preview = URL.createObjectURL(file);
         setImage(file);
     };
@@ -66,7 +65,6 @@ const NewGame = () => {
 
     const handleChangeFileGame = (e) => {
         const file = e.target.files[0];
-        console.log(file);
         file.preview = URL.createObjectURL(file);
         setFileGame(file);
     };
@@ -129,7 +127,7 @@ const NewGame = () => {
                     genre: 1,
                     thumbnailImage: '',
                     fileGame: '',
-                    SRMOS: undefined,
+                    SRMOS: '',
                     SRMProcessor: '',
                     SRMMemory: '',
                     SRMGraphics: '',
@@ -344,27 +342,13 @@ const NewGame = () => {
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
                                     <InputLabel htmlFor="imgIp">Hình</InputLabel>
-                                    <Input
-                                        id="imgIp"
-                                        type="file"
-                                        name="name"
-                                        onChange={handleChangeFile}
-                                        // accept="image/png, image/jpeg"
-                                        value={values.thumbnailImage}
-                                    />
+                                    <Input id="imgIp" type="file" name="name" onChange={handleChangeFile} />
                                 </Stack>
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
                                     <InputLabel htmlFor="gameIP">File game</InputLabel>
-                                    <Input
-                                        id="gameIP"
-                                        type="file"
-                                        name="name"
-                                        onChange={handleChangeFileGame}
-                                        // accept="image/png, image/jpeg"
-                                        value={values.fileGame}
-                                    />
+                                    <Input id="gameIP" type="file" name="name" onChange={handleChangeFileGame} />
                                 </Stack>
                             </Grid>
 

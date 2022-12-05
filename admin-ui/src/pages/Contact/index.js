@@ -19,8 +19,6 @@ export default function ActionAreaCard() {
         contactApi();
     }, []);
 
-    console.log(contact);
-
     return (
         <Grid container spacing={3}>
             <Grid item xs={1}></Grid>
@@ -29,8 +27,8 @@ export default function ActionAreaCard() {
                     Phản hồi từ khách hàng
                 </Typography>
             </Grid>
-            {contact.map((contact) => (
-                <Grid item xs={4}>
+            {contact.map((contact, index) => (
+                <Grid item xs={4} key={index}>
                     <Card sx={{ maxWidth: 345, maxHeight: 300 }}>
                         <Stack spacing={1}>
                             <CardActionArea>
