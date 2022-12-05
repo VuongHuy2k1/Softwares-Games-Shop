@@ -2,6 +2,7 @@ import config from '../configs/index';
 
 // Pages
 import Login from '../pages/Login/index';
+
 import Dash from 'pages/Dashboard/dashboad';
 import Contact from 'pages/Contact/index';
 import RecentOrders from 'pages/RecentOrders/index';
@@ -22,6 +23,7 @@ import GameGenre from 'pages/GameGenre/index';
 const adminRoutes = [
     { path: config.routes.dashboard, component: Dash },
     { path: config.routes.contact, component: Contact },
+
     { path: config.routes.recentOrders, component: RecentOrders },
 
     { path: config.routes.listGame, component: Game },

@@ -3,7 +3,6 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as authServices from 'src/services/authServices';
 import ToastPortal from 'src/components/ToastPortal';
-import config from 'src/config';
 import styles from './Sent.module.scss';
 import Cookies from 'js-cookie';
 import { useNotification } from 'src/hooks';

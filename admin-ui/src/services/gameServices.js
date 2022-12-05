@@ -141,3 +141,26 @@ export const deleteGame = async (id) => {
         console.log(error);
     }
 };
+
+export const putGenre = async (id, genres) => {
+    try {
+        const res = await httpRequest.put(`/Games/${id}/genres`, genres);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteGame = async (id) => {
+    try {
+        const jwt_token = Cookies.get('jwt');
+        const res = await httpRequest.remove(`Games/${id}`, {
+            headers: {
+                Authorization: `Bearer ${jwt_token}`
+            }
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
