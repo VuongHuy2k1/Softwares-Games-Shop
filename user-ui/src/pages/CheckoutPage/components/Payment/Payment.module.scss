@@ -204,6 +204,10 @@
   .final-price {
     zoom: 2;
   }
+  .paypal-button {
+    zoom: 3;
+    z-index: 1;
+  }
 }
 @media (max-width: 739px) {
   .title {
@@ -233,6 +237,7 @@
   }
   .paypal-button {
     zoom: 3;
+    z-index: 1;
   }
   .total-price,
   .vat,

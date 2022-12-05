@@ -159,7 +159,7 @@ function ForgetPasswordForm() {
             </button>
           )}
           <Link to={config.routes.sendCode} className={cx('link')}>
-            You want to get the code back
+            Send code to Email again ?
           </Link>
           <Link to={config.routes.login} className={cx('link')}>
             Back to Login!

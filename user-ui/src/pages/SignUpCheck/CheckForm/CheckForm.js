@@ -128,7 +128,7 @@ function CheckForm() {
             </button>
           )}
           <Link to={config.routes.sendCode} className={cx('link')}>
-            You want to get the code back
+            Send code to Email again?
           </Link>
         </div>
       </div>
