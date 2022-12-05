@@ -25,7 +25,6 @@ const pages = {
             title: 'Phản hồi từ khách hàng',
             type: 'item',
             url: '/contact',
-
             icon: icons.BsMailbox,
             breadcrumbs: false
         },

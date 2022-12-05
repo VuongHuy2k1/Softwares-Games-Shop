@@ -11,28 +11,7 @@ const EditGame = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState();
-
     const [game, setGame] = useState();
-    //     {
-    //     name: '',
-    //     price: '',
-    //     discount: '',
-    //     description: '',
-    //     gameplay: '',
-    //     status: '',
-    //     genreName: [''],
-    //     thumbnailImage: '',
-    //     srm: {
-    //         os: '',
-    //         processor: '',
-    //         memory: '',
-    //         graphics: '',
-    //         storage: '',
-    //         additionalNotes: '',
-    //         soundcard: ''
-    //     },
-    //     srr: { os: '', processor: '', memory: '', graphics: '', storage: '', additionalNotes: '', soundcard: '' }
-    // }
 
     useEffect(() => {
         const profileApi = async () => {
@@ -77,7 +56,6 @@ const EditGame = () => {
 
     const updateGame = async (gameAPI) => {
         // setLoading(true);
-        // Make Api call
         const response = await gameService.putGame(gameAPI);
     };
 
@@ -100,7 +78,6 @@ const EditGame = () => {
 
     return (
         <>
-            {' '}
             <Grid container spacing={3}>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={12}>
