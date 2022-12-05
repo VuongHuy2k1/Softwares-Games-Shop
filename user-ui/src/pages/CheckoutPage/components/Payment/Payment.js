@@ -108,50 +108,60 @@ function Payment() {
                 </div>
               ) : (
                 <>
-                  {/* <Button className={cx('checkout-button')} onClick={handlePurchaseClick}>
-                    Purchase
-                  </Button> */}
-                  <PayPalScriptProvider
-                    options={{
-                      'client-id': 'ASuVgm59VUYNn7EugcX1zJ_PkfJ76_h07z2NQQyjSGD8_PBOe_L0d0SVgW9GDNXEOVZYJX8dTUkl3ecP',
-                      components: 'buttons',
-                      currency: 'USD',
-                    }}
-                  >
-                    <PayPalButtons
-                      style={{
-                        layout: 'horizontal',
-                        color: 'black',
-                        shape: 'rect',
-                        height: 32,
-                        label: 'paypal',
-                      }}
-                      createOrder={async (data, actions) => {
-                        const total = cartData.reduce(
-                          (total, current) => total + current.price * (1 - current.discount / 100),
-                          0,
-                        );
-                        const convertedCurrency = total / 24000;
-                        const roundedTotal = Math.round(convertedCurrency * 100) / 100;
-                        console.log(roundedTotal);
-                        return actions.order.create({
-                          purchase_units: [
-                            {
-                              amount: {
-                                value: roundedTotal,
-                              },
-                            },
-                          ],
-                        });
-                      }}
-                      onApprove={async (data, actions) => {
-                        // Your code here after capture the order
-                        const order = await actions.order.capture();
-                        console.log(order);
-                        handlePurchaseClick();
-                      }}
-                    />
-                  </PayPalScriptProvider>
+                  {loading ? (
+                    <></>
+                  ) : (
+                    <>
+                      {cartData.reduce((total, current) => total + current.price * (1 - current.discount / 100), 0) ===
+                      0 ? (
+                        <Button className={cx('checkout-button')} onClick={handlePurchaseClick}>
+                          Get for Free
+                        </Button>
+                      ) : (
+                        <PayPalScriptProvider
+                          options={{
+                            'client-id': process.env.REACT_APP_PAYPAL_CLIENT_ID,
+                            components: 'buttons',
+                            currency: 'USD',
+                          }}
+                        >
+                          <PayPalButtons
+                            style={{
+                              layout: 'horizontal',
+                              color: 'black',
+                              shape: 'rect',
+                              height: 32,
+                              label: 'paypal',
+                            }}
+                            createOrder={async (data, actions) => {
+                              const total = cartData.reduce(
+                                (total, current) => total + current.price * (1 - current.discount / 100),
+                                0,
+                              );
+                              const convertedCurrency = total / 24000;
+                              const roundedTotal = Math.round(convertedCurrency * 100) / 100;
+                              console.log(roundedTotal);
+                              return actions.order.create({
+                                purchase_units: [
+                                  {
+                                    amount: {
+                                      value: roundedTotal,
+                                    },
+                                  },
+                                ],
+                              });
+                            }}
+                            onApprove={async (data, actions) => {
+                              // Your code here after capture the order
+                              const order = await actions.order.capture();
+                              console.log(order);
+                              handlePurchaseClick();
+                            }}
+                          />
+                        </PayPalScriptProvider>
+                      )}
+                    </>
+                  )}
                 </>
               )}
             </div>
