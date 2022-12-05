@@ -105,12 +105,26 @@
     animation: spinner 1s linear infinite;
   }
 }
-
+.seen {
+  font-size: 1.6rem;
+}
 .link {
   align-self: center;
   color: var(--white);
   font-size: 1.8rem;
   margin-top: 2rem;
+}
+.check {
+  cursor: pointer;
+  position: relative;
+  width: var(--input-width);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  span {
+    margin-left: 1rem;
+    font-size: 1.6rem;
+  }
 }
 
 @keyframes spinner {
