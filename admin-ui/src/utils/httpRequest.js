@@ -1,8 +1,13 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
+
+const jwt_token = Cookies.get('jwt');
 
 const httpRequest = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,
-    headers: {}
+    headers: {
+        Authorization: `Bearer ${jwt_token}`
+    }
     // withCredentials: true,
 });
 

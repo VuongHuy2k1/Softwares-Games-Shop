@@ -45,7 +45,7 @@ function LoginForm() {
                 const result = await userServices.getUserProfile(response.resultObj.userId);
                 if (result.resultObj.roles[0] === 'admin' || result.resultObj.roles[1] === 'admin') {
                     Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
-                    Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
+                    Cookies.set('admin-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
                     Notify('success', 'Đăng nhập thành công');
                     const timerId = setTimeout(() => {
                         clearTimeout(timerId);

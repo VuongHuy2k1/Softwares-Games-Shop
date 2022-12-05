@@ -6,10 +6,21 @@ import { Grid, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import { AiOutlineDown } from 'react-icons/ai';
+
 import * as contactServices from 'services/clientServices';
 
 export default function ActionAreaCard() {
     const [contact, setContact] = useState([]);
+
+    const [expanded, setExpanded] = React.useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     useEffect(() => {
         const contactApi = async () => {
@@ -28,30 +39,16 @@ export default function ActionAreaCard() {
                 </Typography>
             </Grid>
             {contact.map((contact, index) => (
-                <Grid item xs={4} key={index}>
-                    <Card sx={{ maxWidth: 345, maxHeight: 300 }}>
-                        <Stack spacing={1}>
-                            <CardActionArea>
-                                <CardContent>
-                                    <Typography
-                                        sx={{ p: 2, border: '1px dashed grey' }}
-                                        key={contact.email}
-                                        gutterBottom
-                                        variant="h5"
-                                        component="div"
-                                    >
-                                        Email: {contact.email}
-                                    </Typography>
-                                    <Typography variant="subtitle1" gutterBottom>
-                                        Nội dung:
-                                        <Typography variant="body1" color="text.secondary">
-                                            {contact.content}
-                                        </Typography>
-                                    </Typography>
-                                </CardContent>
-                            </CardActionArea>
-                        </Stack>
-                    </Card>
+                <Grid item xs={12} key={index}>
+                    <Accordion expanded={expanded === contact.content} onChange={handleChange(contact.content)}>
+                        <AccordionSummary expandIcon={<AiOutlineDown />} aria-controls="panel1bh-content" id="panel1bh-header">
+                            <Typography sx={{ width: '4%', flexShrink: 0 }}>Email: </Typography>
+                            <Typography>{contact.email}</Typography>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Typography>{contact.content}</Typography>
+                        </AccordionDetails>
+                    </Accordion>
                 </Grid>
             ))}
         </Grid>

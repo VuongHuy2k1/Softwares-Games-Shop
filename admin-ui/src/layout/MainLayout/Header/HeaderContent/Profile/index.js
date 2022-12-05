@@ -22,7 +22,7 @@ const Profile = () => {
     const [admin, setAdmin] = useState();
     const theme = useTheme();
     const navigate = useNavigate();
-    const userId = Cookies.get('user-id');
+    const userId = Cookies.get('admin-id');
     useEffect(() => {
         const fetchApi = async () => {
             const result = await userServices.getUserProfile(userId);

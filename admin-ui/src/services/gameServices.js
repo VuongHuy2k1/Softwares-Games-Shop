@@ -53,8 +53,7 @@ export const postNewGame = async (game) => {
     formdata.append('SRR.Storage', game.SRR.Storage);
     formdata.append('SRR.AdditionalNotes', game.SRR.AdditionalNotes);
     formdata.append('SRR.Soundcard', game.SRR.Soundcard);
-    console.log(game);
-    console.log(formdata);
+
     try {
         const res = await httpRequest.post(`Games`, formdata);
         return res;
@@ -104,7 +103,6 @@ export const putGame = async (game) => {
     formdata.append('SRR.Storage', game.SRR.storage);
     formdata.append('SRR.AdditionalNotes', game.SRR.additionalNotes);
     formdata.append('SRR.Soundcard', game.SRR.soundcard);
-    console.log(game);
 
     try {
         const res = await httpRequest.put(`Games/${game.GameID}`, formdata);
@@ -117,7 +115,7 @@ export const putGame = async (game) => {
 export const putGenre = async (id, genres) => {
     try {
         const jwt_token = Cookies.get('jwt');
-        const res = await httpRequest.put(`/Games/${id}/genres`, genres, {
+        const res = await httpRequest.put(`Games/${id}/genres`, genres, {
             headers: {
                 Authorization: `Bearer ${jwt_token}`
             }

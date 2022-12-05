@@ -14,6 +14,7 @@ const EditGame = () => {
     const [fileGame, setFileGame] = useState();
     const [game, setGame] = useState();
     const [active, setActive] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const profileApi = async () => {
@@ -71,8 +72,18 @@ const EditGame = () => {
     }, [image]);
 
     const updateGame = async (gameAPI) => {
-        // setLoading(true);
+        setLoading(true);
         const response = await gameService.putGame(gameAPI);
+
+        if (response.status == 200) {
+            const timerId = setTimeout(() => {
+                clearTimeout(timerId);
+                setLoading(false);
+                navigate('/list-game');
+            }, 700);
+        } else {
+            setLoading(false);
+        }
     };
 
     const onSubmit = (e) => {
@@ -193,22 +204,22 @@ const EditGame = () => {
                                 ></Input>
                             </Stack>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={2}>
+                            <Stack spacing={1}>
+                                <InputLabel>Active ?</InputLabel>
+                                <Switch checked={active} onChange={handleActive} inputProps={{ 'aria-label': 'controlled' }} />
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={5}>
                             <Stack spacing={1}>
                                 <InputLabel htmlFor="imgIp">Hình</InputLabel>
                                 <Input id="imgIp" type="file" name="img" onChange={handleChangeIMG} />
                             </Stack>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Stack spacing={1}>
                                 <InputLabel htmlFor="fileGame">File Game</InputLabel>
                                 <Input id="fileGame" type="file" name="fileGame" onChange={handleChangeFile} />
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={6}>
-                            <Stack spacing={1}>
-                                <InputLabel>Active ?</InputLabel>
-                                <Switch checked={active} onChange={handleActive} inputProps={{ 'aria-label': 'controlled' }} />
                             </Stack>
                         </Grid>
                         <Grid item xs={6}>
