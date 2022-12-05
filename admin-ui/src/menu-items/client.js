@@ -15,7 +15,9 @@ const icons = {
 
 const pages = {
     id: 'contact',
+
     title: 'Thống kê',
+
     type: 'group',
     children: [
         {

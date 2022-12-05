@@ -68,7 +68,6 @@ export const postNewGame = async (game) => {
 };
 
 export const putGame = async (game) => {
-    const jwt_token = Cookies.get('jwt');
     const formdata = new FormData();
     formdata.append('Name', game.Name);
     formdata.append('GameID', game.GameID);
@@ -95,6 +94,29 @@ export const putGame = async (game) => {
     const id = game.GameID;
     try {
         const res = await httpRequest.put(`Games/${id}`, formdata, {
+            headers: {
+                Authorization: `Bearer ${jwt_token}`
+            }
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const putGenre = async (id, genres) => {
+    try {
+        const res = await httpRequest.put(`/Games/${id}/genres`, genres);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteGame = async (id) => {
+    try {
+        const jwt_token = Cookies.get('jwt');
+        const res = await httpRequest.remove(`Games/${id}`, {
             headers: {
                 Authorization: `Bearer ${jwt_token}`
             }
