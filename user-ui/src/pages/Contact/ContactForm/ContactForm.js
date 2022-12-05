@@ -108,7 +108,7 @@ function ContactForm() {
               }}
               value={email}
             />
-            <span>Your Email</span>
+            <span>Email</span>
           </div>
           <div className={cx('inputBox')}>
             <textarea
