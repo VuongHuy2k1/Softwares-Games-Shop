@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import { useState, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { getSingUpDataSuccess } from 'src/store/reducers/singUp';
+import { getSignUpDataSuccess } from 'src/store/reducers/signUp';
 import ToastPortal from 'src/components/ToastPortal';
 import config from 'src/config';
 import { useNotification } from 'src/hooks';
@@ -43,7 +43,7 @@ function RegisterForm() {
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
-        dispatch(getSingUpDataSuccess({ data: { usernameInput, passwordInput } }));
+        dispatch(getSignUpDataSuccess({ data: { usernameInput, passwordInput } }));
 
         navigate(config.routes.signupCheck, { replace: true });
       }, 2000);

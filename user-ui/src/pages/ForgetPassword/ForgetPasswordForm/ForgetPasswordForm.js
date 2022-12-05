@@ -101,7 +101,7 @@ function ForgetPasswordForm() {
                 setUserInput(e.currentTarget.value);
               }}
             />
-            <span>Your Name</span>
+            <span>User Name</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -112,7 +112,7 @@ function ForgetPasswordForm() {
                 setEmailInput(e.currentTarget.value);
               }}
             />
-            <span>Your Email</span>
+            <span>Email</span>
           </div>
 
           <div className={cx('inputBox')}>
@@ -146,7 +146,7 @@ function ForgetPasswordForm() {
                 setCodeInput(e.currentTarget.value);
               }}
             />
-            <span>Your Code</span>
+            <span>Confirm Code</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>

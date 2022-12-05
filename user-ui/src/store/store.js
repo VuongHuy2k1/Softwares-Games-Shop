@@ -6,7 +6,7 @@ import userReducer from './reducers/userSlice';
 import cartReducer from './reducers/cartSlice';
 import wishlistReducer from './reducers/wishlistSlice';
 import checkoutReducer from './reducers/checkoutSlice';
-import singUp from './reducers/singUp';
+import signUp from './reducers/signUp';
 
 const sagaMiddleware = createSagaMiddleware();
 // const initialState = {};
@@ -16,7 +16,7 @@ const store = configureStore({
     cart: cartReducer,
     wishlist: wishlistReducer,
     checkout: checkoutReducer,
-    signUp: singUp,
+    signUp: signUp,
   },
   middleware: [sagaMiddleware],
   // preloadedState: initialState,
