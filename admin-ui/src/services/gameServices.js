@@ -103,6 +103,7 @@ export const putGame = async (game) => {
     formdata.append('SRR.Storage', game.SRR.storage);
     formdata.append('SRR.AdditionalNotes', game.SRR.additionalNotes);
     formdata.append('SRR.Soundcard', game.SRR.soundcard);
+    console.log(game);
     try {
         const res = await httpRequest.put(`Games/${game.GameID}`, formdata);
         return res;
