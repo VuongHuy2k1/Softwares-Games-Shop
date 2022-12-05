@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { singUpSelector, getSingUpData } from 'src/store/reducers/singUp';
+import { signUpSelector, getSignUpData } from 'src/store/reducers/signUp';
 import { useSelector, useDispatch } from 'react-redux';
 import ToastPortal from 'src/components/ToastPortal';
 import config from 'src/config';
@@ -21,17 +21,17 @@ function CheckForm() {
   const [loading, setLoading] = useState(false);
   const toastRef = useRef();
   const Notify = useNotification(toastRef);
-  const userData = useSelector(singUpSelector);
+  const userData = useSelector(signUpSelector);
   // const [signData, setSignData] = useState([]);
   console.log(userName);
   useEffect(() => {
     setUserName(userData?.data?.usernameInput);
-    setPassword(userData?.data?.usernameInput);
+    setPassword(userData?.data?.passwordInput);
   }, [userData]);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getSingUpData());
-  }, []);
+    dispatch(getSignUpData());
+  }, [dispatch]);
 
   const register = async () => {
     setLoading(true);
@@ -83,7 +83,7 @@ function CheckForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>ENRER YOUR CODE</div>
+        <div className={cx('title')}>ENTER YOUR CODE</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -94,7 +94,7 @@ function CheckForm() {
                 setUserName(e.currentTarget.value);
               }}
             />
-            <span>Your Name</span>
+            <span>User Name</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -116,7 +116,7 @@ function CheckForm() {
                 setCodeInput(e.currentTarget.value);
               }}
             />
-            <span>Your Code</span>
+            <span>Confirm Code</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>
