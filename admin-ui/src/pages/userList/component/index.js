@@ -37,25 +37,31 @@ const headCells = [
         id: 'userName',
         numeric: true,
         disablePadding: false,
-        label: 'User name'
+        label: 'Tên tài khoản'
     },
     {
         id: 'firstName',
         numeric: true,
         disablePadding: true,
-        label: 'First name'
+        label: 'Họ'
     },
     {
         id: 'lastName',
         numeric: true,
         disablePadding: false,
-        label: 'Last name'
+        label: 'Tên'
     },
     {
         id: 'phoneNumber',
         numeric: true,
         disablePadding: false,
-        label: 'Phone number'
+        label: 'Số điện thoại'
+    },
+    {
+        id: 'xoa',
+        numeric: true,
+        disablePadding: false,
+        label: 'Xoá'
     },
     {
         id: 'xem',

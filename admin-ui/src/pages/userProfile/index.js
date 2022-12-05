@@ -20,6 +20,7 @@ const UserProfile = () => {
         profileApi();
     }, []);
 
+    console.log(user);
     return (
         <>
             <Grid container spacing={4}>
@@ -28,6 +29,18 @@ const UserProfile = () => {
                         <Typography variant="h1" component="h2">
                             Thông tin tài khoản
                         </Typography>
+                    </Stack>
+                </Grid>
+                <Grid item xs={12}>
+                    <Stack spacing={1}>
+                        {/* <ImageListItem>
+                            <img
+                                src={`https://localhost:5001/api/Images/Name?Name=${user}`}
+                                // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                                // alt={item.title}
+                                // loading="lazy"
+                            />
+                        </ImageListItem> */}
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>

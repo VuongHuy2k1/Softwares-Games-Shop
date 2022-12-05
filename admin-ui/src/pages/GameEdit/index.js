@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography } from '@mui/material';
+import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography, Switch } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import * as gameService from 'services/gameServices';
@@ -11,7 +11,10 @@ const EditGame = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState();
+    const [fileGame, setFileGame] = useState();
     const [game, setGame] = useState();
+    const [active, setActive] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const profileApi = async () => {
@@ -20,6 +23,14 @@ const EditGame = () => {
         };
         profileApi();
     }, []);
+
+    const newImg = async (img) => {
+        const imgNew = await gameService.postNewIMG(img);
+    };
+
+    const handleActive = (event) => {
+        setActive(event.target.checked);
+    };
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -42,10 +53,16 @@ const EditGame = () => {
         setGame(newGame);
     };
 
-    const handleChangeFile = (e) => {
+    const handleChangeIMG = (e) => {
         const file = e.target.files[0];
         file.preview = URL.createObjectURL(file);
         setImage(file);
+    };
+
+    const handleChangeFile = (e) => {
+        const file = e.target.files[0];
+        file.preview = URL.createObjectURL(file);
+        setFileGame(file);
     };
 
     useEffect(() => {
@@ -55,25 +72,48 @@ const EditGame = () => {
     }, [image]);
 
     const updateGame = async (gameAPI) => {
-        // setLoading(true);
+        setLoading(true);
         const response = await gameService.putGame(gameAPI);
+
+        if (response.status == 200) {
+            const timerId = setTimeout(() => {
+                clearTimeout(timerId);
+                setLoading(false);
+                navigate('/list-game');
+            }, 700);
+        } else {
+            setLoading(false);
+        }
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
+        const status = active ? 1 : 0;
         const variable = {
             GameID: game.gameID,
             Name: game.name,
             Price: game.price,
             Discount: game.discount,
             Description: game.description,
+            Publisher: game.publisher,
             Gameplay: game.gameplay,
             ThumbnailImage: image,
-            Status: game.status,
+            FileGame: fileGame,
+            Status: status,
             SRM: game.srm,
             SRR: game.srr
         };
         updateGame(variable);
+
+        if (image) {
+            newImg({
+                GameID: game.gameID,
+                ThumbnailImage: image,
+                Caption: game.name,
+                isDefault: true,
+                SortOrder: 1
+            });
+        }
     };
 
     return (
@@ -95,7 +135,7 @@ const EditGame = () => {
                                 <InputLabel htmlFor="name">Tên</InputLabel>
                                 <Input
                                     name="name"
-                                    value={game?.name}
+                                    value={game?.name ? game.name : ''}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
@@ -107,7 +147,7 @@ const EditGame = () => {
                                 <InputLabel htmlFor="price">Giá</InputLabel>
                                 <Input
                                     name="price"
-                                    value={game?.price}
+                                    value={game?.price ? game?.price : 0}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
@@ -119,7 +159,7 @@ const EditGame = () => {
                                 <InputLabel htmlFor="discount">Giảm giá (%)</InputLabel>
                                 <Input
                                     name="discount"
-                                    value={game?.discount}
+                                    value={game?.discount ? game?.discount : ''}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
@@ -132,7 +172,20 @@ const EditGame = () => {
                                 <InputLabel htmlFor="description">Mô tả</InputLabel>
                                 <Input
                                     name="description"
-                                    value={game?.description}
+                                    value={game?.description ? game?.description : ''}
+                                    onChange={(e) => {
+                                        handleChange(e);
+                                    }}
+                                ></Input>
+                            </Stack>
+                        </Grid>
+
+                        <Grid item xs={12}>
+                            <Stack spacing={1}>
+                                <InputLabel htmlFor="publisher">Nhà phát hành</InputLabel>
+                                <Input
+                                    name="publisher"
+                                    value={game?.publisher ? game?.publisher : ''}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
@@ -144,36 +197,29 @@ const EditGame = () => {
                                 <InputLabel htmlFor="gameplay">Lối chơi</InputLabel>
                                 <Input
                                     name="gameplay"
-                                    value={game?.gameplay}
+                                    value={game?.gameplay ? game?.gameplay : ''}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
                                 ></Input>
                             </Stack>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={2}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="genre">Thể loại</InputLabel>
-                                <Input
-                                    name="genre"
-                                    value={game?.genreName}
-                                    onChange={(e) => {
-                                        handleChange(e);
-                                    }}
-                                ></Input>
+                                <InputLabel>Active ?</InputLabel>
+                                <Switch checked={active} onChange={handleActive} inputProps={{ 'aria-label': 'controlled' }} />
                             </Stack>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={5}>
                             <Stack spacing={1}>
                                 <InputLabel htmlFor="imgIp">Hình</InputLabel>
-                                <Input
-                                    id="imgIp"
-                                    type="file"
-                                    name="name"
-                                    onChange={handleChangeFile}
-                                    // accept="image/png, image/jpeg"
-                                    // value={ThumbnailImage}
-                                />
+                                <Input id="imgIp" type="file" name="img" onChange={handleChangeIMG} />
+                            </Stack>
+                        </Grid>
+                        <Grid item xs={5}>
+                            <Stack spacing={1}>
+                                <InputLabel htmlFor="fileGame">File Game</InputLabel>
+                                <Input id="fileGame" type="file" name="fileGame" onChange={handleChangeFile} />
                             </Stack>
                         </Grid>
                         <Grid item xs={6}>
