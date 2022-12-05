@@ -277,6 +277,42 @@
   align-items: center;
   bottom: 1rem;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .btn-slide {
+    display: none;
+  }
+  .container-content {
+    zoom: 1.8;
+    padding: 0 3rem;
+  }
+  .container-slider {
+    width: 1000px;
+    zoom: 1.2;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .active-anim {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .slide {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 114rem;
+    margin-right: 17rem;
+  }
+  .product {
+    margin-right: 2rem;
+  }
+  .product-detai {
+    bottom: 0;
+  }
+  .container {
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .btn-slide {
     display: none;

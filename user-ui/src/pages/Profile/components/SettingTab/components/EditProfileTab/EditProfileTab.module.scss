@@ -107,6 +107,26 @@
     transform: rotate(360deg);
   }
 }
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .title {
+    zoom: 1.4;
+  }
+  .wrapper {
+    zoom: 0.5;
+  }
+  .content {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .confirm-button {
+    zoom: 1.2;
+  }
+  .label {
+    zoom: 1.2;
+  }
+}
 @media (max-width: 739px) {
   .title {
     zoom: 1.4;

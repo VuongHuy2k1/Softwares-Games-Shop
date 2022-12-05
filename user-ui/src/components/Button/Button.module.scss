@@ -195,6 +195,15 @@
     transform: translate(-50%, -50%) rotate(180deg);
   }
 }
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    zoom: 2;
+  }
+  .btnAnimation span:nth-child(2) {
+    width: 0;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
     zoom: 2;

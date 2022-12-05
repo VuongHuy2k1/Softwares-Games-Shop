@@ -55,6 +55,30 @@
     margin-left: 2rem;
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    border-bottom: solid 4rem #162330;
+    margin-top: 2rem;
+    zoom: 2;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .list {
+    margin-left: 2rem;
+    li {
+      strong {
+        color: #67c1f5 !important;
+      }
+      zoom: 2;
+    }
+  }
+  .header-title {
+    font-weight: 700;
+    width: 60%;
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
     border-bottom: solid 4rem #162330;

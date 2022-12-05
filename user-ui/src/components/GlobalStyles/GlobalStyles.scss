@@ -81,10 +81,19 @@ body {
 }
 /* Tablet - PC low resolution */
 @media (min-width: 740px) and (max-width: 1023px) {
+  h2 {
+    zoom: 1.2;
+  }
+
+  path {
+    zoom: 1.8;
+  }
+  body {
+    zoom: 0.3;
+  }
 }
 /* Tablet < */
-@media (min-width: 739px) {
-}
+
 @media (max-width: 739px) {
   h2 {
     zoom: 1.2;

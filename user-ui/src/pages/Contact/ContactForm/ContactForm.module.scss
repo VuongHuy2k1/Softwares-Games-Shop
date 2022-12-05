@@ -129,6 +129,14 @@
     transform: rotate(360deg);
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    border: none;
+    background-color: transparent;
+    margin-top: 16rem;
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
     border: none;

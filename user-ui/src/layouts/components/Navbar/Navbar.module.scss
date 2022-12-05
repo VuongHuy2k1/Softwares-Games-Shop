@@ -14,7 +14,7 @@
   height: auto;
   margin-bottom: 2rem;
   // background-color: #ccc;
-
+  padding-left: 2rem;
   a,
   span {
     text-align: left;
@@ -30,6 +30,23 @@
     color: var(--sidebar-color);
     &:hover {
       color: var(--white);
+    }
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    width: 100%;
+    margin-top: 2rem;
+  }
+  .container {
+    a,
+    span {
+      font-size: 3rem;
+      line-height: 7.4rem;
+    }
+    a {
+      margin-left: 2rem;
     }
   }
 }

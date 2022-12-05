@@ -57,6 +57,7 @@ function SentForm() {
   return (
     <>
       <div className={cx('wrapper')}>
+        <div className={cx('close')}></div>
         <div className={cx('title')}>RESEND CODE</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>

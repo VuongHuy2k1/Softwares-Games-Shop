@@ -25,6 +25,7 @@ function ProductItem({ data }) {
         alert(err);
       });
   };
+  console.log(data.createdDate);
   return (
     <>
       <div className={cx('wrapper')}>
@@ -32,9 +33,6 @@ function ProductItem({ data }) {
           <h2 className={cx('name')}>
             <Link to={`/product/${data.gameID}`}>{data.name}</Link>
           </h2>
-          {/* <div className={cx('date')}>
-            Release date: <strong>14/04/2015</strong>
-          </div> */}
           <div className={cx('money')}>
             Paid: <strong>{currencyFormat(data.price)}</strong>
           </div>
@@ -48,18 +46,11 @@ function ProductItem({ data }) {
           <img src={imageServices.getImage(data.listImage[0])} alt="Game" />
         </div>
         <div className={cx('action')}>
-          {/* <a
-            href={process.env.PUBLIC_URL + '/images/game.jpg'}
-            target="_blank"
-            rel="noopener noreferrer"
-            download={data.name}
-          > */}
           <FontAwesomeIcon
             icon={faDownload}
             className={cx('icon')}
             onClick={(e) => download(e, imageServices.getImage(data.fileGame), data.name)}
           />
-          {/* </a> */}
         </div>
       </div>
     </>

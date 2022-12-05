@@ -155,6 +155,10 @@
 @media (min-width: 740px) and (max-width: 1023px) {
   .wrapper {
     width: var(--content-size-medium);
+    zoom: 3;
+  }
+  .action {
+    zoom: 1.6;
   }
 }
 

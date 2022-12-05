@@ -15,6 +15,17 @@
   }
   user-select: none;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .title {
+    zoom: 1.6;
+  }
+  .wrapper {
+    zoom: 1.4;
+  }
+  .content {
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .title {
     zoom: 1.8;

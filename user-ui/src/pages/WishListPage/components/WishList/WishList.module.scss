@@ -76,6 +76,23 @@
     color: var(--black);
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    height: 280vh;
+    zoom: 2;
+  }
+  .wishlist-container {
+    overflow-y: initial;
+  }
+  .title {
+    zoom: 2;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .empty-wishlist {
+    zoom: 1.6;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
     height: 240vh;

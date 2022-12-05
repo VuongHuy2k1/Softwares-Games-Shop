@@ -177,6 +177,56 @@
     transform: rotate(360deg);
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .cart-item {
+    zoom: 1.2;
+    margin-right: 0;
+  }
+  .item-information {
+    width: 36%;
+  }
+  .view-cart-button {
+    margin-top: 0;
+    width: 11rem;
+  }
+  .cart-button {
+    margin-top: 0;
+  }
+  .action {
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 30%;
+    zoom: 0.8;
+  }
+  .price {
+    zoom: 1.4;
+    margin-right: 1rem;
+  }
+  .addon {
+    zoom: 2;
+  }
+  .remove {
+    zoom: 0.6;
+  }
+  .name {
+    margin-bottom: 0;
+  }
+  .item-rating,
+  .name,
+  .item-release-date {
+    zoom: 1.4;
+  }
+  .category-items {
+    zoom: 1.4;
+  }
+  .item-information {
+    width: 44%;
+  }
+  .img {
+    margin: 6rem 4rem;
+  }
+}
 @media (max-width: 739px) {
   .cart-item {
     zoom: 1.2;
@@ -194,7 +244,7 @@
   }
   .action {
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: center;
     align-content: center;
     width: 30%;
     zoom: 0.8;

@@ -52,3 +52,31 @@
     background-image: url('../../../../../public/images/highlight_activethumb.png');
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .gallery-items {
+    height: 50%;
+  }
+  .gallery-item {
+    zoom: 1.2;
+  }
+  .screen-img {
+    zoom: 1.2;
+  }
+  .wrapper {
+    zoom: 2;
+  }
+}
+@media (max-width: 739px) {
+  .gallery-items {
+    height: 50%;
+  }
+  .gallery-item {
+    zoom: 1.2;
+  }
+  .screen-img {
+    zoom: 1.2;
+  }
+  .wrapper {
+    zoom: 1.2;
+  }
+}

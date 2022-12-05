@@ -13,6 +13,7 @@ function ProductTab() {
   const dispatch = useDispatch();
   const checkout = useSelector(checkoutSelector);
   const [checkoutData, setCheckoutData] = useState([]);
+
   useEffect(() => {
     dispatch(getCheckout());
   }, [dispatch]);
@@ -20,7 +21,7 @@ function ProductTab() {
   useLayoutEffect(() => {
     setCheckoutData(checkout.data || []);
   }, [checkout]);
-  console.log(checkoutData);
+
   return (
     <>
       <div className={cx('wrapper')}>
@@ -37,7 +38,5 @@ function ProductTab() {
     </>
   );
 }
-
-//ProductTab.propTypes = {}
 
 export default ProductTab;

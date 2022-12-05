@@ -201,23 +201,43 @@
 }
 
 /* Tablet - PC low resolution */
+
 @media (min-width: 740px) and (max-width: 1023px) {
   .container {
-    width: var(--content-size-medium);
+    width: var(--content-size-small);
   }
 
   .avatar {
-    height: 36px;
+    height: 32px;
     img {
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
     }
   }
-  .nar-bar {
+  .container {
     display: none;
   }
+  .nar-bar {
+    display: flex;
+    label {
+      height: 100% !important;
+    }
+  }
+  .header-logo {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    img {
+      width: 280px;
+      height: 100%;
+    }
+  }
+  .wrapper {
+    zoom: 3;
+    height: 10rem;
+  }
 }
-
 /* Tablet < */
 @media (max-width: 739px) {
   .container {

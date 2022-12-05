@@ -49,6 +49,21 @@
 .content {
   width: 100%;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    // zoom: 1.4;
+  }
+  .header-wrapper {
+    height: 10rem;
+    // zoom: 2;
+  }
+  .header {
+    zoom: 2;
+  }
+  .content {
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
   }

@@ -59,6 +59,33 @@
     text-decoration: line-through;
   }
 }
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .wrapper {
+    height: 240vh;
+  }
+  .item-price {
+    zoom: 1.8;
+    width: 40%;
+  }
+  .item-name {
+    width: 60%;
+    zoom: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .checkout-item {
+    height: 20rem;
+    width: 99%;
+  }
+  .img {
+    zoom: 2.2;
+  }
+  .item-detail {
+    width: 100%;
+  }
+}
 @media (max-width: 739px) {
   .wrapper {
     height: 240vh;

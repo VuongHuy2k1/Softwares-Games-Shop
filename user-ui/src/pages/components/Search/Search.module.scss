@@ -182,6 +182,31 @@
     }
   }
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .search-box {
+    display: flex;
+    justify-content: center;
+  }
+  .search-button {
+    position: relative;
+    zoom: 2.2;
+  }
+  .search-input {
+    position: relative;
+    width: 100%;
+    font-size: 2rem;
+    zoom: 2.2;
+  }
+  .search {
+    margin: 2rem;
+  }
+  .wrapper {
+    zoom: 2;
+  }
+  .search-results {
+    zoom: 2;
+  }
+}
 @media (max-width: 739px) {
   .search-box {
     display: flex;

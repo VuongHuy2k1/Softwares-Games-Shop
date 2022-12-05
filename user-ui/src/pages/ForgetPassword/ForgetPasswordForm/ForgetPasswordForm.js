@@ -28,6 +28,7 @@ function ForgetPasswordForm() {
     setLoading(true);
     const response = await userServices.forgotPassword({
       userName: userInput,
+      confirmcode: codeInput,
       email: emailInput,
       newPassword: newPasswordInput,
     });

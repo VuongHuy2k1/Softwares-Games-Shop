@@ -3,6 +3,12 @@
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .toast {
+    zoom: 2;
+  }
+}
+
 @media (max-width: 739px) {
   .toast {
     zoom: 1.4;

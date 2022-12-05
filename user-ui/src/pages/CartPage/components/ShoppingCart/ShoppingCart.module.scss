@@ -133,6 +133,45 @@
 
   user-select: none;
 }
+@media (min-width: 740px) and (max-width: 1023px) {
+  .title {
+    zoom: 4;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .content {
+    flex-direction: column;
+    align-items: center;
+    zoom: 2;
+  }
+  .cart-container {
+    width: 99%;
+    zoom: 1.4;
+    height: fit-content;
+  }
+  .cart-total-container {
+    width: 100%;
+    margin-top: 6rem;
+  }
+  .shopping-button {
+    zoom: 3;
+  }
+  .checkout-button {
+    zoom: 3;
+  }
+  .total-price,
+  .discount,
+  .final-price {
+    zoom: 2;
+  }
+  .empty-cart {
+    zoom: 1.8;
+    a {
+      zoom: 1.2;
+      margin-bottom: 1rem;
+    }
+  }
+}
 @media (max-width: 739px) {
   .title {
     zoom: 2;
