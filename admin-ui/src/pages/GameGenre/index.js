@@ -33,33 +33,47 @@ const GameGenre = () => {
         profileApi();
     }, []);
 
-    console.log(checkedState);
+    const callPutGenre = async (genres) => {
+        const response = await gameServices.putGenre(game.gameID, genres);
+        console.log(game.gameID);
+        console.log(genres);
 
-    const putGenre = async (id, genres) => {
-        const response = await userServices.putRoleUser(user.id, role);
-        if (response.data.isSuccess === true) {
-            navigate('/user');
-        }
+        // if (response.data.isSuccess === true) {
+        //     navigate('/list-game');
+        // }
     };
 
     const onChangeGenre = (event, position) => {
         const updatedCheckedState = checkedState.map((item, index) => (index === position ? !item : item));
         setCheckedState(updatedCheckedState);
-        // Su lis
     };
 
     const saveClick = (e) => {
-        const genresPut = {
-            Id: game.id,
-            Categories: [
-                {
-                    Id: genresCheck.id,
-                    Name: genresCheck.id,
-                    Selected: genresCheck
-                }
-            ]
-        };
-        putGenre(game.id, genresPut);
+        const cate = [];
+        genreAPI.map((genre, index) => {
+            cate[index] = {
+                id: genre.id.toString(),
+                name: genre.name,
+                selected: checkedState[index]
+            };
+        });
+        // const genresPut = {
+        //     Id: game.id,
+        //     Categories: [
+        //         {
+        //             Id: genresCheck.id,
+        //             Name: genresCheck.id,
+        //             Selected: genresCheck
+        //         }
+        //     ]
+        // };
+        setGenrePut(cate);
+    };
+    const setGenrePut = (categories) => {
+        callPutGenre({
+            id: game.gameID,
+            categories: categories
+        });
     };
 
     return (
