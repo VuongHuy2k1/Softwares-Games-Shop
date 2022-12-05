@@ -69,7 +69,6 @@ export const postNewIMG = async (img) => {
     formdata.append('Caption', img.Caption);
     formdata.append('isDefault', img.isDefault);
     formdata.append('SortOrder', img.SortOrder);
-
     try {
         const res = await httpRequest.post(`Games/${img.GameID}/Images`, formdata);
         return res;
@@ -89,6 +88,7 @@ export const putGame = async (game) => {
     formdata.append('Gameplay', game.Gameplay);
     formdata.append('Status', game.Status);
     formdata.append('ThumbnailImage', game.ThumbnailImage);
+    formdata.append('FileGame', game.FileGame);
     formdata.append('SRM.OS', game.SRM.os);
     formdata.append('SRM.Processor', game.SRM.processor);
     formdata.append('SRM.Memory', game.SRM.memory);
@@ -103,7 +103,6 @@ export const putGame = async (game) => {
     formdata.append('SRR.Storage', game.SRR.storage);
     formdata.append('SRR.AdditionalNotes', game.SRR.additionalNotes);
     formdata.append('SRR.Soundcard', game.SRR.soundcard);
-
     try {
         const res = await httpRequest.put(`Games/${game.GameID}`, formdata);
         return res;

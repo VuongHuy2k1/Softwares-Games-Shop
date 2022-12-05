@@ -42,8 +42,8 @@ export default function ActionAreaCard() {
                 <Grid item xs={12} key={index}>
                     <Accordion expanded={expanded === contact.content} onChange={handleChange(contact.content)}>
                         <AccordionSummary expandIcon={<AiOutlineDown />} aria-controls="panel1bh-content" id="panel1bh-header">
-                            <Typography sx={{ width: '4%', flexShrink: 0 }}>Email: </Typography>
-                            <Typography>{contact.email}</Typography>
+                            <Typography sx={{ width: '4%', flexShrink: 0 }}>Email: {contact.email}</Typography>
+                            <Typography>{contact.title}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                             <Typography>{contact.content}</Typography>
