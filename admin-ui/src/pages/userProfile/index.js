@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import * as userServices from 'services/userServices';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
+import { ImageListItem, ImageList } from '@mui/material';
 
 // ============================|| FIREBASE - REGISTER ||============================ //
 
@@ -20,7 +21,6 @@ const UserProfile = () => {
         profileApi();
     }, []);
 
-    console.log(user);
     return (
         <>
             <Grid container spacing={4}>
@@ -33,14 +33,12 @@ const UserProfile = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Stack spacing={1}>
-                        {/* <ImageListItem>
-                            <img
-                                src={`https://localhost:5001/api/Images/Name?Name=${user}`}
-                                // srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                                // alt={item.title}
-                                // loading="lazy"
-                            />
-                        </ImageListItem> */}
+                        Ảnh đại diện
+                        <ImageList sx={{ width: 280, height: 250 }} cols={1} rowHeight={100}>
+                            <ImageListItem>
+                                <img src={`https://localhost:5001/api/Images/Name?Name=${user.avatarPath}`} />
+                            </ImageListItem>
+                        </ImageList>
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
