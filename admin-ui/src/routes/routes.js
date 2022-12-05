@@ -14,6 +14,7 @@ import UserProfile from 'pages/UserProfile/index';
 import UserRole from 'pages/UserRole/index';
 
 import Game from 'pages/GameList/index';
+import GameNewGenre from 'pages/GameNewGenre/index';
 import NewGame from 'pages/GameNew/index';
 import EditGame from 'pages/GameEdit/index';
 import ProfileGame from 'pages/GameProfile/index';
@@ -31,6 +32,7 @@ const adminRoutes = [
     { path: config.routes.editGame, component: EditGame },
     { path: config.routes.profileGame, component: ProfileGame },
     { path: config.routes.genreGame, component: GameGenre },
+    { path: config.routes.newGenre, component: GameNewGenre },
 
     { path: config.routes.user, component: User },
     { path: config.routes.newUser, component: NewUser },

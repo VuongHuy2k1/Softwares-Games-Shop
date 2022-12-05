@@ -77,6 +77,15 @@ export const postNewIMG = async (img) => {
     }
 };
 
+export const postNewGenre = async (genre) => {
+    try {
+        const res = await httpRequest.post(`Categories`, genre);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
 export const putGame = async (game) => {
     const formdata = new FormData();
     formdata.append('GameID', game.GameID);
