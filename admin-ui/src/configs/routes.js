@@ -9,6 +9,7 @@ const routes = {
     editGame: '/edit-game/:id',
     profileGame: '/game-profile/:id',
     genreGame: '/edit-game-genre/:id',
+    newGenre: '/new-genre',
 
     user: '/user',
     editUser: '/edit-user/:id',
