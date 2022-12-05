@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input } from '@mui/material';
+import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import config from 'configs/index';
@@ -59,11 +59,20 @@ const EditUser = () => {
 
     return (
         <>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Thay đổi thông tin tài khoản
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <form noValidate onSubmit={(e) => onSubmit(e)}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Stack spacing={1}>
-                            <InputLabel htmlFor="firstName">First Name</InputLabel>
+                            <InputLabel htmlFor="firstName">Họ</InputLabel>
                             <Input
                                 name="firstName"
                                 value={user?.firstName ? user?.firstName : ''}
@@ -75,7 +84,7 @@ const EditUser = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <Stack spacing={1}>
-                            <InputLabel htmlFor="lastName">Last Name</InputLabel>
+                            <InputLabel htmlFor="lastName">Tên</InputLabel>
                             <Input
                                 name="lastName"
                                 value={user?.lastName ? user?.lastName : ''}
@@ -99,7 +108,7 @@ const EditUser = () => {
                     </Grid>
                     <Grid item xs={12}>
                         <Stack spacing={1}>
-                            <InputLabel htmlFor="dob">Date of birth</InputLabel>
+                            <InputLabel htmlFor="dob">Ngày sinh</InputLabel>
                             <Input
                                 type="datetime-local"
                                 name="dob"
@@ -113,7 +122,7 @@ const EditUser = () => {
 
                     <Grid item xs={12}>
                         <Stack spacing={1}>
-                            <InputLabel htmlFor="phoneNumber">PhoneNumber</InputLabel>
+                            <InputLabel htmlFor="phoneNumber">Số điện thoại</InputLabel>
                             <Input
                                 name="phoneNumber"
                                 type="number"
@@ -133,7 +142,7 @@ const EditUser = () => {
                         ) : (
                             <AnimateButton>
                                 <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="primary">
-                                    Save
+                                    Lưu
                                 </Button>
                             </AnimateButton>
                         )}

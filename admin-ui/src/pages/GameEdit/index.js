@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input } from '@mui/material';
+import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import * as gameService from 'services/gameServices';
@@ -11,28 +11,7 @@ const EditGame = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
     const [image, setImage] = useState();
-
     const [game, setGame] = useState();
-    //     {
-    //     name: '',
-    //     price: '',
-    //     discount: '',
-    //     description: '',
-    //     gameplay: '',
-    //     status: '',
-    //     genreName: [''],
-    //     thumbnailImage: '',
-    //     srm: {
-    //         os: '',
-    //         processor: '',
-    //         memory: '',
-    //         graphics: '',
-    //         storage: '',
-    //         additionalNotes: '',
-    //         soundcard: ''
-    //     },
-    //     srr: { os: '', processor: '', memory: '', graphics: '', storage: '', additionalNotes: '', soundcard: '' }
-    // }
 
     useEffect(() => {
         const profileApi = async () => {
@@ -77,7 +56,6 @@ const EditGame = () => {
 
     const updateGame = async (gameAPI) => {
         // setLoading(true);
-        // Make Api call
         const response = await gameService.putGame(gameAPI);
     };
 
@@ -100,12 +78,21 @@ const EditGame = () => {
 
     return (
         <>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Sửa trò chơi
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             {game ? (
                 <form noValidate onSubmit={(e) => onSubmit(e)}>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="name">Name</InputLabel>
+                                <InputLabel htmlFor="name">Tên</InputLabel>
                                 <Input
                                     name="name"
                                     value={game?.name}
@@ -117,7 +104,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="price">Price</InputLabel>
+                                <InputLabel htmlFor="price">Giá</InputLabel>
                                 <Input
                                     name="price"
                                     value={game?.price}
@@ -129,7 +116,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="discount">Discount</InputLabel>
+                                <InputLabel htmlFor="discount">Giảm giá (%)</InputLabel>
                                 <Input
                                     name="discount"
                                     value={game?.discount}
@@ -142,7 +129,7 @@ const EditGame = () => {
 
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="description">description</InputLabel>
+                                <InputLabel htmlFor="description">Mô tả</InputLabel>
                                 <Input
                                     name="description"
                                     value={game?.description}
@@ -154,7 +141,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="gameplay">Gameplay</InputLabel>
+                                <InputLabel htmlFor="gameplay">Lối chơi</InputLabel>
                                 <Input
                                     name="gameplay"
                                     value={game?.gameplay}
@@ -166,7 +153,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="genre">Genre</InputLabel>
+                                <InputLabel htmlFor="genre">Thể loại</InputLabel>
                                 <Input
                                     name="genre"
                                     value={game?.genreName}
@@ -178,7 +165,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="imgIp">Image</InputLabel>
+                                <InputLabel htmlFor="imgIp">Hình</InputLabel>
                                 <Input
                                     id="imgIp"
                                     type="file"
@@ -191,12 +178,12 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>System Requirement Minimum</InputLabel>
+                                <InputLabel>Cấu hình tối thiểu</InputLabel>
                             </Stack>
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>System Requirement Recommended</InputLabel>
+                                <InputLabel>Cấu hình đề nghị</InputLabel>
                             </Stack>
                         </Grid>
 
@@ -376,7 +363,7 @@ const EditGame = () => {
                             ) : (
                                 <AnimateButton>
                                     <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="primary">
-                                        Save
+                                        Lưu
                                     </Button>
                                 </AnimateButton>
                             )}

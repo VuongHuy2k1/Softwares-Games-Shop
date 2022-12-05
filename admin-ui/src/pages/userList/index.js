@@ -15,7 +15,8 @@ import {
     IconButton,
     FormControlLabel,
     Switch,
-    LinearProgress
+    LinearProgress,
+    Typography
 } from '@mui/material';
 import { getComparator, stableSort, EnhancedTableHead } from './component/index';
 import * as userServices from 'services/userServices';
@@ -110,6 +111,15 @@ export default function UserTable() {
 
     return (
         <Box sx={{ width: '100%' }}>
+            <Grid container spacing={3}>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h1" component="h2">
+                        Danh sách tài khoản
+                    </Typography>
+                </Grid>
+                <Grid item xs={1}></Grid>
+            </Grid>
             <Paper sx={{ width: '100%', mb: 2 }}>
                 <TableContainer>
                     <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle" size={dense ? 'small' : 'medium'}>
