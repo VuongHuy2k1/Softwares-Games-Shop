@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 
-import { adminRoutes, authRoutes } from './routes';
+import { adminRoutes, authRoutes } from 'routes/routes';
 import EmptyLayout from 'layout/EmptyLayout/index';
 import MainLayout from 'layout/MainLayout/index';
 

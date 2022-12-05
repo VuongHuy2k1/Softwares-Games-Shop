@@ -2,8 +2,10 @@ import config from '../configs/index';
 
 // Pages
 import Login from '../pages/Login/index';
-import Dashboard from '../pages/dashboard/index';
-import Contact from '../pages/Contact/index';
+
+import DashboardDefault from 'pages/dashboard/index';
+import ActionAreaCard from 'pages/Contact/index';
+import RecentOrders from 'pages/RecentOrders/index';
 
 import User from '../pages/userList/index';
 import NewUser from '../pages/UserNew/index';
@@ -19,8 +21,9 @@ import GameGenre from '../pages/GameGenre/index';
 
 // Route
 const adminRoutes = [
-    { path: config.routes.dashboard, component: Dashboard },
-    { path: config.routes.contact, component: Contact },
+    { path: config.routes.dashboard, component: DashboardDefault },
+    { path: config.routes.contact, component: ActionAreaCard },
+    { path: config.routes.recentOrders, component: RecentOrders },
 
     { path: config.routes.listGame, component: Game },
     { path: config.routes.newGame, component: NewGame },
