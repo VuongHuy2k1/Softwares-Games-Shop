@@ -17,15 +17,15 @@ export const login = async (user) => {
 
 export const logout = () => {
     Cookies.remove('jwt');
-    Cookies.remove('user-id');
+    Cookies.remove('admin-id');
 };
 
 export const isLoggedIn = () => {
     const jwt = Cookies.get('jwt');
-    const userId = Cookies.get('user-id');
+    const userId = Cookies.get('admin-id');
     if (jwt === undefined || userId === undefined) {
         Cookies.remove('jwt');
-        Cookies.remove('user-id');
+        Cookies.remove('admin-id');
         return false;
     }
 
@@ -35,12 +35,12 @@ export const isLoggedIn = () => {
             return true;
         } else {
             Cookies.remove('jwt');
-            Cookies.remove('user-id');
+            Cookies.remove('admin-id');
             return false;
         }
     } catch (error) {
         Cookies.remove('jwt');
-        Cookies.remove('user-id');
+        Cookies.remove('admin-id');
         console.log(error);
         return false;
     }

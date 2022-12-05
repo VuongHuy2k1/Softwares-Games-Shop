@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography } from '@mui/material';
+import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography, Alert } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import config from 'configs/index';
@@ -11,6 +11,7 @@ import * as userServices from 'services/userServices';
 const EditUser = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
+    const [notify, setNotify] = useState();
     const navigate = useNavigate();
     const [user, setUser] = useState({
         id: '',
@@ -30,7 +31,18 @@ const EditUser = () => {
     }, []);
 
     const putUser = async (data) => {
+        setLoading(true);
         const result = await userServices.putUser(data);
+
+        if (result.data.isSuccess === true) {
+            setNotify('Thay đổi thông tin thành công');
+            const timeOut = setTimeout(() => {
+                clearTimeout(timeOut);
+                navigate(config.routes.user);
+            }, 700);
+        } else {
+            setLoading(false);
+        }
     };
 
     const handleChange = (e) => {
@@ -51,10 +63,6 @@ const EditUser = () => {
             phoneNumber: user.phoneNumber
         };
         putUser(variable);
-        const timeOut = setTimeout(() => {
-            clearTimeout(timeOut);
-            navigate(config.routes.user);
-        }, 1000);
     };
 
     return (
@@ -94,7 +102,7 @@ const EditUser = () => {
                             ></Input>
                         </Stack>
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                         <Stack spacing={1}>
                             <InputLabel htmlFor="email">Emal</InputLabel>
                             <Input
@@ -105,7 +113,7 @@ const EditUser = () => {
                                 }}
                             ></Input>
                         </Stack>
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                         <Stack spacing={1}>
                             <InputLabel htmlFor="dob">Ngày sinh</InputLabel>
@@ -133,7 +141,15 @@ const EditUser = () => {
                             ></Input>
                         </Stack>
                     </Grid>
-
+                    {notify ? (
+                        <Grid item xs={12}>
+                            <Alert severity="success">{notify}</Alert>
+                        </Grid>
+                    ) : (
+                        <Grid item xs={12}>
+                            <InputLabel>{notify}</InputLabel>
+                        </Grid>
+                    )}
                     <Grid item xs={12}>
                         {loading ? (
                             <Box sx={{ width: '100%' }}>
