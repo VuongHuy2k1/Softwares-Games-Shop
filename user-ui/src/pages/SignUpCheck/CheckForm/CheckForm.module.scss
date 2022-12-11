@@ -111,6 +111,14 @@
   color: var(--white);
   font-size: 1.8rem;
   margin-top: 2rem;
+  strong {
+    color: var(--primary);
+  }
+  &:hover {
+    strong {
+      text-decoration: underline;
+    }
+  }
 }
 
 @keyframes spinner {

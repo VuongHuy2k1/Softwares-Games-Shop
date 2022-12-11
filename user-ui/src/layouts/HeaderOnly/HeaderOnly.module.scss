@@ -51,6 +51,9 @@
   }
 }
 @media (max-width: 739px) {
+  .wrapper {
+    min-height: 282rem;
+  }
   .content {
     margin: 0;
     background-image: url(https://store.cloudflare.steamstatic.com/public/shared/images/joinsteam/new_login_bg_strong_mask.jpg);

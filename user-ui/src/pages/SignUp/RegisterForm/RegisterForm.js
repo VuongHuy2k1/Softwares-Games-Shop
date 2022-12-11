@@ -39,7 +39,7 @@ function RegisterForm() {
       Notify('error', response.message);
     }
     if (response.isSuccess === true) {
-      Notify('success', 'You must enter code to activate account ');
+      Notify('success', 'Mã xác nhận đã được gửi đến Email của bạn');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -53,37 +53,37 @@ function RegisterForm() {
   const handleClick = () => {
     var msg = '';
     if (usernameInput === '') {
-      msg = 'Please re-fill your Username';
+      msg = 'Vui lòng điền tên người dùng';
       if (passwordInput === '') {
-        msg = 'Please re-fill your Username and Password';
+        msg = 'Vui lòng điền đầy đủ';
       }
       Notify('warning', msg);
       return;
     }
     if (passwordInput === '') {
-      msg = 'Please re-fill your Password';
+      msg = 'Vui lòng điền mật khẩu';
       Notify('warning', msg);
       return;
     }
     if (passwordInput.length < 6) {
-      msg = 'Password must have at least 6 characters';
+      msg = 'Mật khẩu phải có ít nhất 6 ký tự';
       Notify('warning', msg);
       return;
     }
     if (passwordInput !== rePasswordInput) {
-      msg = 'Confirm password is not match';
+      msg = 'Mật khẩu xác nhận không khớp';
       Notify('warning', msg);
       return;
     }
     if (emailInput === '') {
-      msg = 'Please re-fill your Email';
+      msg = 'Vui lòng điền Email';
       Notify('warning', msg);
       return;
     }
 
     var emailRegex = new RegExp(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/);
     if (emailRegex.test(emailInput) === false) {
-      msg = 'Invalid Email, Please try again';
+      msg = 'Email không hợp lệ! Hãy thử lại';
       Notify('warning', msg);
       return;
     }
@@ -95,7 +95,7 @@ function RegisterForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>CREATE YOUR ACCOUNT</div>
+        <div className={cx('title')}>TẠO TÀI KHOẢN</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -106,7 +106,7 @@ function RegisterForm() {
                 setUsernameInput(e.currentTarget.value);
               }}
             />
-            <span>User Name</span>
+            <span>Tên người dùng</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -117,7 +117,7 @@ function RegisterForm() {
                 setPasswordInput(e.currentTarget.value);
               }}
             />
-            <span>Password</span>
+            <span>Mật khẩu</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -128,7 +128,7 @@ function RegisterForm() {
                 setRePasswordInput(e.currentTarget.value);
               }}
             />
-            <span>Re-Password</span>
+            <span>Xác nhận Mật khẩu</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -147,11 +147,11 @@ function RegisterForm() {
             </div>
           ) : (
             <button className={cx('button')} onClick={handleClick} ref={buttonRef}>
-              Register
+              Đăng ký
             </button>
           )}
           <Link to={config.routes.login} className={cx('link')}>
-            Already have an Account?
+            Bạn đã có tài khoản?
           </Link>
         </div>
       </div>

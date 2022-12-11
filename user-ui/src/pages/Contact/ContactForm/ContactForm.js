@@ -87,7 +87,7 @@ function ContactForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <h2 className={cx('title')}>Contact Us</h2>
+        <h2 className={cx('title')}>Liên hệ với chúng tôi</h2>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -98,7 +98,7 @@ function ContactForm() {
               }}
               value={title}
             />
-            <span>Title</span>
+            <span>Tiêu đề</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -119,7 +119,7 @@ function ContactForm() {
               }}
               value={content}
             />
-            <span>Content</span>
+            <span>Nội dung</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>
@@ -127,7 +127,7 @@ function ContactForm() {
             </div>
           ) : (
             <Button className={cx('submit-button')} onClick={handleClick}>
-              Send
+              Gửi
             </Button>
           )}
         </div>

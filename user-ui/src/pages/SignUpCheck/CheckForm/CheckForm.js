@@ -46,7 +46,7 @@ function CheckForm() {
       Notify('error', response.message);
     }
     if (response.isSuccess === true) {
-      Notify('success', 'Register Successfully');
+      Notify('success', 'Đăng ký thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -57,20 +57,20 @@ function CheckForm() {
   const handleClick = () => {
     var msg = '';
     if (userName === '') {
-      msg = 'Please re-fill your Username';
+      msg = 'Vui lòng điền tên người dùng';
       if (password === '') {
-        msg = 'Please re-fill your Username and Password';
+        msg = 'Vui lòng điền mật khẩu';
       }
       Notify('warning', msg);
       return;
     }
     if (password === '') {
-      msg = 'Please re-fill your Password';
+      msg = 'Vui lòng điền mật khẩu';
       Notify('warning', msg);
       return;
     }
     if (codeInput === '') {
-      msg = 'Please re-fill your Code';
+      msg = 'Vui lòng nhập mã xác nhận';
       Notify('warning', msg);
       return;
     }
@@ -83,7 +83,7 @@ function CheckForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>ENTER YOUR CODE</div>
+        <div className={cx('title')}>XÁC NHẬN TÀI KHOẢN</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -94,7 +94,7 @@ function CheckForm() {
                 setUserName(e.currentTarget.value);
               }}
             />
-            <span>User Name</span>
+            <span>Tên người dùng</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -105,7 +105,7 @@ function CheckForm() {
                 setPassword(e.currentTarget.value);
               }}
             />
-            <span>Password</span>
+            <span>Mật khẩu</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -116,7 +116,7 @@ function CheckForm() {
                 setCodeInput(e.currentTarget.value);
               }}
             />
-            <span>Confirm Code</span>
+            <span>Mã xác nhận</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>
@@ -124,11 +124,11 @@ function CheckForm() {
             </div>
           ) : (
             <button className={cx('button')} onClick={handleClick} ref={buttonRef}>
-              Register
+              Gửi
             </button>
           )}
           <Link to={config.routes.sendCode} className={cx('link')}>
-            You want to get the code back
+            Nếu chưa có mã xác nhận, hãy ấn vào <strong>đây</strong> trước!
           </Link>
         </div>
       </div>

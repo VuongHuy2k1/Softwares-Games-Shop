@@ -66,7 +66,7 @@ function Search() {
           <input
             className={cx('search-input')}
             type="text"
-            placeholder="Search . . ."
+            placeholder="Tìm kiếm . . ."
             value={searchValue}
             onChange={handleSearch}
             onFocus={handleShow}

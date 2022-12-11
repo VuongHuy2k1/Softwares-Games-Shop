@@ -23,23 +23,23 @@ function Footer() {
         <div className={cx('footer-content')}>
           <ul>
             <li>
-              <Link to={config.routes.home}>Home</Link>
+              <Link to={config.routes.home}>Trang chủ</Link>
             </li>
             <li>
-              <Link to={'#'}>Community</Link>
+              <Link to={'#'}>Cộng đồng</Link>
             </li>
             <li>
-              <Link to={config.routes.about}>About</Link>
+              <Link to={config.routes.about}>Về chúng tôi</Link>
             </li>
             <li>
-              <Link to={config.routes.contact}>Contact</Link>
+              <Link to={config.routes.contact}>Liên hệ</Link>
             </li>
           </ul>
         </div>
         <div className={cx('footer-content')}>
           <ul>
             <li>
-              <p>We always provide the best services</p>
+              <p>Chúng tôi luôn cung cấp dịch vụ tốt nhất!</p>
             </li>
             <li>
               <br />
@@ -61,7 +61,7 @@ function Footer() {
               <p>Phone/Fax: 18001050</p>
             </li>
             <li>
-              <p>Social Media:</p>
+              <p>Mạng xã hội:</p>
             </li>
             <li>
               <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">

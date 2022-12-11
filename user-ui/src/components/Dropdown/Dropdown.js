@@ -19,7 +19,7 @@ function Dropdown({ items, navbar = false, storenav = false, search = false, act
           return (
             <li key={item.id} className={cx('subnav-item')}>
               <Link to={item.path} onClick={item.action}>
-                {item.title}
+                {item.title_vi}
               </Link>
             </li>
           );

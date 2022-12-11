@@ -24,7 +24,7 @@ function StoreNav() {
             onMouseEnter={() => setStoreDropdown(true)}
             onMouseLeave={() => setStoreDropdown(false)}
           >
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
             {storeDropdown && <Dropdown items={item.subnav} storenav />}
           </li>
         );
@@ -36,14 +36,14 @@ function StoreNav() {
             onMouseEnter={() => setLastestDropdown(true)}
             onMouseLeave={() => setLastestDropdown(false)}
           >
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
             {lastestDropdown && <Dropdown items={item.subnav} storenav />}
           </li>
         );
       default:
         return (
           <li className={cx('store-nav-item')} key={item.id}>
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
           </li>
         );
     }

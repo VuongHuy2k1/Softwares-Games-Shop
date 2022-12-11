@@ -36,13 +36,13 @@ function LoginForm() {
 
     if (response.isSuccess === false) {
       setLoading(false);
-      Notify('error', response.message);
+      Notify('error', 'Có gì đó sai sai');
     }
 
     if (response.isSuccess === true) {
       Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
       Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
-      Notify('success', 'Login Successfully');
+      Notify('success', 'Đăng nhập thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -54,20 +54,20 @@ function LoginForm() {
   const handleClick = () => {
     var msg = '';
     if (usernameInput === '') {
-      msg = 'Please re-fill your Username';
+      msg = 'Vui lòng điền tên người dùng';
       if (passwordInput === '') {
-        msg = 'Please re-fill your Username and Password';
+        msg = 'Vui lòng điền đầy đủ';
       }
       Notify('warning', msg);
       return;
     }
     if (passwordInput === '') {
-      msg = 'Please re-fill your Password';
+      msg = 'Vui lòng điền mật khẩu';
       Notify('warning', msg);
       return;
     }
     if (passwordInput.length < 6) {
-      msg = 'Password must have at least 6 characters';
+      msg = 'Mật khẩu phải có ít nhất 6 ký tự';
       Notify('warning', msg);
       return;
     }
@@ -80,7 +80,7 @@ function LoginForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>LOGIN</div>
+        <div className={cx('title')}>ĐĂNG NHẬP</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -91,7 +91,7 @@ function LoginForm() {
                 setUsernameInput(e.currentTarget.value);
               }}
             />
-            <span>User Name</span>
+            <span>Tên người dùng</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -102,7 +102,7 @@ function LoginForm() {
                 setPasswordInput(e.currentTarget.value);
               }}
             />
-            <span>Password</span>
+            <span>Mật khẩu</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>
@@ -110,14 +110,14 @@ function LoginForm() {
             </div>
           ) : (
             <button className={cx('button')} onClick={handleClick}>
-              Login
+              Đăng nhập
             </button>
           )}
           <Link to={config.routes.forgetPassword} className={cx('link')} ref={buttonRef}>
-            Forgot your Password?
+            Quên mật khẩu?
           </Link>
           <Link to={config.routes.signupCheck} className={cx('link')} ref={buttonRef}>
-            You have not activated your account?
+            Bạn chưa kích hoạt tài khoản?
           </Link>
         </div>
       </div>

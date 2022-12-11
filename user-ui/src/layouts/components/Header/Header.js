@@ -79,7 +79,7 @@ function Header() {
             onMouseEnter={() => setStoreDropdown(true)}
             onMouseLeave={() => setStoreDropdown(false)}
           >
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
             {storeDropdown && <Dropdown items={item.subnav} navbar />}
           </li>
         );
@@ -91,14 +91,14 @@ function Header() {
             onMouseEnter={() => setCommunityDropdown(true)}
             onMouseLeave={() => setCommunityDropdown(false)}
           >
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
             {communityDropdown && <Dropdown items={item.subnav} navbar />}
           </li>
         );
       default:
         return (
           <li className={cx('navbar-item')} key={item.id}>
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{item.title_vi}</Link>
           </li>
         );
     }
@@ -108,11 +108,13 @@ function Header() {
     {
       id: 1,
       title: 'View Profile',
+      title_vi: 'Trang cá nhân',
       path: `/profile/${userName}`,
     },
     {
       id: 2,
       title: 'Logout',
+      title_vi: 'Đăng xuất',
       path: '#',
       action: () => {
         const timerId = setTimeout(() => {
@@ -146,7 +148,7 @@ function Header() {
                   {`WISHLIST (${wishlistData.length})`}
                 </Button>
                 <Button cart to={config.routes.cart} className={cx('action-menu-button')}>
-                  {`CART (${cartData.length})`}
+                  {`GIỎ HÀNG (${cartData.length})`}
                 </Button>
               </div>
               <div className={cx('action-menu')} ref={ActionMenuRef}>
@@ -172,12 +174,12 @@ function Header() {
                   <span></span>
                   <span></span>
                   <span></span>
-                  <span>Login</span>
+                  <span>Đăng nhập</span>
                 </Button>
               </div>
               <div className={cx('action-menu')}>
                 <Button text to={config.routes.signup} className={cx('action-menu-button')}>
-                  Register
+                  Đăng ký
                 </Button>
               </div>
             </>
