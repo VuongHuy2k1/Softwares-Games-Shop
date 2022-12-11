@@ -28,7 +28,7 @@ function ProductTab() {
         <>
           <h2 className={cx('title')}>
             <FontAwesomeIcon icon={faGamepad} className={cx('icon')} />
-            products you've purchased ({checkoutData.length})
+            Sản phẩm đã mua ({checkoutData.length})
           </h2>
           <div className={cx('container')}>
             <ProductItems data={checkoutData} />

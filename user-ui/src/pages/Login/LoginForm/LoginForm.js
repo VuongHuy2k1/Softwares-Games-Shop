@@ -113,8 +113,7 @@ function LoginForm() {
           </div>
           <div className={cx('check')} onClick={handleCheck}>
             <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} />
-
-            <span>See password</span>
+            <span>{check ? 'Ẩn' : 'Hiện'} mật khẩu</span>
           </div>
 
           {loading ? (

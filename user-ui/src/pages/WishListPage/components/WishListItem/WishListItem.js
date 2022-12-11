@@ -33,14 +33,14 @@ function WishListItem({ isAdded = false, data }) {
     setLoading(true);
     const response = await wishlistServices.removeWishlist({ gameID: data.gameID });
     if (response.isSuccess === true) {
-      Notify('success', 'Removed Successfully');
+      Notify('success', 'Xóa thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         dispatch(getWishlist());
       }, 2000);
     }
     if (response.isSuccess === false) {
-      Notify('error', 'Removed Fail');
+      Notify('error', 'Có gì đó sai sai');
       setLoading(false);
     }
   };
@@ -49,14 +49,14 @@ function WishListItem({ isAdded = false, data }) {
     setLoading(true);
     const response = await cartServices.addToCart({ gameID: data.gameID });
     if (response.isSuccess === true) {
-      Notify('success', 'Removed Successfully');
+      Notify('success', 'Thêm vào giỏ hàng thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         dispatch(getCart());
       }, 3000);
     }
     if (response.isSuccess === false) {
-      Notify('error', 'Add to cart Fail');
+      Notify('error', 'Có gì đó sai sai');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -81,8 +81,8 @@ function WishListItem({ isAdded = false, data }) {
             <h2 className={cx('name')}>
               <Link to={`/product/${data.gameID}`}>{data.name}</Link>
             </h2>
-            <div className={cx('item-rating')}>OVERALL REVIEWS: VERY POSITIVE</div>
-            <div className={cx('item-release-date')}>RELEASE DATE:</div>
+            <div className={cx('item-rating')}>ĐÁNH GIÁ: RẤT TÍCH CỰC</div>
+            <div className={cx('item-release-date')}>THỂ LOẠI:</div>
             <div className={cx('category-items')}>
               {data.genreName.map((item, index) => {
                 return (
@@ -108,18 +108,18 @@ function WishListItem({ isAdded = false, data }) {
                 </div>
               ) : (
                 <Button className={cx('cart-button')} onClick={handleAddToCart}>
-                  Add to Cart
+                  Thêm Giỏ hàng
                 </Button>
               )
             ) : (
               <Button to={config.routes.cart} className={cx('view-cart-button')}>
-                View in Cart
+                Xem Giỏ hàng
               </Button>
             )}
             <div className={cx('addon')}>
-              Added on {new Date(data.addedDate).toLocaleDateString(undefined)} ({' '}
+              Được thêm vào {new Date(data.addedDate).toLocaleDateString(undefined)} ({' '}
               <span className={cx('remove')} onClick={handleClick}>
-                Remove
+                Gỡ
               </span>{' '}
               )
             </div>

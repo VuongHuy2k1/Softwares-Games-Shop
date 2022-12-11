@@ -17,7 +17,7 @@ function MultiTab({ data }) {
           setTabIndex(index);
         }}
       >
-        <p>{item.title}</p>
+        <p>{item.title_vi}</p>
       </div>
     );
   });

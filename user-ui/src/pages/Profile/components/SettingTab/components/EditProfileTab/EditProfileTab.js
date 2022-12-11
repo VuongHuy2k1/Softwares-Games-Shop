@@ -49,7 +49,7 @@ function EditProfileTab() {
       const timerId = setTimeout(() => {
         dispatch(getUserData());
         clearTimeout(timerId);
-        Notify('success', 'Login Successfully');
+        Notify('success', 'Sửa thành công');
         setLoading(false);
       }, 1000);
     }
@@ -64,11 +64,11 @@ function EditProfileTab() {
       <div className={cx('wrapper')}>
         <h2 className={cx('title')}>
           <FontAwesomeIcon icon={faIdCard} className={cx('icon')} />
-          edit your profile information
+          Thay đổi thông tin cá nhân của tôi
         </h2>
         <div className={cx('content')}>
           <div className={cx('line')}>
-            <div className={cx('label')}>Firstname</div>
+            <div className={cx('label')}>Tên</div>
             <input
               className={cx('input')}
               value={firstName || ''}
@@ -78,7 +78,7 @@ function EditProfileTab() {
             />
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>Lastname</div>
+            <div className={cx('label')}>Họ</div>
             <input
               className={cx('input')}
               value={lastName || ''}
@@ -88,7 +88,7 @@ function EditProfileTab() {
             />
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>Date of Birth</div>
+            <div className={cx('label')}>Ngày sinh</div>
             <input
               type="date"
               className={cx('input-date')}
@@ -104,7 +104,7 @@ function EditProfileTab() {
             <input className={cx('input')} value="HMC city, Viet Nam" />
           </div> */}
           <div className={cx('line')}>
-            <div className={cx('label')}>Phone number</div>
+            <div className={cx('label')}>Số điện thoại</div>
             <input
               className={cx('input')}
               value={phoneNumber || ''}
@@ -120,7 +120,7 @@ function EditProfileTab() {
               </div>
             ) : (
               <button className={cx('confirm-button')} onClick={handleClick}>
-                Confirm
+                Sửa
               </button>
             )}
           </div>

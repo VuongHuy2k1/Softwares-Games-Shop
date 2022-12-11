@@ -27,7 +27,7 @@ function ShoppingCart() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <h2 className={cx('title')}>Your Shopping Cart</h2>
+        <h2 className={cx('title')}>Giỏ Hàng</h2>
         <div className={cx('content')}>
           <div className={cx('cart-container')}>
             {cartData.length > 0 ? (
@@ -36,37 +36,37 @@ function ShoppingCart() {
               })
             ) : (
               <div className={cx('empty-cart')}>
-                <h2>Empty Cart</h2>
+                <h2>Giỏ hàng rỗng</h2>
                 <Button to={config.routes.home} className={cx('shopping-button')}>
-                  Back to Store
+                  Trở về Trang chủ
                 </Button>
               </div>
             )}
           </div>
           <div className={cx('cart-total-container')}>
             <div className={cx('total-price')}>
-              {`Total: ${currencyFormat(cartData.reduce((total, current) => total + current.price, 0))}`}
+              {`Tổng cộng: ${currencyFormat(cartData.reduce((total, current) => total + current.price, 0))}`}
             </div>
             <div className={cx('discount')}>
-              {`Discount:
+              {`Giảm giá:
               ${currencyFormat(
                 cartData.reduce((total, current) => total + (current.price * current.discount) / 100, 0),
               )}`}
             </div>
             <hr />
             <div className={cx('final-price')}>
-              {`Estimated total: 
+              {`Tiền thanh toán: 
               ${currencyFormat(
                 cartData.reduce((total, current) => total + current.price * (1 - current.discount / 100), 0),
               )}`}
             </div>
             <div className={cx('action')}>
               <Button to={config.routes.home} className={cx('shopping-button')}>
-                Continue Shopping
+                Tiếp tục mua sắm
               </Button>
               {cartData.length > 0 && (
                 <Button to={config.routes.checkout} className={cx('checkout-button')}>
-                  Checkout
+                  Thanh toán
                 </Button>
               )}
             </div>

@@ -28,7 +28,7 @@ function Payment() {
     console.log(response);
 
     if (response.isSuccess === true) {
-      Notify('success', 'Checkout Successfully');
+      Notify('success', 'Thánh toán thành công');
       const timerId = setTimeout(() => {
         dispatch(getCart());
         navigate(config.routes.profile);
@@ -37,7 +37,7 @@ function Payment() {
     }
 
     if (response.isSuccess === false) {
-      Notify('error', 'Checkout Fail');
+      Notify('error', 'Thánh toán thất bại');
       setLoading(false);
     }
   };
@@ -64,7 +64,7 @@ function Payment() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <h2 className={cx('title')}>Checkout</h2>
+        <h2 className={cx('title')}>Trang thanh toán</h2>
         <div className={cx('content')}>
           <div className={cx('payment-container')}>
             {cartData.length < 0 ? (
@@ -77,10 +77,10 @@ function Payment() {
           </div>
           <div className={cx('payment-total-container')}>
             <div className={cx('total-price')}>
-              {`Total price: ${currencyFormat(cartData.reduce((total, current) => total + current.price, 0))}`}
+              {`Tổng cộng: ${currencyFormat(cartData.reduce((total, current) => total + current.price, 0))}`}
             </div>
             <div className={cx('discount')}>
-              {`Total discount: - 
+              {`Giảm giá: - 
               ${currencyFormat(
                 cartData.reduce((total, current) => total + (current.price * current.discount) / 100, 0),
               )}`}
@@ -88,19 +88,19 @@ function Payment() {
             <div className={cx('vat')}>{`VAT: + ${currencyFormat(0)}`}</div>
             <hr />
             <div className={cx('final-price')}>
-              {`Amount: ${currencyFormat(
+              {`Tiền thanh toán: ${currencyFormat(
                 cartData.reduce((total, current) => total + current.price * (1 - current.discount / 100), 0),
               )}`}
             </div>
             <div className={cx('discount')}>
-              {`Saved: 
+              {`Tiết kiệm: 
               ${currencyFormat(
                 cartData.reduce((total, current) => total + (current.price * current.discount) / 100, 0),
               )}`}
             </div>
             <div className={cx('action')}>
               <Button className={cx('cancel-button')} onClick={handleCancelClick} disabled={loading}>
-                Cancel
+                Hủy
               </Button>
               {cartData.length === 0 ? (
                 <div className={cx('loading')}>

@@ -33,7 +33,7 @@ function ProductDetail({ data }) {
     setLoading(true);
     const response = await cartServices.addToCart({ gameID: data.gameID });
     if (response.isSuccess === true) {
-      Notify('success', 'Add to Cart Successfully');
+      Notify('success', 'Thêm vào Giỏ hàng thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -57,7 +57,7 @@ function ProductDetail({ data }) {
     setLoading2(true);
     const response = await wishlistServices.addToWishlist({ gameID: data.gameID });
     if (response.isSuccess === true) {
-      Notify('success', 'Add to Wishlist Successfully');
+      Notify('success', 'Thêm vào WishList thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading2(false);
@@ -152,12 +152,12 @@ function ProductDetail({ data }) {
                       </div>
                     ) : (
                       <button className={cx('wishlish-button')} onClick={handleAddToWishlist}>
-                        Add to your WishList
+                        Thêm vào WishList
                       </button>
                     )
                   ) : (
                     <Link to={config.routes.wishlist} className={cx('view-wishlist-button')}>
-                      View WishList
+                      Xem WishList
                     </Link>
                   )}
                 </div>
@@ -173,12 +173,12 @@ function ProductDetail({ data }) {
                       </div>
                     ) : (
                       <button className={cx('cart-button')} onClick={handleClick}>
-                        Add to Cart
+                        Thêm giỏ hàng
                       </button>
                     )
                   ) : (
                     <Link to={config.routes.cart} className={cx('view-cart-button')}>
-                      View Cart
+                      Xem giỏ hàng
                     </Link>
                   )}
                 </div>

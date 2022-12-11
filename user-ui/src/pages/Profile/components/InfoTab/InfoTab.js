@@ -29,22 +29,22 @@ function InfoTab() {
       <div className={cx('wrapper')}>
         <h2 className={cx('title')}>
           <FontAwesomeIcon icon={faUser} className={cx('icon')} />
-          about me
+          Thông tin của tôi
         </h2>
         <div className={cx('container')}>
           <div className={cx('content')}>
-            <h2 className={cx('title')}>Personal Infomation</h2>
+            <h2 className={cx('title')}>Thông tin cá nhân</h2>
             <>
               <div className={cx('line')}>
-                <div className={cx('label')}>Username:</div>
+                <div className={cx('label')}>Tên người dùng:</div>
                 <div className={cx('text')}>{userData.userName}</div>
               </div>
               <div className={cx('line')}>
-                <div className={cx('label')}>Fullname:</div>
+                <div className={cx('label')}>Họ và tên:</div>
                 <div className={cx('text')}>{`${userData.lastName || ''} ${userData.firstName || ''}`}</div>
               </div>
               <div className={cx('line')}>
-                <div className={cx('label')}>Date of Birth:</div>
+                <div className={cx('label')}>Ngày sinh:</div>
                 <div className={cx('text')}>{new Date(userData.dob).toLocaleDateString(undefined)}</div>
               </div>
               {/* <div className={cx('line')}>
@@ -52,10 +52,10 @@ function InfoTab() {
                   <div className={cx('text')}>...</div>
                 </div> */}
             </>
-            <h2 className={cx('title')}>Contact Infomation</h2>
+            <h2 className={cx('title')}>Thông tin liên lạc</h2>
             <>
               <div className={cx('line')}>
-                <div className={cx('label')}>Phone:</div>
+                <div className={cx('label')}>Số điện thoại:</div>
                 <div className={cx('text')}>{userData.phoneNumber || ''}</div>
               </div>
               <div className={cx('line')}>
