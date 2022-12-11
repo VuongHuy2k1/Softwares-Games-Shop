@@ -12,7 +12,7 @@ function Home() {
       <StoreNav />
       <Slider />
       <Sell />
-      <ProductList type={'latest'} title={'Latest Product'} />
+      <ProductList type={'latest'} title={'New Product'} />
       <ProductList type={'specials'} title={'Sales Now'} />
       <ProductList type={'best-seller'} title={'Best Seller'} />
       <ProductList pagination={true} typePage={'products'} title={'Tất cả sản phẩm'} />

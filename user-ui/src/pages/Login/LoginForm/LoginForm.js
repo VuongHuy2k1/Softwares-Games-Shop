@@ -9,6 +9,8 @@ import styles from './LoginForm.module.scss';
 import Cookies from 'js-cookie';
 import { useNotification } from 'src/hooks';
 import useEnterPress from 'src/hooks/useEnterPress';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +19,11 @@ function LoginForm() {
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [check, setCheck] = useState(false);
+  const handleCheck = () => {
+    setCheck(!check);
+  };
+
   const toastRef = useRef();
   const buttonRef = useRef();
   const Notify = useNotification(toastRef);
@@ -95,7 +102,7 @@ function LoginForm() {
           </div>
           <div className={cx('inputBox')}>
             <input
-              type="password"
+              type={check ? 'text' : 'password'}
               placeholder=" "
               value={passwordInput}
               onChange={(e) => {
@@ -104,6 +111,12 @@ function LoginForm() {
             />
             <span>Mật khẩu</span>
           </div>
+          <div className={cx('check')} onClick={handleCheck}>
+            <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} />
+
+            <span>See password</span>
+          </div>
+
           {loading ? (
             <div className={cx('loading')}>
               <span></span>

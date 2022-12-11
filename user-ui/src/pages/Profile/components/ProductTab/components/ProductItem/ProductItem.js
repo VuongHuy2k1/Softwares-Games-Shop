@@ -9,6 +9,7 @@ import { saveAs } from 'file-saver';
 import styles from './ProductItem.module.scss';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
+import Moment from 'moment';
 const cx = classNames.bind(styles);
 function ProductItem({ data }) {
   const download = (e, urls, title) => {
@@ -25,7 +26,8 @@ function ProductItem({ data }) {
         alert(err);
       });
   };
-  console.log(data.createdDate);
+
+  let date1 = new Date(data.createdDate).toDateString();
   return (
     <>
       <div className={cx('wrapper')}>
@@ -36,11 +38,15 @@ function ProductItem({ data }) {
           <div className={cx('money')}>
             Paid: <strong>{currencyFormat(data.price)}</strong>
           </div>
+
           {data.discount > 0 && (
             <div className={cx('money')}>
               Discount: <strong>{data.discount}%</strong>
             </div>
           )}
+          <div className={cx('money')}>
+            Date: <strong>{date1}</strong>
+          </div>
         </div>
         <div className={cx('img')}>
           <img src={imageServices.getImage(data.listImage[0])} alt="Game" />

@@ -97,7 +97,7 @@ const EditGame = () => {
             Description: game.description,
             Publisher: game.publisher,
             Gameplay: game.gameplay,
-            ThumbnailImage: image,
+            // ThumbnailImage: image,
             FileGame: fileGame,
             Status: status,
             SRM: game.srm,
@@ -111,7 +111,7 @@ const EditGame = () => {
                 ThumbnailImage: image,
                 Caption: game.name,
                 isDefault: true,
-                SortOrder: 1
+                SortOrder: 2
             });
         }
     };

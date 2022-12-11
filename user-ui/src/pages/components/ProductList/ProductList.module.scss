@@ -179,7 +179,6 @@
   filter: drop-shadow(0px 0px 10px rgba(50, 3, 15, 0.4));
   box-shadow: rgb(0 0 0 / 40%) 0px 2px 4px, rgb(0 0 0 / 30%) 0px 7px 13px -3px, rgb(0 0 0 / 20%) 0px -3px 0px inset;
   border-radius: 0.4rem;
-  transition: 0.4s, opacity 0.5s;
 }
 
 .item-detail {
@@ -265,7 +264,7 @@
 
 .review-title {
   margin-left: 8rem;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
@@ -332,7 +331,7 @@
 }
 @media (min-width: 740px) and (max-width: 1023px) {
   .wrapper {
-    zoom: 2;
+    zoom: 1;
   }
   .container {
     min-height: 160rem;
