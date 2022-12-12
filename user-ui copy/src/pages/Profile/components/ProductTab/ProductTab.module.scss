@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+  background-color: #171a21;
+}
+
+.title {
+  font-size: 2rem;
+  padding: 2rem 0 1rem 3rem;
+  text-transform: capitalize;
+  color: var(--white);
+
+  .icon {
+    margin-right: 1rem;
+  }
+
+  user-select: none;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 740px) and (max-width: 1023px) {
+  .title {
+    zoom: 2;
+  }
+}
+@media (max-width: 739px) {
+  .title {
+    zoom: 2;
+  }
+}
