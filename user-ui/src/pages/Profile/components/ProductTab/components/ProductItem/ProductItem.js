@@ -5,11 +5,8 @@ import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import * as imageServices from 'src/services/imageServices';
 import { currencyFormat } from 'src/utils';
-import { saveAs } from 'file-saver';
 import styles from './ProductItem.module.scss';
 import axios from 'axios';
-import fileDownload from 'js-file-download';
-import Moment from 'moment';
 const cx = classNames.bind(styles);
 function ProductItem({ data }) {
   const download = (e, urls, title) => {
@@ -27,7 +24,7 @@ function ProductItem({ data }) {
       });
   };
 
-  let date1 = new Date(data.createdDate).toDateString();
+  let date1 = new Date(data.createdDate).toLocaleDateString(undefined);
   return (
     <>
       <div className={cx('wrapper')}>
@@ -36,16 +33,16 @@ function ProductItem({ data }) {
             <Link to={`/product/${data.gameID}`}>{data.name}</Link>
           </h2>
           <div className={cx('money')}>
-            Paid: <strong>{currencyFormat(data.price)}</strong>
+            Giá mua: <strong>{currencyFormat(data.price)}</strong>
           </div>
 
           {data.discount > 0 && (
             <div className={cx('money')}>
-              Discount: <strong>{data.discount}%</strong>
+              Được giảm: <strong>{data.discount}%</strong>
             </div>
           )}
           <div className={cx('money')}>
-            Date: <strong>{date1}</strong>
+            Ngày mua: <strong>{date1}</strong>
           </div>
         </div>
         <div className={cx('img')}>

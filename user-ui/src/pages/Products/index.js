@@ -11,18 +11,34 @@ function Products() {
     if (keyword !== undefined) {
       const tmp = keyword.split('-');
       const _title = tmp.join(' ');
-      if (_title === 'best seller' || _title === 'specials' || _title === 'latest') {
-        setTitle(_title);
-      } else {
-        setTitle('all');
+
+      switch (_title) {
+        case 'best seller': {
+          setTitle('Bán Chạy');
+          break;
+        }
+        case 'specials': {
+          setTitle('Khuyến mãi');
+          break;
+        }
+        case 'latest': {
+          setTitle('Sản phẩm mới');
+          break;
+        }
+        default: {
+          setTitle('Tất cả sản phẩm');
+          break;
+        }
       }
+    } else {
+      setTitle('Tất cả sản phẩm');
     }
   }, [keyword]);
 
   return (
     <>
       <StoreNav />
-      <ProductList pagination={true} typePage={'products'} title={`${title || 'all'} products - Page ${page || 1}`} />
+      <ProductList pagination={true} typePage={'products'} title={`${title} - Trang ${page || 1}`} />
     </>
   );
 }

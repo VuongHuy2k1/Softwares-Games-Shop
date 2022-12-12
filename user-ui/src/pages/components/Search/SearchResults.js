@@ -9,7 +9,7 @@ function SearchResults({ data, totalRecords }) {
     <div className={cx('search-results')}>
       <div className={cx('wrapper')}>
         <div className={cx('header')}>
-          <p>Results: {totalRecords} Game(s) has found</p>
+          <p>Kết quả tìm kiếm: {totalRecords} Game(s)</p>
         </div>
         <div className={cx('container')}>
           {data.map((item) => {

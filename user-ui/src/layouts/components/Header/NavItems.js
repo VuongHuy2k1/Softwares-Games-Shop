@@ -2,7 +2,8 @@ import config from 'src/config';
 export const navItems = [
   {
     id: 1,
-    title: 'Store',
+    title: 'Home',
+    title_vi: 'Trang chủ',
     path: config.routes.home,
     subnav: [
       // {
@@ -42,11 +43,13 @@ export const navItems = [
   {
     id: 3,
     title: 'About',
+    title_vi: 'Về chúng tôi',
     path: config.routes.about,
   },
   {
     id: 4,
     title: 'Contact',
+    title_vi: 'Liên hệ',
     path: config.routes.contact,
   },
 ];

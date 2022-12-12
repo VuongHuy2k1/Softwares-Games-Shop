@@ -14,7 +14,7 @@ function SettingTab() {
       <div className={cx('wrapper')}>
         <h2 className={cx('title')}>
           <FontAwesomeIcon icon={faGear} className={cx('icon')} />
-          setting
+          cài đặt
         </h2>
         <div className={cx('container')}>
           <MultiTab data={Items} />

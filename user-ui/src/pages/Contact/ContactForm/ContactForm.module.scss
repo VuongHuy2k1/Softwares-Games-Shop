@@ -19,6 +19,7 @@
   color: var(--white);
   font-weight: normal;
   margin-bottom: 2rem;
+  text-transform: uppercase;
 }
 
 .container {
@@ -134,7 +135,28 @@
     border: none;
     background-color: transparent;
     margin-top: 16rem;
-    zoom: 2;
+    zoom: 3;
+  }
+  .container {
+    width: 60%;
+  }
+  .inputBox {
+    input,
+    textarea {
+      font-size: 2rem;
+      &:focus ~ span,
+      &:not(:placeholder-shown) ~ span {
+        font-size: 1.6rem;
+      }
+    }
+    span {
+      font-size: 2rem;
+    }
+  }
+  .submit-button {
+    height: 2.8rem;
+    width: 8rem;
+    font-size: 1.2rem;
   }
 }
 @media (max-width: 739px) {
@@ -143,5 +165,26 @@
     background-color: transparent;
     margin-top: 16rem;
     zoom: 2;
+  }
+  .container {
+    width: 80%;
+  }
+  .inputBox {
+    input,
+    textarea {
+      font-size: 2rem;
+      &:focus ~ span,
+      &:not(:placeholder-shown) ~ span {
+        font-size: 1.6rem;
+      }
+    }
+    span {
+      font-size: 2rem;
+    }
+  }
+  .submit-button {
+    height: 2.8rem;
+    width: 8rem;
+    font-size: 1.2rem;
   }
 }

@@ -73,10 +73,10 @@ export default function Slider() {
                           if (index < 5 && index > 0) {
                             return (
                               <div className={cx('screen-img')}>
-                                <img src={imageServices.getImage(img)}></img>
+                                <img src={imageServices.getImage(img)} key={index} alt="" />
                               </div>
                             );
-                          }
+                          } else return null;
                         })}
                       </div>
                       <div className={cx('category-items')}>

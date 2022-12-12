@@ -8,7 +8,7 @@ function Search() {
   return (
     <>
       <StoreNav />
-      <ProductList pagination={true} typePage={'search'} title={`Page ${page || 1} - Search: ${keyword}`} />
+      <ProductList pagination={true} typePage={'search'} title={`Trang ${page || 1} - Tìm kiếm: "${keyword}"`} />
     </>
   );
 }

@@ -39,7 +39,7 @@ function ChangePasswordTab() {
       Notify('error', response.message);
     }
     if (response.isSuccess === true) {
-      Notify('success', 'Change Successfully');
+      Notify('success', 'Đổi thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -51,17 +51,17 @@ function ChangePasswordTab() {
   const handleClick = () => {
     var msg = '';
     if (password === '') {
-      msg = 'Please re-fill your Password';
+      msg = 'Vui lòng điền mật khẩu';
       Notify('warning', msg);
       return;
     }
     if (newPassword.length < 6) {
-      msg = 'Password must have at least 6 characters';
+      msg = 'Mật khẩu phải có ít nhất 6 ký tự';
       Notify('warning', msg);
       return;
     }
     if (newPassword !== reNewPassword) {
-      msg = 'Confirm password is not match';
+      msg = 'Mật khẩu xác nhận không khớp';
       Notify('warning', msg);
       return;
     }
@@ -72,11 +72,11 @@ function ChangePasswordTab() {
       <div className={cx('wrapper')}>
         <h2 className={cx('title')}>
           <FontAwesomeIcon icon={faLock} className={cx('icon')} />
-          change password
+          Thay đổi mật khẩu
         </h2>
         <div className={cx('content')}>
           <div className={cx('line')}>
-            <div className={cx('label')}>Password</div>
+            <div className={cx('label')}>Mật khẩu</div>
             <input
               className={cx('input')}
               type="password"
@@ -87,7 +87,7 @@ function ChangePasswordTab() {
             />
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>New Password</div>
+            <div className={cx('label')}>Mật khẩu mới</div>
             <input
               className={cx('input')}
               type="password"
@@ -98,7 +98,7 @@ function ChangePasswordTab() {
             />
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>Re-Password</div>
+            <div className={cx('label')}>Xác nhận mật khẩu</div>
             <input
               className={cx('input')}
               type="password"
@@ -115,7 +115,7 @@ function ChangePasswordTab() {
               </div>
             ) : (
               <button className={cx('confirm-button')} onClick={handleClick}>
-                Confirm
+                Xác nhận
               </button>
             )}
           </div>

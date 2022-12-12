@@ -61,7 +61,7 @@ const ImageEditor = forwardRef(({ typeImage }, ref) => {
     }
 
     if (response.isSuccess === true) {
-      Notify('success', 'Change Successfully');
+      Notify('success', 'Đổi thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         dispatch(getUserData());
@@ -99,7 +99,7 @@ const ImageEditor = forwardRef(({ typeImage }, ref) => {
       <>
         <div className={cx('wrapper')} ref={formRef}>
           <div className={cx('header')}>
-            <h2 className={cx('title')}>{`Change ${typeImage}`}</h2>
+            <h2 className={cx('title')}>{`Thay đổi ${typeImage === 'avatar' ? 'ảnh đại diện' : 'ảnh bìa'}`}</h2>
             <button className={cx('button-close')} onClick={handleClose}>
               <FontAwesomeIcon icon={faXmark} className={cx('icon')} />
             </button>
@@ -115,7 +115,7 @@ const ImageEditor = forwardRef(({ typeImage }, ref) => {
                 </div>
               ) : (
                 <button className={cx('button-confirm')} onClick={handleChangeImage}>
-                  Apply Change
+                  Thay đổi
                 </button>
               )}
               {loading ? (
@@ -124,7 +124,7 @@ const ImageEditor = forwardRef(({ typeImage }, ref) => {
                 </div>
               ) : (
                 <button className={cx('button-cancel')} onClick={handleClose}>
-                  Cancel
+                  Hủy
                 </button>
               )}
             </div>

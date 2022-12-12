@@ -12,22 +12,22 @@ function ProfileCard({ data }) {
       <div className={cx('wrapper')}>
         <div className={cx('container')}>
           <h2 className={cx('header-title')}>{data.role}</h2>
-          <h2 className={cx('title')}>Personal Infomation</h2>
+          <h2 className={cx('title')}>Thông tin cá nhân</h2>
           <div className={cx('line')}>
-            <div className={cx('label')}>Fullname:</div>
+            <div className={cx('label')}>Họ và tên:</div>
             <div className={cx('text')}>{data.fullname}</div>
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>Date of Birth:</div>
+            <div className={cx('label')}>Ngày sinh:</div>
             <div className={cx('text')}>{data.dateOfBirth}</div>
           </div>
           <div className={cx('line')}>
-            <div className={cx('label')}>Address:</div>
+            <div className={cx('label')}>Địa chỉ:</div>
             <div className={cx('text')}>{data.address}</div>
           </div>
           <h2 className={cx('title')}>Contact Infomation</h2>
           <div className={cx('line')}>
-            <div className={cx('label')}>Phone:</div>
+            <div className={cx('label')}>Số điện thoại:</div>
             <div className={cx('text')}>{data.phone}</div>
           </div>
           <div className={cx('line')}>

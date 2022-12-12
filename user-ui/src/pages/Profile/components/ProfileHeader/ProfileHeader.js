@@ -47,7 +47,7 @@ function ProfileHeader() {
             <>
               <button type="button" className={cx('wallpaper-button')} onClick={handleChangeWallPaper}>
                 <FontAwesomeIcon icon={faCamera} className={cx('icon')} />
-                Edit Wallpaper
+                Sửa ảnh bìa
               </button>
             </>
           )}
@@ -75,7 +75,7 @@ function ProfileHeader() {
                 }}
               >
                 <FontAwesomeIcon icon={faXmark} className={cx('icon')} />
-                Cancel
+                Hủy
               </button>
             ) : (
               <button
@@ -86,7 +86,7 @@ function ProfileHeader() {
                 }}
               >
                 <FontAwesomeIcon icon={faGear} className={cx('icon')} />
-                Edit Pictures
+                Thay đổi ảnh
               </button>
             )}
           </div>

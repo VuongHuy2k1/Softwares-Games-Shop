@@ -38,10 +38,10 @@ function ForgetPasswordForm() {
     });
     if (response.isSuccess === false) {
       setLoading(false);
-      Notify('error', response.message);
+      Notify('error', 'Có gì đó sai sai');
     }
     if (response.isSuccess === true) {
-      Notify('success', 'Change Successfully');
+      Notify('success', 'Đổi mật khẩu thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -52,38 +52,38 @@ function ForgetPasswordForm() {
   const handleClick = () => {
     var msg = '';
     if (userInput === '') {
-      msg = 'Please re-fill your Username';
+      msg = 'Vui lòng điền tên người dùng';
       Notify('warning', msg);
       return;
     }
     if (emailInput === '') {
-      msg = 'Please re-fill your Email';
+      msg = 'Vui lòng điền Email';
       Notify('warning', msg);
       return;
     }
     var emailRegex = new RegExp(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/);
     if (emailRegex.test(emailInput) === false) {
-      msg = 'Invalid Email, Please try again';
+      msg = 'Email không hợp lệ! Hãy thử lại';
       Notify('warning', msg);
       return;
     }
     if (newPasswordInput === '') {
-      msg = 'Please re-fill your new Password';
+      msg = 'Vui lòng điền mật khẩu';
       Notify('warning', msg);
       return;
     }
     if (newPasswordInput.length < 6) {
-      msg = 'Password must have at least 6 characters';
+      msg = 'Mật khẩu phải có ít nhất 6 ký tự';
       Notify('warning', msg);
       return;
     }
     if (newPasswordInput !== rePasswordInput) {
-      msg = 'Confirm password is not match';
+      msg = 'Mật khẩu xác nhận không khớp';
       Notify('warning', msg);
       return;
     }
     if (codeInput === '') {
-      msg = 'Please enter the code we sent to your email ';
+      msg = 'Vui lòng điều mã xác nhận trong Email';
       Notify('warning', msg);
       return;
     }
@@ -95,7 +95,7 @@ function ForgetPasswordForm() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <div className={cx('title')}>RESET PASSWORD</div>
+        <div className={cx('title')}>ĐẶT LẠI MẬT KHẨU</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -106,7 +106,7 @@ function ForgetPasswordForm() {
                 setUserInput(e.currentTarget.value);
               }}
             />
-            <span>User Name</span>
+            <span>Tên người dùng</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -130,7 +130,7 @@ function ForgetPasswordForm() {
                 setNewPasswordInput(e.currentTarget.value);
               }}
             />
-            <span>New Password</span>
+            <span>Mật khẩu mới</span>
           </div>
           <div className={cx('inputBox')}>
             <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} onClick={handleCheck} />
@@ -142,7 +142,7 @@ function ForgetPasswordForm() {
                 setRePasswordInput(e.currentTarget.value);
               }}
             />
-            <span>Re-Password</span>
+            <span>Xác nhận mật khẩu</span>
           </div>
           <div className={cx('inputBox')}>
             <input
@@ -153,7 +153,7 @@ function ForgetPasswordForm() {
                 setCodeInput(e.currentTarget.value);
               }}
             />
-            <span>Confirm Code</span>
+            <span>Mã xác nhận</span>
           </div>
           {loading ? (
             <div className={cx('loading')}>
@@ -161,14 +161,14 @@ function ForgetPasswordForm() {
             </div>
           ) : (
             <button type="button" className={cx('button')} onClick={handleClick} ref={buttonRef}>
-              Submit
+              Gửi
             </button>
           )}
           <Link to={config.routes.sendCode} className={cx('link')}>
-            Send code to Email again ?
+            Nếu chưa có mã xác nhận, hãy ấn vào <strong>đây</strong> trước!
           </Link>
           <Link to={config.routes.login} className={cx('link')}>
-            Back to Login!
+            Quay lại đăng nhập!
           </Link>
         </div>
       </div>

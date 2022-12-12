@@ -23,14 +23,14 @@ function CartItem({ data }) {
     setLoading(true);
     const response = await cartServices.removeCart({ gameId: data.gameId });
     if (response.isSuccess === true) {
-      Notify('success', 'Removed Successfully');
+      Notify('success', 'Xóa thành công');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         dispatch(getCart());
       }, 2000);
     }
     if (response.isSuccess === false) {
-      Notify('error', 'Removed Fail');
+      Notify('error', 'Có gì đó sai sai');
       setLoading(false);
     }
   };
@@ -54,7 +54,7 @@ function CartItem({ data }) {
           <div className={cx('item-price')}>
             <span className={cx('price')}>{currencyFormat(data.price)}</span>
             <span className={cx('remove')} onClick={handleClick}>
-              {loading ? '' : 'Remove'}
+              {loading ? '' : 'Gỡ'}
             </span>
           </div>
         </div>

@@ -27,13 +27,13 @@ function SentForm() {
 
     if (response.isSuccess === false) {
       setLoading(false);
-      Notify('error', response.message);
+      Notify('error', 'Có gì đó sai sai');
     }
 
     if (response.isSuccess === true) {
       Cookies.set('jwt', response.resultObj.token, { expires: 30 / 1440, secure: true });
       Cookies.set('user-id', response.resultObj.userId, { expires: 30 / 1440, secure: true });
-      Notify('success', 'We have sent the code to your email');
+      Notify('success', 'Mã xác nhận đã được gửi đển Email của bạn');
       const timerId = setTimeout(() => {
         clearTimeout(timerId);
         setLoading(false);
@@ -45,7 +45,7 @@ function SentForm() {
   const handleClick = () => {
     var msg = '';
     if (usernameInput === '') {
-      msg = 'Please re-fill your Username';
+      msg = 'Vui lòng điền tên người dùng';
       Notify('warning', msg);
       return;
     }
@@ -58,7 +58,7 @@ function SentForm() {
     <>
       <div className={cx('wrapper')}>
         <div className={cx('close')}></div>
-        <div className={cx('title')}>RESEND CODE</div>
+        <div className={cx('title')}>MÃ XÁC NHẬN</div>
         <div className={cx('container')}>
           <div className={cx('inputBox')}>
             <input
@@ -69,7 +69,7 @@ function SentForm() {
                 setUsernameInput(e.currentTarget.value);
               }}
             />
-            <span>User Name</span>
+            <span>Tên người dùng</span>
           </div>
 
           {loading ? (
@@ -78,7 +78,7 @@ function SentForm() {
             </div>
           ) : (
             <button className={cx('button')} onClick={handleClick}>
-              Send
+              Lấy mã
             </button>
           )}
         </div>

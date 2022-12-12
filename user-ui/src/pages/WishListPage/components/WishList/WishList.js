@@ -23,7 +23,7 @@ function WishList() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <h2 className={cx('title')}>Your WishList ({wishlistData.length})</h2>
+        <h2 className={cx('title')}>DANH SÁCH ƯỚC ({wishlistData.length})</h2>
         <div className={cx('content')}>
           <div className={cx('wishlist-container')}>
             {wishlistData.length > 0 ? (
@@ -32,9 +32,9 @@ function WishList() {
               })
             ) : (
               <div className={cx('empty-wishlist')}>
-                <h2>Empty WishList</h2>
+                <h2>Bạn không có dự định gì</h2>
                 <Button to={config.routes.home} className={cx('shopping-button')}>
-                  Back to Store
+                  Trở về Trang chủ
                 </Button>
               </div>
             )}

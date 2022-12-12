@@ -55,6 +55,9 @@
 }
 
 @media (max-width: 739px) {
+  .wrapper {
+    min-height: 282rem;
+  }
   .content {
     margin-left: 0;
     margin-right: 0;
