@@ -31,7 +31,7 @@ export default function ActionAreaCard() {
     }, []);
 
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={1}>
             <Grid item xs={1}></Grid>
             <Grid item xs={12}>
                 <Typography variant="h1" component="h2">
@@ -39,14 +39,17 @@ export default function ActionAreaCard() {
                 </Typography>
             </Grid>
             {contact.map((contact, index) => (
-                <Grid item xs={12} key={index}>
-                    <Accordion expanded={expanded === contact.content} onChange={handleChange(contact.content)}>
+                <Grid item xs={12} key={contact.receiveddate}>
+                    <Accordion expanded={expanded === contact.receiveddate} onChange={handleChange(contact.receiveddate)}>
                         <AccordionSummary expandIcon={<AiOutlineDown />} aria-controls="panel1bh-content" id="panel1bh-header">
-                            <Typography sx={{ width: '4%', flexShrink: 0 }}>Email: {contact.email}</Typography>
-                            <Typography>{contact.title}</Typography>
+                            <Typography>
+                                <strong>Email: </strong> {contact.email}
+                            </Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <Typography>{contact.content}</Typography>
+                            <Typography>Tiêu đề: {contact.title}</Typography>
+                            <Typography>Nội dung:</Typography>
+                            <Typography> {contact.content}</Typography>
                         </AccordionDetails>
                     </Accordion>
                 </Grid>
