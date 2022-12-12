@@ -17,10 +17,10 @@ function Home() {
       <Sell />
 
       <BrowseByTag />
-      <ProductListStyle type={'latest'} title={'New Product'} />
+      <ProductListStyle type={'latest'} title={'Sản phẩm mới'} link={'/products/q=latest'} />
       {/* <ProductListStyle type={'specials'} title={'Sales Now'} /> */}
       <BrowseByGen />
-      <ProductListStyle type={'best-seller'} title={'Best Seller'} />
+      <ProductListStyle type={'best-seller'} title={'Thịnh hành'} link={`/products/q=best-seller`} />
       {/* <ProductListStyle pagination={true} typePage={'products'} title={'All Product'} /> */}
       {/* =======
       <ProductList type={'latest'} title={'New Product'} />

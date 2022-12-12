@@ -11,10 +11,10 @@ import styles from './BrowseGen.module.scss';
 const cx = classNames.bind(styles);
 export default function BrowseByGen() {
   var Value = [
-    { name: 'Best Seller', link: `/products/q=best-seller` },
-    { name: 'New Releases', link: `/products/q=latest` },
-    { name: 'Specials', link: `/products/q=specials` },
-    { name: 'All Products', link: `/products` },
+    { name: 'Thịnh hành', link: `/products/q=best-seller` },
+    { name: 'Mới ra mắt', link: `/products/q=latest` },
+    { name: 'Khuyến mãi', link: `/products/q=specials` },
+    { name: 'Tất cả', link: `/products` },
   ];
   return (
     <div className={cx('container')}>

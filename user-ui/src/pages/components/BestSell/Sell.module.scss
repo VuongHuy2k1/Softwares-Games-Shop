@@ -161,12 +161,17 @@
 }
 .detail-content {
   .title {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-left: -1.2rem;
   }
 }
 
 .category-items {
   display: flex;
+  margin-left: -1rem;
 }
 
 .category-item {
@@ -175,6 +180,7 @@
   font-size: 1.2rem;
   color: var(--white);
   background: #3d454c;
+  zoom: 1.2;
 }
 
 .discount-prices {
@@ -187,6 +193,7 @@
   justify-content: center;
   align-items: center;
   bottom: 1rem;
+  left: 2rem;
 }
 .discount-orginal-price {
   text-decoration: line-through;

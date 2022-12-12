@@ -12,7 +12,7 @@ import * as productServices from 'src/services/productServices';
 // import { TbArrowBigLeftLines } from 'react-icons/tb';
 import styles from './ProductListStyle.module.scss';
 const cx = classNames.bind(styles);
-function ProductListStyle({ pagination = false, typePage = '', type = '', title = 'List Product' }) {
+function ProductListStyle({ pagination = false, typePage = '', type = '', title = 'List Product', link = '' }) {
   const navigate = useNavigate();
 
   const { genre, keyword, page } = useParams();
@@ -137,8 +137,8 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
     <div className={cx('container')}>
       <div className={cx('container-content')}>
         <h1>{title}</h1>
-        <Link to={`/products/q=specials`}>
-          <h4>More</h4>
+        <Link to={link}>
+          <h4>Xem thêm</h4>
         </Link>
       </div>
       <div className={cx('container-slider')}>
