@@ -19,6 +19,8 @@
     margin: 0;
     zoom: 1.8;
     height: 110vh;
+    display: flex;
+    flex-wrap: nowrap;
   }
 }
 @media (max-width: 739px) {

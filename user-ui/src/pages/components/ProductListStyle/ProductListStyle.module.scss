@@ -60,7 +60,12 @@
 .product-img img {
   height: 306px;
   width: 300px;
+  opacity: 0.9;
   object-fit: cover;
+}
+.product-img img:hover {
+  transition: all 0.2s;
+  opacity: 2;
 }
 
 .active-anim {
@@ -261,16 +266,9 @@
 
   transition: top 0.01s, opacity 0.5s;
 }
-.product:hover .img-hover {
-  top: 0;
-  bottom: 2rem;
-
-  visibility: visible;
-  img {
-    height: 306px;
-  }
-  transition: top 0.6s, opacity 0s;
-}
+// .product:hover {
+//   opacity: 0.8;
+// }
 .product-colum {
   display: flex;
   flex-direction: row;

@@ -153,6 +153,10 @@
   align-items: center;
   justify-content: center;
 }
+.detail-link:hover {
+  transform: scale(1.05);
+  transition: all 0.2s;
+}
 .detail-content {
   font-size: 2rem;
 

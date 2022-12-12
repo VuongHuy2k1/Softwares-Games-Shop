@@ -66,7 +66,7 @@ export default function Sell() {
   return (
     <div className={cx('container')}>
       <div className={cx('container-content')}>
-        <h1>ƯU ĐÃI</h1>
+        <h1>Khuyến mãi</h1>
         <Link to={`/products/q=specials`}>
           <h4>Xem thêm</h4>
         </Link>
