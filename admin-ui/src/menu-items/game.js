@@ -27,15 +27,6 @@ const game = {
             url: '/new-game',
             icon: icons.GrAddCircle,
             breadcrumbs: false
-        },
-
-        {
-            id: 'new-genre',
-            title: 'Thêm thể loại mới',
-            type: 'item',
-            url: '/new-genre',
-            icon: icons.GrAddCircle,
-            breadcrumbs: false
         }
     ]
 };
