@@ -1,8 +1,10 @@
 import { faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { FaArrowCircleUp } from 'react-icons/fa';
-import { Button } from './Styles';
+import classNames from 'classnames/bind';
+
+import styles from './Styles.module.scss';
+const cx = classNames.bind(styles);
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
@@ -28,13 +30,9 @@ const ScrollButton = () => {
   window.addEventListener('scroll', toggleVisible);
 
   return (
-    <Button>
-      <FontAwesomeIcon
-        icon={faChevronCircleUp}
-        onClick={scrollToTop}
-        style={{ display: visible ? 'inline' : 'none' }}
-      />
-    </Button>
+    <button className={visible ? cx('button', 'inline') : cx('button', 'none')}>
+      <FontAwesomeIcon icon={faChevronCircleUp} onClick={scrollToTop} />
+    </button>
   );
 };
 

@@ -36,7 +36,7 @@ function StoreNav() {
             onMouseEnter={() => setLastestDropdown(true)}
             onMouseLeave={() => setLastestDropdown(false)}
           >
-            <Link to={item.path}>{item.title_vi}</Link>
+            <Link to="#">{item.title_vi}</Link>
             {lastestDropdown && <Dropdown items={item.subnav} storenav />}
           </li>
         );
