@@ -1,0 +1,231 @@
+.search {
+  display: flex;
+  justify-content: flex-end;
+  --search-element-height: calc(var(--storenav-height) - 0.2rem);
+}
+
+.search-box {
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.search-input {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  height: var(--search-element-height);
+  width: 40%;
+  padding: 0 calc(var(--storenav-height) + 3rem) 0 2rem;
+
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+
+  background-color: var(--search-box-bg-color);
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.1);
+  transition: 0.25s;
+  color: var(--white);
+
+  &::placeholder {
+    color: var(--black);
+  }
+
+  &:hover,
+  &:focus {
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+      rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+      rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+
+  &:hover ~ .search-button,
+  &:focus ~ .search-button {
+    border: 1px solid var(--black);
+  }
+}
+
+.search-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+
+  width: var(--search-element-height);
+  height: var(--search-element-height);
+
+  border: 1px solid transparent;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+
+  background-color: var(--search-button-bg-color);
+  overflow: hidden;
+  transition: 0.25s;
+
+  svg {
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    background-color: var(--search-button-bg-color-hover);
+    border: 1px solid var(--black);
+    cursor: pointer;
+  }
+}
+
+.clear-button {
+  position: absolute;
+  right: calc(var(--storenav-height) + 1rem);
+  top: 50%;
+  transform: translateY(50%);
+
+  svg {
+    font-size: 1.6rem;
+  }
+}
+
+// Searh results dropdown
+.search-results {
+  position: relative;
+  top: var(--storenav-height);
+  background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+    linear-gradient(180deg, #575860 11.6%, #3a4852 54.73%, #2c2d34 100%);
+  height: auto;
+  margin-top: 2px;
+  z-index: 3;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%),
+    linear-gradient(180deg, #575860 11.6%, #3a4852 54.73%, #2c2d34 100%);
+  box-shadow: 0 0 8px #000000;
+}
+
+.header {
+  height: 3rem;
+
+  padding-left: 0.8rem;
+  z-index: 3;
+
+  p {
+    color: var(--white);
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 3rem;
+    font-weight: 500;
+  }
+}
+
+.container {
+  z-index: 3;
+}
+
+.result {
+  height: 6.4rem;
+  padding: 0 0.8rem;
+
+  border-top: 0.5px solid var(--black);
+
+  &:hover {
+    background-color: #212d3d;
+  }
+
+  .game-wrapper {
+    display: flex;
+    margin: 0;
+  }
+
+  .game-img {
+    flex: 1;
+    height: 6rem;
+    width: 12rem;
+    margin: 0.15rem 0rem 0.25rem 0rem;
+  }
+
+  .game-detail {
+    display: flex;
+    flex: 4;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 1.6rem;
+
+    p {
+      font-size: 1.4rem;
+      text-align: left;
+      color: var(--white);
+    }
+  }
+}
+.footer {
+  display: flex;
+  text-align: center;
+  height: 2rem;
+
+  border-top: 0.5px solid var(--black);
+  z-index: 3;
+
+  a {
+    width: 100%;
+    color: var(--white);
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 500;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}
+@media (min-width: 740px) and (max-width: 1023px) {
+  .search-box {
+    display: flex;
+    justify-content: center;
+  }
+  .search-button {
+    position: relative;
+    zoom: 2.2;
+  }
+  .search-input {
+    position: relative;
+    width: 100%;
+    font-size: 2rem;
+    zoom: 2.2;
+  }
+  .search {
+    margin: 2rem;
+  }
+  .wrapper {
+    zoom: 2;
+  }
+  .search-results {
+    zoom: 2;
+  }
+}
+@media (max-width: 739px) {
+  .search-box {
+    display: flex;
+    justify-content: center;
+  }
+  .search-button {
+    position: relative;
+    zoom: 2.2;
+  }
+  .search-input {
+    position: relative;
+    width: 100%;
+    font-size: 2rem;
+    zoom: 2.2;
+  }
+  .search {
+    margin: 2rem;
+  }
+  .wrapper {
+    zoom: 2;
+  }
+}

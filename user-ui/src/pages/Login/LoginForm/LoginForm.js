@@ -100,7 +100,8 @@ function LoginForm() {
             />
             <span>Tên người dùng</span>
           </div>
-          <div className={cx('inputBox')}>
+          <div className={cx('inputBox', 'pass')}>
+            <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} onClick={handleCheck} />
             <input
               type={check ? 'text' : 'password'}
               placeholder=" "
@@ -111,6 +112,7 @@ function LoginForm() {
             />
             <span>Mật khẩu</span>
           </div>
+
           <div className={cx('check')} onClick={handleCheck}>
             <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} />
             <span>{check ? 'Ẩn' : 'Hiện'} mật khẩu</span>

@@ -19,7 +19,7 @@ const GameGenre = () => {
     useEffect(() => {
         const profileApi = async () => {
             const result = await gameServices.getProfileGame(id);
-            const genre = await gameServices.getGenre();
+            const genre = await gameServices.getAllGenre();
             setGame(result);
             setGenreAPI(genre);
             setCheckedState(new Array(genre.length).fill(false));
@@ -29,7 +29,7 @@ const GameGenre = () => {
 
     const callPutGenre = async (genres) => {
         setLoading(true);
-        const response = await gameServices.putGenre(game.gameID, genres);
+        const response = await gameServices.putGameGenre(game.gameID, genres);
         if (response.data.isSuccess === true) {
             const timerId = setTimeout(() => {
                 clearTimeout(timerId);
@@ -55,16 +55,7 @@ const GameGenre = () => {
                 selected: checkedState[index]
             };
         });
-        // const genresPut = {
-        //     Id: game.id,
-        //     Categories: [
-        //         {
-        //             Id: genresCheck.id,
-        //             Name: genresCheck.id,
-        //             Selected: genresCheck
-        //         }
-        //     ]
-        // };
+
         setGenrePut(cate);
     };
     const setGenrePut = (categories) => {

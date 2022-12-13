@@ -16,7 +16,7 @@ root.render(
     <Router>
       <GlobalStyles>
         <App />
-        <ScrollButton />
+        {/* <ScrollButton /> */}
       </GlobalStyles>
     </Router>
   </Provider>,

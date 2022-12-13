@@ -8,7 +8,8 @@ import config from 'src/config';
 import { useNotification } from 'src/hooks';
 import useEnterPress from 'src/hooks/useEnterPress';
 import * as authServices from 'src/services/authServices';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import styles from './RegisterForm.module.scss';
 const cx = classNames.bind(styles);
 
@@ -24,7 +25,10 @@ function RegisterForm() {
   const [loading, setLoading] = useState(false);
   const toastRef = useRef();
   const Notify = useNotification(toastRef);
-
+  const [check, setCheck] = useState(false);
+  const handleCheck = () => {
+    setCheck(!check);
+  };
   const register = async () => {
     setLoading(true);
     // Make Api call
@@ -109,8 +113,9 @@ function RegisterForm() {
             <span>Tên người dùng</span>
           </div>
           <div className={cx('inputBox')}>
+            <FontAwesomeIcon icon={check ? faEyeSlash : faEye} className={cx('seen')} onClick={handleCheck} />
             <input
-              type="password"
+              type={check ? 'text' : 'password'}
               placeholder=" "
               value={passwordInput}
               onChange={(e) => {
@@ -120,8 +125,9 @@ function RegisterForm() {
             <span>Mật khẩu</span>
           </div>
           <div className={cx('inputBox')}>
+            <FontAwesomeIcon icon={check ? faEyeSlash : faEye} className={cx('seen')} onClick={handleCheck} />
             <input
-              type="password"
+              type={check ? 'text' : 'password'}
               placeholder=" "
               value={rePasswordInput}
               onChange={(e) => {

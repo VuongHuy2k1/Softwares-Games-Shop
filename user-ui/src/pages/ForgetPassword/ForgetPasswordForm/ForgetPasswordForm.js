@@ -9,7 +9,8 @@ import { useNotification } from 'src/hooks';
 import styles from './ForgetPasswordForm.module.scss';
 import * as userServices from 'src/services/userServices';
 import useEnterPress from 'src/hooks/useEnterPress';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
 function ForgetPasswordForm() {
@@ -23,7 +24,10 @@ function ForgetPasswordForm() {
 
   const toastRef = useRef();
   const Notify = useNotification(toastRef);
-
+  const [check, setCheck] = useState(false);
+  const handleCheck = () => {
+    setCheck(!check);
+  };
   const editPassword = async () => {
     setLoading(true);
     const response = await userServices.forgotPassword({
@@ -117,8 +121,9 @@ function ForgetPasswordForm() {
           </div>
 
           <div className={cx('inputBox')}>
+            <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} onClick={handleCheck} />
             <input
-              type="password"
+              type={check ? 'text' : 'password'}
               placeholder=" "
               value={newPasswordInput}
               onChange={(e) => {
@@ -128,8 +133,9 @@ function ForgetPasswordForm() {
             <span>Mật khẩu mới</span>
           </div>
           <div className={cx('inputBox')}>
+            <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} onClick={handleCheck} />
             <input
-              type="password"
+              type={check ? 'text' : 'password'}
               placeholder=" "
               value={rePasswordInput}
               onChange={(e) => {

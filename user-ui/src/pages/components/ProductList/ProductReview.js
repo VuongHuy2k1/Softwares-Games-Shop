@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 // import { useState } from 'react';
-import * as imageServices from 'src/services/imageServices';
+import * as imageServices from '~/services/imageServices';
 
 import styles from './ProductList.module.scss';
 

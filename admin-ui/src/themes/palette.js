@@ -26,7 +26,7 @@ const Palette = (mode) => {
         '#000000'
     ];
     const greyAscent = ['#fafafa', '#bfbfbf', '#434343', '#1f1f1f'];
-    const greyConstant = ['#fafafb', '#e6ebf1'];
+    const greyConstant = ['#F9F9F9', '#e6ebf1'];
 
     colors.grey = [...greyPrimary, ...greyAscent, ...greyConstant];
 
@@ -52,7 +52,8 @@ const Palette = (mode) => {
             background: {
                 paper: paletteColor.grey[0],
                 default: paletteColor.grey.A50
-            }
+            },
+            custom: { blue1: '#bae7ff', blue2: '#91d5ff', blue3: '#69c0ff', blue4: '#40a9ff' }
         }
     });
 };

@@ -49,7 +49,7 @@ export default function Sell() {
     console.log(slideValue);
     for (index = 0; index < arrayLength; index += chunk_size) {
       var myChunk = myArray.slice(index, index + chunk_size);
-      if (myChunk.length === 3 || myChunk.length === 4) {
+      if (myChunk.length === 5 || myChunk.length === 4) {
         tempArray.push(myChunk);
       }
     }
@@ -59,14 +59,14 @@ export default function Sell() {
   const [sliceSlideValue, setSilceSlideValue] = useState([]);
 
   useEffect(() => {
-    var sliceValue = chunkArray(slideValue, 3);
+    var sliceValue = chunkArray(slideValue, 5);
     setSilceSlideValue(sliceValue);
   }, [slideValue]);
-  console.log(sliceSlideValue);
+
   return (
     <div className={cx('container')}>
       <div className={cx('container-content')}>
-        <h1>ƯU ĐÃI</h1>
+        <h1>Khuyến mãi</h1>
         <Link to={`/products/q=specials`}>
           <h4>Xem thêm</h4>
         </Link>
@@ -74,7 +74,7 @@ export default function Sell() {
 
       <div className={cx('container-slider')}>
         {sliceSlideValue.map((items, index) => {
-          if (items?.length === 3) {
+          if (items?.length === 5) {
             return (
               <div className={slideIndex === index + 1 ? cx('slide') : cx('active-anim')} key={index}>
                 {items?.map((item, index) => {

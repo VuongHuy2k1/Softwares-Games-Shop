@@ -1,0 +1,248 @@
+.wrapper {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.payment-container {
+  display: flex;
+  flex-direction: column;
+  width: calc((7 / 12) * 100%);
+  background-color: var(--form-bg-color);
+  border: 1px solid var(--black);
+  height: 45rem;
+  overflow-y: overlay;
+
+  &::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(168, 168, 168, 0.9);
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0);
+    margin-bottom: 1rem;
+  }
+}
+
+.payment-total-container {
+  width: calc((5 / 12) * 100%);
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  user-select: none;
+  hr {
+    margin: 2rem;
+  }
+}
+
+.total-price {
+  font-size: 2rem;
+  color: var(--white);
+  margin: 0 2rem;
+  text-align: right;
+}
+
+.vat {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin: 0 2rem;
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.discount {
+  font-size: 1.6rem;
+  color: var(--white);
+  margin: 0 2rem;
+  text-align: right;
+}
+
+.final-price {
+  font-size: 2.4rem;
+  color: var(--white);
+  margin: 0 2rem;
+  text-align: right;
+}
+
+.action {
+  margin: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.cancel-button {
+  height: 3.2rem;
+  width: 10rem;
+  padding: 0;
+  border-radius: 0;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 1.4rem;
+  text-shadow: -1px -1px 0px rgb(0 0 0 / 10%);
+
+  &:hover {
+    opacity: 0.8;
+    color: var(--black);
+  }
+}
+.checkout-button {
+  height: 3.2rem;
+  width: 16rem;
+  padding: 0;
+  border-radius: 3px;
+  background-color: #2c2e2f;
+  color: var(--white);
+  font-size: 1.4rem;
+  text-shadow: -1px -1px 0px rgb(0 0 0 / 10%);
+
+  &:hover {
+    background: #353738;
+    color: var(--white);
+  }
+}
+.paypal-button {
+  height: 3.2rem;
+  width: 16rem;
+  padding: 0;
+  border-radius: 3px;
+  background-color: #2c2e2f;
+  color: var(--white);
+  font-size: 1.4rem;
+  text-shadow: -1px -1px 0px rgb(0 0 0 / 10%);
+
+  &:hover {
+    background: #353738;
+    color: var(--white);
+  }
+}
+.loading {
+  height: 3.2rem;
+  width: 12rem;
+  padding: 0;
+  border-radius: 0;
+  background-color: #516801;
+  color: var(--white);
+  font-size: 1.4rem;
+  text-shadow: -1px -1px 0px rgb(0 0 0 / 10%);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    border-top: 3px solid var(--black);
+    border-right: 3px solid var(--black);
+
+    animation: spinner 1s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+  .title {
+    zoom: 2;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .payment-container {
+    width: 99%;
+    zoom: 1.2;
+    height: fit-content;
+  }
+  .payment-total-container {
+    width: 100%;
+    margin-top: 6rem;
+  }
+  .checkout-button {
+    zoom: 3;
+  }
+  .cancel-button {
+    zoom: 3;
+  }
+  .total-price,
+  .vat,
+  .discount,
+  .final-price {
+    zoom: 2;
+  }
+  .paypal-button {
+    zoom: 3;
+    z-index: 1;
+  }
+}
+@media (max-width: 739px) {
+  .title {
+    zoom: 2;
+    margin-top: 2rem;
+    margin-left: 2rem;
+  }
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .payment-container {
+    width: 99%;
+    zoom: 1.2;
+    height: fit-content;
+  }
+  .payment-total-container {
+    width: 100%;
+    margin-top: 6rem;
+  }
+
+  .checkout-button {
+    zoom: 3;
+  }
+  .cancel-button {
+    zoom: 3;
+  }
+  .paypal-button {
+    zoom: 3;
+    z-index: 1;
+  }
+  .total-price,
+  .vat,
+  .discount,
+  .final-price {
+    zoom: 2;
+  }
+}

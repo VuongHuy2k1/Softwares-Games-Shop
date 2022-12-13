@@ -10,9 +10,9 @@ export const getGameTable = async (index, page) => {
     }
 };
 
-export const getGenre = async () => {
+export const getGameBestSeller = async () => {
     try {
-        const res = await httpRequest.get(`Categories`);
+        const res = await httpRequest.get(`Games/bestseller?PageIndex=1&PageSize=5`);
         return res;
     } catch (error) {
         console.log(error);
@@ -77,15 +77,6 @@ export const postNewIMG = async (img) => {
     }
 };
 
-export const postNewGenre = async (genre) => {
-    try {
-        const res = await httpRequest.post(`Categories`, genre);
-        return res;
-    } catch (error) {
-        console.log(error);
-    }
-};
-
 export const putGame = async (game) => {
     const formdata = new FormData();
     formdata.append('GameID', game.GameID);
@@ -112,7 +103,6 @@ export const putGame = async (game) => {
     formdata.append('SRR.Storage', game.SRR.storage);
     formdata.append('SRR.AdditionalNotes', game.SRR.additionalNotes);
     formdata.append('SRR.Soundcard', game.SRR.soundcard);
-    console.log(game);
     try {
         const res = await httpRequest.put(`Games/${game.GameID}`, formdata);
         return res;
@@ -121,7 +111,7 @@ export const putGame = async (game) => {
     }
 };
 
-export const putGenre = async (id, genres) => {
+export const putGameGenre = async (id, genres) => {
     try {
         const jwt_token = Cookies.get('jwt');
         const res = await httpRequest.put(`Games/${id}/genres`, genres, {
@@ -143,6 +133,42 @@ export const deleteGame = async (id) => {
                 Authorization: `Bearer ${jwt_token}`
             }
         });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+// Genre
+export const getAllGenre = async () => {
+    try {
+        const res = await httpRequest.get(`Categories`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getGenre = async (id) => {
+    try {
+        const res = await httpRequest.get(`/Categories/${id}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const putGenre = async (genres) => {
+    try {
+        const res = await httpRequest.put(`Categories`, genres);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const postNewGenre = async (genre) => {
+    try {
+        const res = await httpRequest.post(`Categories`, genre);
         return res;
     } catch (error) {
         console.log(error);

@@ -1,0 +1,66 @@
+.wrapper {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'main-view'
+    'footer';
+  // grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  width: fit-content;
+  min-width: 100%;
+  background: url(https://store.cloudflare.steamstatic.com/public/images/v6/colored_body_top.png?v=2) center top
+    no-repeat #1b2838;
+}
+
+.container {
+  grid-area: main-view;
+  display: flex;
+  flex-direction: row;
+  padding: 3.2rem calc((100% - var(--content-size) - var(--sidebar-width) * 2) / 2);
+}
+
+.content {
+  flex: 1;
+  height: auto;
+  min-height: 550px;
+  background-color: transparent;
+  // margin-right: var(--sidebar-width);
+}
+.header {
+  grid-area: top-bar;
+}
+.footer {
+  grid-area: footer;
+  bottom: 0;
+}
+.siderbar {
+  display: block;
+  z-index: 100;
+}
+@media (min-width: 740px) and (max-width: 1023px) {
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 739px) {
+  .content {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .container {
+    padding: 0;
+    margin: 0;
+  }
+}

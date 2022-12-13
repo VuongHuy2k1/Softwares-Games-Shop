@@ -4,8 +4,9 @@
   margin-top: calc(var(--storenav-height) * 3);
   background-color: transparent;
   border-top: 1px solid var(--sidebar-border-color);
-  display: block;
-  zoom: 1.1;
+  // display: block;
+  display: none;
+  // zoom: 1.1;
 }
 
 .container {
