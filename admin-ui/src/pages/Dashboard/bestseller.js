@@ -9,7 +9,6 @@ export default function BestSeller() {
     useEffect(() => {
         const profileApi = async () => {
             const result = await gameServices.getGameBestSeller();
-            console.log(result.items);
             setGame(result.items);
         };
         profileApi();

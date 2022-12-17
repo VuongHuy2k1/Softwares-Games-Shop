@@ -98,85 +98,85 @@ const ProfileGame = () => {
 
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>OS</InputLabel>
+                        <InputLabel>Hệ điều hành</InputLabel>
                         <TextField value={game?.srm?.os ? game?.srm?.os : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>OS</InputLabel>
+                        <InputLabel>Hệ điều hành</InputLabel>
                         <TextField value={game?.srr?.os ? game?.srr?.os : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Processor</InputLabel>
+                        <InputLabel>Bộ vi xử lý</InputLabel>
                         <TextField value={game?.srm?.processor ? game?.srm?.processor : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Processor</InputLabel>
+                        <InputLabel>Bộ vi xử lý</InputLabel>
                         <TextField value={game?.srr?.processor ? game?.srr?.processor : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Memory</InputLabel>
+                        <InputLabel>Bộ nhớ</InputLabel>
                         <TextField value={game?.srm?.memory ? game?.srm?.memory : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Memory</InputLabel>
+                        <InputLabel>Bộ nhớ</InputLabel>
                         <TextField value={game?.srr?.memory ? game?.srr?.memory : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Graphics</InputLabel>
+                        <InputLabel>Bộ sử lý đồ họa</InputLabel>
                         <TextField value={game?.srr?.graphics ? game?.srr?.graphics : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Graphics</InputLabel>
+                        <InputLabel>Bộ sử lý đồ họa</InputLabel>
                         <TextField value={game?.srm?.graphics ? game?.srm?.graphics : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Storage</InputLabel>
+                        <InputLabel>Bộ nhớ</InputLabel>
                         <TextField value={game?.srr?.storage ? game?.srr?.storage : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Storage</InputLabel>
+                        <InputLabel>Bộ nhớ</InputLabel>
                         <TextField value={game?.srm?.storage ? game?.srm?.storage : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>AdditionalNotes</InputLabel>
+                        <InputLabel>Bộ nhớ trống</InputLabel>
                         <TextField value={game?.srr?.additionalNotes ? game?.srr?.additionalNotes : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>AdditionalNotes</InputLabel>
+                        <InputLabel>Bộ nhớ trống</InputLabel>
                         <TextField value={game?.srm?.additionalNotes ? game?.srm?.additionalNotes : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Soundcard</InputLabel>
+                        <InputLabel>Bộ xử lý âm thanh</InputLabel>
                         <TextField value={game?.srm?.soundcard ? game?.srm?.soundcard : ' '} variant="standard" />
                     </Stack>
                 </Grid>
                 <Grid item xs={6}>
                     <Stack spacing={1}>
-                        <InputLabel>Soundcard</InputLabel>
+                        <InputLabel>Bộ xử lý âm thanh</InputLabel>
                         <TextField value={game?.srr?.soundcard ? game?.srr?.soundcard : ' '} variant="standard" />
                     </Stack>
                 </Grid>

@@ -115,6 +115,9 @@ function LoginForm() {
                                 setPasswordInput(e.currentTarget.value);
                             }}
                         />
+                        <span className={cx('password-label')}></span>
+                        <span className={cx('password-label')}></span>
+                        <span className={cx('password-label')}></span>
                     </>
                     {loading ? (
                         <div className={cx('loading')}>
@@ -125,9 +128,9 @@ function LoginForm() {
                             Đăng nhập
                         </button>
                     )}
-                    <Link to={config.routes.forgetPassword} className={cx('link')} ref={buttonRef}>
+                    {/* <Link to={config.routes.forgetPassword} className={cx('link')} ref={buttonRef}>
                         Quên mật khẩu ?
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
             <ToastPortal ref={toastRef} autoClose={true} />
