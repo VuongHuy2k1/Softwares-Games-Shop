@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import classNames from 'classnames/bind';
 import ProductList from '../components/ProductList';
 import StoreNav from '../components/StoreNav';
-
+import styles from './Products.module.scss';
+import Slider from '../components/Slider';
+import Sell from '../components/BestSell/Sell';
+import BrowseByTag from '../components/BrowseByTag';
 function Products() {
   document.title = 'All product';
   const { keyword, page } = useParams();
@@ -38,6 +42,7 @@ function Products() {
   return (
     <>
       <StoreNav />
+
       <ProductList pagination={true} typePage={'products'} title={`${title} - Trang ${page || 1}`} />
     </>
   );

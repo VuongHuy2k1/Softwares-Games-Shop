@@ -126,17 +126,17 @@ export default function Sell() {
           }
         })}
 
-        <div className={cx('container-dots')}>
-          {Array.from({ length: slideValue.length }).map((item, index) => (
-            <div
-              key={index}
-              onClick={() => moveDot(index + 1)}
-              className={slideIndex === index + 1 ? cx('dot', 'active') : cx('dot')}
-            ></div>
-          ))}
-        </div>
         <SliderButton moveSlide={nextSlide} direction={'next'} />
         <SliderButton moveSlide={prevSlide} direction={'prev'} />
+      </div>
+      <div className={cx('container-dots')}>
+        {Array.from({ length: sliceSlideValue.length }).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index + 1)}
+            className={slideIndex === index + 1 ? cx('dot', 'active') : cx('dot')}
+          ></div>
+        ))}
       </div>
     </div>
   );

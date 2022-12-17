@@ -119,7 +119,7 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
 
     for (index = 0; index < arrayLength; index += chunk_size) {
       var myChunk = myArray.slice(index, index + chunk_size);
-      if (myChunk.length === 4) {
+      if (myChunk.length === 5) {
         tempArray.push(myChunk);
       }
     }
@@ -128,18 +128,19 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
   };
 
   useEffect(() => {
-    var newSliceValue = chunkArray(value, 4);
+    var newSliceValue = chunkArray(value, 5);
     setSilceValue(newSliceValue);
   }, [value]);
-  console.log(sliceValue);
 
   return (
     <div className={cx('container')}>
       <div className={cx('container-content')}>
         <h1>{title}</h1>
-        <Link to={link}>
-          <h4>Xem thêm</h4>
-        </Link>
+        <div>
+          <Link to={link}>
+            <h4>Xem thêm</h4>
+          </Link>
+        </div>
       </div>
       <div className={cx('container-slider')}>
         {sliceValue.length > 0 && isLoaded ? (

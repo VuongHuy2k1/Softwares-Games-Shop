@@ -113,10 +113,10 @@ function LoginForm() {
             <span>Mật khẩu</span>
           </div>
 
-          <div className={cx('check')} onClick={handleCheck}>
+          {/* <div className={cx('check')} onClick={handleCheck}>
             <FontAwesomeIcon icon={check ? faEye : faEyeSlash} className={cx('seen')} />
             <span>{check ? 'Ẩn' : 'Hiện'} mật khẩu</span>
-          </div>
+          </div> */}
 
           {loading ? (
             <div className={cx('loading')}>

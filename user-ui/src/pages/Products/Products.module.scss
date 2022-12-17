@@ -1,0 +1,9 @@
+.wapper {
+  display: flex;
+}
+
+.wapper-fill {
+  background: -webkit-linear-gradient(top, rgba(42, 71, 94, 1) 5%, rgba(42, 71, 94, 0) 70%);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  width: 20%;
+}

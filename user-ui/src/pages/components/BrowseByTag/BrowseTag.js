@@ -89,6 +89,7 @@ export default function BrowseByTag() {
     'linear-gradient(rgba(0,0,0,0), rgb(139,0,139) 100%',
     'linear-gradient(rgba(0,0,0,0), rgb(0,0,139) 100%',
     'linear-gradient(rgba(0,0,0,0), rgb(184,134,11) 100%',
+    'linear-gradient(rgba(0,0,0,0), rgb(0,100,0) 100%',
   ];
 
   return (
@@ -106,9 +107,12 @@ export default function BrowseByTag() {
                   return (
                     <Link to={`/category/${item.id}`} className={cx('detail-link')}>
                       <div className={cx('product')}>
-                        <img src={myArray[index * indexx]} alt=""></img>
+                        <img src={myArray[(index + 1) * (indexx + 1)]} alt=""></img>
 
-                        <div className={cx('product-detai')} style={{ background: myArrayColor[index + 1] }}>
+                        <div
+                          className={cx('product-detai')}
+                          style={{ background: myArrayColor[(index + 1) * (indexx + 1)] }}
+                        >
                           <div className={cx('detail-wrapper')}>
                             <div className={cx('detail-content')}>{item?.name}</div>
                           </div>
@@ -122,17 +126,17 @@ export default function BrowseByTag() {
           }
         })}
 
-        <div className={cx('container-dots')}>
-          {Array.from({ length: slideValue.length }).map((item, index) => (
-            <div
-              key={index}
-              onClick={() => moveDot(index + 1)}
-              className={slideIndex === index + 1 ? cx('dot', 'active') : cx('dot')}
-            ></div>
-          ))}
-        </div>
         <SliderButton moveSlide={nextSlide} direction={'next'} />
         <SliderButton moveSlide={prevSlide} direction={'prev'} />
+      </div>
+      <div className={cx('container-dots')}>
+        {Array.from({ length: sliceSlideValue.length }).map((item, index) => (
+          <div
+            key={index}
+            onClick={() => moveDot(index + 1)}
+            className={slideIndex === index + 1 ? cx('dot', 'active') : cx('dot')}
+          ></div>
+        ))}
       </div>
     </div>
   );
