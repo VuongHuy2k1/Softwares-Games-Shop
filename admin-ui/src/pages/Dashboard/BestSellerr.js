@@ -25,22 +25,7 @@ const MonthlyBarChart = () => {
         profileApi();
         setSeries([{ name: 'Lượt mua', data: buyCount }]);
         setOptions({
-            chart: {
-                type: 'bar',
-                height: 365,
-                toolbar: {
-                    show: false
-                }
-            },
-            plotOptions: {
-                bar: {
-                    columnWidth: '45%',
-                    borderRadius: 4
-                }
-            },
-            dataLabels: {
-                enabled: true
-            },
+            ...options,
             xaxis: {
                 categories: gameName,
                 axisBorder: {
@@ -49,15 +34,10 @@ const MonthlyBarChart = () => {
                 axisTicks: {
                     show: false
                 }
-            },
-            yaxis: {
-                show: false
-            },
-            grid: {
-                show: false
             }
         });
     }, [f]);
+
     const { primary, secondary } = theme.palette.text;
     const info = theme.palette.info.light;
 
@@ -84,7 +64,7 @@ const MonthlyBarChart = () => {
             type: 'bar',
             height: 365,
             toolbar: {
-                show: true
+                show: false
             }
         },
         plotOptions: {
@@ -94,7 +74,7 @@ const MonthlyBarChart = () => {
             }
         },
         dataLabels: {
-            enabled: false
+            enabled: true
         },
         xaxis: {
             categories: ['', '', '', '', ''],
