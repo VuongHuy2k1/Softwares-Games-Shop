@@ -18,7 +18,7 @@ function Products() {
 
       switch (_title) {
         case 'best seller': {
-          setTitle('Bán Chạy');
+          setTitle('Thịnh hành');
           break;
         }
         case 'specials': {

@@ -43,7 +43,7 @@ export const navItems = [
   {
     id: 3,
     title: 'About',
-    title_vi: 'Về chúng tôi',
+    title_vi: 'Thông tin',
     path: config.routes.about,
   },
   {

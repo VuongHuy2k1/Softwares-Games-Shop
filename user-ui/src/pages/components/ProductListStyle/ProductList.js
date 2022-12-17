@@ -119,7 +119,7 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
 
     for (index = 0; index < arrayLength; index += chunk_size) {
       var myChunk = myArray.slice(index, index + chunk_size);
-      if (myChunk.length === 5) {
+      if (myChunk.length === 4) {
         tempArray.push(myChunk);
       }
     }
@@ -128,7 +128,7 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
   };
 
   useEffect(() => {
-    var newSliceValue = chunkArray(value, 5);
+    var newSliceValue = chunkArray(value, 4);
     setSilceValue(newSliceValue);
   }, [value]);
 

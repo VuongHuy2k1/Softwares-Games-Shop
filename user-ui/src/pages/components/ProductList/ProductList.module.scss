@@ -10,7 +10,7 @@
   flex-direction: column;
   height: auto;
   width: 80%;
-
+  overflow: hidden;
   background: -webkit-linear-gradient(top, rgba(42, 71, 94, 1) 5%, rgba(42, 71, 94, 0) 70%);
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   zoom: 1.6;
@@ -35,7 +35,7 @@
   border-top-right-radius: 4px;
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 2rem;
     line-height: 5rem;
     color: var(--white);
     text-transform: uppercase;
@@ -166,6 +166,7 @@
   background-color: #95bbd4;
   max-height: 84rem;
   margin-top: 8px;
+  overflow: hidden;
 }
 
 .review-container {
@@ -211,6 +212,7 @@
   width: 32rem;
   height: 16rem;
   object-fit: cover;
+  zoom: 0.9;
 }
 
 .not-found {
@@ -255,6 +257,7 @@
 .discount-orginal-price {
   text-decoration: line-through;
   color: #738895;
+  zoom: 1.4;
 }
 
 .discount-final-price {
