@@ -5,7 +5,7 @@ import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import * as gameServices from 'services/gameServices';
-export default function FormDialog() {
+export default function NewGenre() {
     const [genre, setGenre] = useState();
     const [loading, setLoading] = useState(false);
     const [notify, setNotify] = useState();

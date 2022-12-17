@@ -1,0 +1,49 @@
+.button {
+  position: fixed;
+  left: 2%;
+  bottom: 40px;
+  height: 40px;
+  width: 40px;
+  z-index: 1;
+  cursor: pointer;
+  background: rgb(255, 255, 255, 0.5);
+  border-radius: 50%;
+  svg {
+    // font-size: 4rem;
+    width: 100%;
+    height: 100%;
+    color: rgba(63, 167, 255, 0.7);
+  }
+}
+
+.inline {
+  display: inline;
+}
+.none {
+  display: none;
+}
+
+@media (min-width: 1240px) {
+}
+/* > PC low resolution */
+@media (min-width: 1024px) and (max-width: 1239px) {
+}
+
+/* Tablet - PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+}
+
+/* Tablet < */
+@media (min-width: 740px) and (max-width: 1023px) {
+  .button {
+    zoom: 4;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 739px) {
+  .button {
+    zoom: 3;
+    bottom: 10px;
+  }
+}
