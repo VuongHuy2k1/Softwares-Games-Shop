@@ -50,6 +50,7 @@ export default function ActionAreaCard() {
                             <Typography>Tiêu đề: {contact.title}</Typography>
                             <Typography>Nội dung:</Typography>
                             <Typography> {contact.content}</Typography>
+                            <Typography>Thời gian: {contact.receiveddate.slice(0, 10)}</Typography>
                         </AccordionDetails>
                     </Accordion>
                 </Grid>

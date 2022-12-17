@@ -53,7 +53,32 @@ const Palette = (mode) => {
                 paper: paletteColor.grey[0],
                 default: paletteColor.grey.A50
             },
-            custom: { blue1: '#bae7ff', blue2: '#91d5ff', blue3: '#69c0ff', blue4: '#40a9ff' }
+            custom: {
+                blue1: '#bae7ff',
+                blue2: '#91d5ff',
+                blue3: '#69c0ff',
+                blue4: '#40a9ff',
+                m1: '#26A0FC',
+                m3: '#71FFCE',
+                m4: '#FEBC3B',
+                m5: '#FF6178',
+                m6: '#8B75D7',
+                m7: '#6D848E',
+                m8: '#46B3A9',
+                m9: '#D830EB',
+                m10: '#00E396'
+            },
+            chart: {
+                m1: '#26A0FC',
+                m3: '#71FFCE',
+                m4: '#FEBC3B',
+                m5: '#FF6178',
+                m6: '#8B75D7',
+                m7: '#6D848E',
+                m8: '#46B3A9',
+                m9: '#D830EB',
+                m10: '#00E396'
+            }
         }
     });
 };

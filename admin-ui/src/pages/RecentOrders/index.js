@@ -28,6 +28,7 @@ function Row(props) {
         };
         fetchApi();
     }, []);
+
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -42,8 +43,9 @@ function Row(props) {
                 </TableCell>
                 <TableCell align="right">{order[row]?.totalPrice}</TableCell>
                 <TableCell align="right">
-                    <div type="date">{order[row]?.purchasedate}</div>
+                    <div type="date">{order[row]?.purchasedate.slice(0, 10)}</div>
                 </TableCell>
+                <TableCell></TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -52,21 +54,22 @@ function Row(props) {
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
+                                        <TableCell align="right"></TableCell>
                                         <TableCell>Tên</TableCell>
                                         <TableCell>Giá</TableCell>
                                         <TableCell>Giảm giá(%)</TableCell>
-                                        <TableCell align="right">Tổng($)</TableCell>
+                                        <TableCell>Tổng($)</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {order[row]?.listgame.map((gameRow) => (
                                         <TableRow key={gameRow.gameID}>
+                                            <TableCell align="right"></TableCell>
+
                                             <TableCell>{gameRow.name}</TableCell>
                                             <TableCell>{gameRow.price}</TableCell>
                                             <TableCell>{gameRow.discount} %</TableCell>
-                                            <TableCell align="right">
-                                                {Math.round(gameRow.price - (gameRow.price * gameRow.discount) / 100)}
-                                            </TableCell>
+                                            <TableCell>{Math.round(gameRow.price - (gameRow.price * gameRow.discount) / 100)}</TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -98,9 +101,9 @@ export default function RecentOrder() {
         <>
             <Grid container spacing={3}>
                 <Grid item xs={12}></Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} lg={4}>
                     <Typography variant="h1" component="h2">
-                        Danh sách đơn mua
+                        Danh sách đơn hàng
                     </Typography>
                 </Grid>
             </Grid>

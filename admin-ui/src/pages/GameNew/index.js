@@ -41,7 +41,7 @@ const NewGame = () => {
 
     useEffect(() => {
         const getGenreName = async () => {
-            const result = await gameServices.getGenre();
+            const result = await gameServices.getAllGenre();
             setGenreName(result);
         };
         getGenreName();
@@ -364,7 +364,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMOS">OS</InputLabel>
+                                    <InputLabel htmlFor="SRMOS">Hệ điều hành</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRMOS && errors.SRMOS)}
@@ -386,7 +386,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRROS">OS</InputLabel>
+                                    <InputLabel htmlFor="SRROS">Hệ điều hành</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRROS && errors.SRROS)}
@@ -408,7 +408,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMProcessor">Processor</InputLabel>
+                                    <InputLabel htmlFor="SRMProcessor">Bộ vi xử lý</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRMProcessor && errors.SRMProcessor)}
@@ -430,7 +430,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRProcessor">Processor</InputLabel>
+                                    <InputLabel htmlFor="SRRProcessor">Bộ vi xử lý</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRRProcessor && errors.SRRProcessor)}
@@ -452,7 +452,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMMemory">Memory</InputLabel>
+                                    <InputLabel htmlFor="SRMMemory">Bộ nhớ</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRMMemory && errors.SRMMemory)}
@@ -474,7 +474,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRMemory">Memory</InputLabel>
+                                    <InputLabel htmlFor="SRRMemory">Bộ nhớ</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRRMemory && errors.SRRMemory)}
@@ -496,7 +496,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMGraphics">Graphics</InputLabel>
+                                    <InputLabel htmlFor="SRMGraphics">Bộ sử lý đồ họa</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRMGraphics && errors.SRMGraphics)}
@@ -518,7 +518,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRGraphics">Graphics</InputLabel>
+                                    <InputLabel htmlFor="SRRGraphics">Bộ sử lý đồ họa</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRRGraphics && errors.SRRGraphics)}
@@ -540,7 +540,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMStorage">Storage</InputLabel>
+                                    <InputLabel htmlFor="SRMStorage">Bộ nhớ</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRMStorage && errors.SRMStorage)}
@@ -562,7 +562,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRStorage">Storage</InputLabel>
+                                    <InputLabel htmlFor="SRRStorage">Bộ nhớ</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         error={Boolean(touched.SRRStorage && errors.SRRStorage)}
@@ -584,7 +584,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMAdditionalNotes">AdditionalNotes</InputLabel>
+                                    <InputLabel htmlFor="SRMAdditionalNotes">Bộ nhớ trống</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         id="SRMAdditionalNotes"
@@ -600,7 +600,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRAdditionalNotes">AdditionalNotes</InputLabel>
+                                    <InputLabel htmlFor="SRRAdditionalNotes">Bộ nhớ trống</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         id="SRRAdditionalNotes"
@@ -616,7 +616,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRMSoundcard">Soundcard</InputLabel>
+                                    <InputLabel htmlFor="SRMSoundcard">Bộ xử lý âm thanh</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         id="SRMSoundcard"
@@ -632,7 +632,7 @@ const NewGame = () => {
                             </Grid>
                             <Grid item xs={6}>
                                 <Stack spacing={1}>
-                                    <InputLabel htmlFor="SRRSoundcard">Soundcard</InputLabel>
+                                    <InputLabel htmlFor="SRRSoundcard">Bộ xử lý âm thanh</InputLabel>
                                     <OutlinedInput
                                         fullWidth
                                         id="SRRSoundcard"

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography, Switch } from '@mui/material';
+import { Box, Button, Grid, InputLabel, Stack, LinearProgress, Input, Typography, Switch, Alert } from '@mui/material';
 
 import AnimateButton from 'components/@extended/AnimateButton';
 import * as gameService from 'services/gameServices';
@@ -10,7 +10,9 @@ import * as gameService from 'services/gameServices';
 const EditGame = () => {
     const { id } = useParams();
     const [loading, setLoading] = useState(false);
+    const [err, setErr] = useState();
     const [image, setImage] = useState();
+    const [notify, setNotify] = useState();
     const [fileGame, setFileGame] = useState();
     const [game, setGame] = useState();
     const [active, setActive] = useState(true);
@@ -73,21 +75,39 @@ const EditGame = () => {
 
     const updateGame = async (gameAPI) => {
         setLoading(true);
-        const response = await gameService.putGame(gameAPI);
 
-        if (response.status == 200) {
-            const timerId = setTimeout(() => {
-                clearTimeout(timerId);
+        console.log(gameAPI);
+        if (gameAPI.Name == '' || gameAPI.Price == null || gameAPI.Description == '' || gameAPI.Gameplay == '') {
+            setErr('error');
+            setNotify('Không được để trống trường dữ liệu có đánh *');
+            const timerIdOut = setTimeout(() => {
+                clearTimeout(timerIdOut);
                 setLoading(false);
-                navigate('/list-game');
             }, 700);
         } else {
-            setLoading(false);
+            const response = await gameService.putGame(gameAPI);
+            if (response.status == 200) {
+                setErr('success');
+                setNotify('Thành công');
+                const timerId = setTimeout(() => {
+                    clearTimeout(timerId);
+                    setLoading(false);
+                    navigate('/list-game');
+                }, 700);
+            } else {
+                setLoading(false);
+            }
         }
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
+
+        if (game.discount > 100) {
+            var dis = game.discount.toString().slice(0, 2);
+            game.discount = Number(dis);
+        }
+
         const status = active ? 1 : 0;
         const variable = {
             GameID: game.gameID,
@@ -132,7 +152,7 @@ const EditGame = () => {
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="name">Tên</InputLabel>
+                                <InputLabel htmlFor="name">Tên *</InputLabel>
                                 <Input
                                     name="name"
                                     value={game?.name ? game.name : ''}
@@ -144,8 +164,9 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="price">Giá</InputLabel>
+                                <InputLabel htmlFor="price">Giá *</InputLabel>
                                 <Input
+                                    type="number"
                                     name="price"
                                     value={game?.price ? game?.price : 0}
                                     onChange={(e) => {
@@ -156,10 +177,11 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="discount">Giảm giá (%)</InputLabel>
+                                <InputLabel htmlFor="discount">Giảm giá (%) *</InputLabel>
                                 <Input
+                                    type="number"
                                     name="discount"
-                                    value={game?.discount ? game?.discount : ''}
+                                    value={game?.discount ? game?.discount : 0}
                                     onChange={(e) => {
                                         handleChange(e);
                                     }}
@@ -169,7 +191,7 @@ const EditGame = () => {
 
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="description">Mô tả</InputLabel>
+                                <InputLabel htmlFor="description">Mô tả *</InputLabel>
                                 <Input
                                     name="description"
                                     value={game?.description ? game?.description : ''}
@@ -194,7 +216,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <Stack spacing={1}>
-                                <InputLabel htmlFor="gameplay">Lối chơi</InputLabel>
+                                <InputLabel htmlFor="gameplay">Lối chơi *</InputLabel>
                                 <Input
                                     name="gameplay"
                                     value={game?.gameplay ? game?.gameplay : ''}
@@ -235,7 +257,7 @@ const EditGame = () => {
 
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>OS</InputLabel>
+                                <InputLabel>Hệ điều hành</InputLabel>
                                 <Input
                                     value={game?.srm?.os ? game?.srm?.os : ''}
                                     name="os"
@@ -247,7 +269,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>OS</InputLabel>
+                                <InputLabel>Hệ điều hành</InputLabel>
                                 <Input
                                     name="os"
                                     value={game?.srr?.os ? game?.srr?.os : ''}
@@ -259,7 +281,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Processor</InputLabel>
+                                <InputLabel>Bộ vi xử lý</InputLabel>
                                 <Input
                                     value={game?.srm?.processor ? game?.srm?.processor : ''}
                                     name="processor"
@@ -271,7 +293,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Processor</InputLabel>
+                                <InputLabel>Bộ vi xử lý</InputLabel>
                                 <Input
                                     name="processor"
                                     value={game?.srr?.processor ? game?.srr?.processor : ''}
@@ -283,7 +305,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Memory</InputLabel>
+                                <InputLabel>Bộ nhớ</InputLabel>
                                 <Input
                                     value={game?.srm?.memory ? game?.srm?.memory : ''}
                                     name="memory"
@@ -295,7 +317,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Memory</InputLabel>
+                                <InputLabel>Bộ nhớ</InputLabel>
                                 <Input
                                     name="memory"
                                     value={game?.srr?.memory ? game?.srr?.memory : ''}
@@ -307,7 +329,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Graphics</InputLabel>
+                                <InputLabel>Bộ sử lý đồ họa</InputLabel>
                                 <Input
                                     value={game?.srm?.graphics ? game?.srm?.graphics : ''}
                                     name="graphics"
@@ -319,7 +341,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Graphics</InputLabel>
+                                <InputLabel>Bộ sử lý đồ họa</InputLabel>
                                 <Input
                                     name="graphics"
                                     value={game?.srr?.graphics ? game?.srr?.graphics : ''}
@@ -331,7 +353,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Storage</InputLabel>
+                                <InputLabel>Bộ nhớ</InputLabel>
                                 <Input
                                     value={game?.srm?.storage ? game?.srm?.storage : ''}
                                     name="storage"
@@ -343,7 +365,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Storage</InputLabel>
+                                <InputLabel>Bộ nhớ</InputLabel>
                                 <Input
                                     name="storage"
                                     value={game?.srr?.storage ? game?.srr?.storage : ''}
@@ -355,7 +377,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>AdditionalNotes</InputLabel>
+                                <InputLabel>Bộ nhớ trống</InputLabel>
                                 <Input
                                     value={game?.srm?.additionalNotes ? game?.srm?.additionalNotes : ''}
                                     name="additionalNotes"
@@ -367,7 +389,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>AdditionalNotes</InputLabel>
+                                <InputLabel>Bộ nhớ trống</InputLabel>
                                 <Input
                                     name="additionalNotes"
                                     value={game?.srr?.additionalNotes ? game?.srr?.additionalNotes : ''}
@@ -379,7 +401,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Soundcard</InputLabel>
+                                <InputLabel>Bộ xử lý âm thanh</InputLabel>
                                 <Input
                                     value={game?.srm?.soundcard ? game?.srm?.soundcard : ''}
                                     name="soundcard"
@@ -391,7 +413,7 @@ const EditGame = () => {
                         </Grid>
                         <Grid item xs={6}>
                             <Stack spacing={1}>
-                                <InputLabel>Soundcard</InputLabel>
+                                <InputLabel>Bộ xử lý âm thanh</InputLabel>
                                 <Input
                                     name="soundcard"
                                     value={game?.srr?.soundcard ? game?.srr?.soundcard : ''}
@@ -401,6 +423,23 @@ const EditGame = () => {
                                 ></Input>
                             </Stack>
                         </Grid>
+
+                        {err ? (
+                            <Grid item xs={12}>
+                                <Stack sx={{ width: '100%' }} spacing={2}>
+                                    <Alert severity={err}>{notify}</Alert>
+                                </Stack>
+                            </Grid>
+                        ) : (
+                            <Grid item xs={12}>
+                                <Stack sx={{ width: '100%' }} spacing={2}>
+                                    <Alert icon={false} severity={err}>
+                                        {notify}
+                                    </Alert>
+                                </Stack>
+                            </Grid>
+                        )}
+
                         <Grid item xs={12}>
                             {loading ? (
                                 <Box sx={{ width: '100%' }}>
