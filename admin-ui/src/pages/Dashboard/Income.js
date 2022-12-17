@@ -69,7 +69,7 @@ const MonthlyBarChart = () => {
 
     return (
         <div id="pie">
-            <ReactApexChart options={options} series={series} type="pie" height={365} />
+            <ReactApexChart options={options} series={series} type="pie" height={378} />
         </div>
     );
 };

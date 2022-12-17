@@ -103,7 +103,11 @@ const EditGame = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        game.discount = game.discount.slice(0, 2);
+        if (game.discount > 100) {
+            var dis = game.discount.toString().slice(0, 2);
+            game.discount = Number(dis);
+        }
+
         const status = active ? 1 : 0;
         const variable = {
             GameID: game.gameID,

@@ -28,6 +28,7 @@ function Row(props) {
         };
         fetchApi();
     }, []);
+
     return (
         <React.Fragment>
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -100,7 +101,7 @@ export default function RecentOrder() {
         <>
             <Grid container spacing={3}>
                 <Grid item xs={12}></Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} lg={4}>
                     <Typography variant="h1" component="h2">
                         Danh sách đơn hàng
                     </Typography>
