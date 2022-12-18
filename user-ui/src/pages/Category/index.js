@@ -5,6 +5,7 @@ import StoreNav from 'src/pages/components/StoreNav';
 import ProductList from '../components/ProductList';
 import * as categoryServices from 'src/services/categoryServices';
 import CategoryItems from './component/CategoryItems';
+import ProductListII from '../components/ProductListII';
 
 function Category() {
   document.title = 'Category';
@@ -33,13 +34,13 @@ function Category() {
 
   return (
     <>
-      <StoreNav />
+      {/* <StoreNav /> */}
       {(genre === undefined && page === undefined) || (genre === 'undefined' && page === 'undefined') ? (
         <>
           <CategoryItems data={categories || []} />;
         </>
       ) : (
-        <ProductList pagination={true} typePage={'category'} title={title} />
+        <ProductListII pagination={true} typePage={'category'} title={title} />
       )}
     </>
   );

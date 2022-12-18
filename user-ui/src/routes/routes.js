@@ -21,7 +21,7 @@ import CartPage from 'src/pages/CartPage';
 import WishListPage from 'src/pages/WishListPage';
 import AboutPage from 'src/pages/AboutPage';
 import CheckoutPage from 'src/pages/CheckoutPage';
-
+import DefaultLayoutPro from 'src/layouts/DefaultLayoutPro';
 // Public routes
 const publicRoutes = [
   { path: config.routes.home, component: Home },
@@ -31,18 +31,18 @@ const publicRoutes = [
 
   { path: config.routes.product, component: Product, layout: HeaderOnly },
 
-  { path: config.routes.products, component: Products },
-  { path: config.routes.allProduct, component: Products },
+  { path: config.routes.products, component: Products, layout: DefaultLayoutPro },
+  { path: config.routes.allProduct, component: Products, layout: DefaultLayoutPro },
   { path: config.routes.allProductWithDefaultPagination, component: Products },
   { path: config.routes.allProductWithPagination, component: Products },
 
-  { path: config.routes.search, component: Search },
-  { path: config.routes.searchWithPagination, component: Search },
-  { path: config.routes.searchWithDefaultPagination, component: Search },
+  { path: config.routes.search, component: Search, layout: DefaultLayoutPro },
+  { path: config.routes.searchWithPagination, component: Search, layout: DefaultLayoutPro },
+  { path: config.routes.searchWithDefaultPagination, component: Search, layout: DefaultLayoutPro },
 
-  { path: config.routes.categoryWithPagination, component: Category },
-  { path: config.routes.categoryWithDefaultPagination, component: Category },
-  { path: config.routes.categoryWithGenre, component: Category },
+  { path: config.routes.categoryWithPagination, component: Category, layout: DefaultLayoutPro },
+  { path: config.routes.categoryWithDefaultPagination, component: Category, layout: DefaultLayoutPro },
+  { path: config.routes.categoryWithGenre, component: Category, layout: DefaultLayoutPro },
   { path: config.routes.category, component: Category, layout: HeaderOnly },
 ];
 

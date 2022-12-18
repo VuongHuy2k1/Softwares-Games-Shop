@@ -36,32 +36,17 @@ function ProductItemStyle({ data, isActive, isShow }) {
                     );
                   })}
                 </div>
-                {data.discount > 0 ? (
-                  <>
-                    <div className={cx('discount-prices')}>
-                      {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
-                      <div className={cx('prices')}>
-                        {data.discount > 0 && (
-                          <div className={cx('discount-orginal-price')}>{currencyFormat(data.price)}</div>
-                        )}
-                        <div className={cx('discount-final-price')}>
-                          {currencyFormat(data.price * (1 - data.discount / 100))}
-                        </div>
-                      </div>
+                <div className={cx('discount-prices')}>
+                  {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
+                  <div className={cx('prices')}>
+                    {data.discount > 0 && (
+                      <div className={cx('discount-orginal-price')}>{currencyFormat(data.price)}</div>
+                    )}
+                    <div className={cx('discount-final-price')}>
+                      {currencyFormat(data.price * (1 - data.discount / 100))}
                     </div>
-                  </>
-                ) : (
-                  <>
-                    <div className={cx('discount-prices')}>
-                      {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
-                      <div className={cx('prices')}>
-                        <div className={cx('final-price')}>
-                          {currencyFormat(data.price * (1 - data.discount / 100))}
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                  </div>
+                </div>
               </div>
             </Link>
           </div>

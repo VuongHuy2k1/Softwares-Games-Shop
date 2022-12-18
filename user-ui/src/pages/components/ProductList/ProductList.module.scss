@@ -192,11 +192,16 @@
 }
 
 .category-item {
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   padding: 0 1rem;
   font-size: 1.2rem;
   color: var(--white);
-  background: #506577;
+  background: #3d454c;
+  zoom: 1.2;
+  max-width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .review-gallery {

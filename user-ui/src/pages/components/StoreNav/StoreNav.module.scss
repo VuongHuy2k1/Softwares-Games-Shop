@@ -12,7 +12,10 @@
     rgba(58, 120, 177, 0.8) 25.23%,
     rgb(15, 33, 110) 100%
   );
-  zoom: 1.2;
+  border-radius: var(--border-radius);
+  width: 86%;
+  margin: 0 7%;
+  zoom: 1.4;
 }
 
 .store-nav {
@@ -53,6 +56,7 @@
   .wrapper {
     display: inline;
     zoom: 2;
+    margin: 0;
   }
   .store-nav-item {
     text-align: start;
@@ -77,6 +81,7 @@
 @media (max-width: 739px) {
   .wrapper {
     display: inline;
+    margin: 0;
   }
   .store-nav-item {
     text-align: start;

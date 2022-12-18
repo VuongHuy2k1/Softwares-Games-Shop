@@ -563,6 +563,10 @@
     align-content: center;
     font-weight: 700;
   }
+  .content {
+    justify-content: center;
+    align-content: flex-start;
+  }
 }
 
 @media (max-width: 739px) {

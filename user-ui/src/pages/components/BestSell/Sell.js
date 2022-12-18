@@ -81,12 +81,21 @@ export default function Sell() {
                   return (
                     <div className={cx('product')}>
                       <div className={cx('product-img')}>
-                        <Link to={'#'}>
+                        <Link to={`/product/${item.gameID}`}>
                           <img src={imageServices.getImage(item.listImage[0])} alt=""></img>
                         </Link>
-                        <div className={cx('img-hover')}>
-                          <img src={imageServices.getImage(item.listImage[1])} alt=""></img>
-                        </div>
+
+                        {item.listImage[1] ? (
+                          <>
+                            <Link to={`/product/${item.gameID}`}>
+                              <div className={cx('img-hover')}>
+                                <img src={imageServices.getImage(item.listImage[1])} alt=""></img>
+                              </div>
+                            </Link>
+                          </>
+                        ) : (
+                          <></>
+                        )}
                       </div>
 
                       <div className={cx('product-detai')}>
