@@ -57,18 +57,11 @@ const Palette = (mode) => {
                 blue1: '#bae7ff',
                 blue2: '#91d5ff',
                 blue3: '#69c0ff',
-                blue4: '#40a9ff',
-                m1: '#26A0FC',
-                m3: '#71FFCE',
-                m4: '#FEBC3B',
-                m5: '#FF6178',
-                m6: '#8B75D7',
-                m7: '#6D848E',
-                m8: '#46B3A9',
-                m9: '#D830EB',
-                m10: '#00E396'
+                blue4: '#40a9ff'
             },
             chart: {
+                ss: '#5CB85C',
+                ff: '#FF4444',
                 m1: '#26A0FC',
                 m3: '#71FFCE',
                 m4: '#FEBC3B',

@@ -43,8 +43,11 @@ const MonthlyBarChart = () => {
 
     const fillArrCount = (arr) => {
         const buy = [];
+
         arr.map((count, i) => {
-            buy.push(count.buyCount);
+            if (count.buyCount > 0) {
+                buy.push(count.buyCount);
+            }
         });
         setF(true);
         return buy;
@@ -53,7 +56,9 @@ const MonthlyBarChart = () => {
     const fillArrName = (arr) => {
         const buy = [];
         arr.map((count, i) => {
-            buy.push(count.name);
+            if (count.buyCount > 0) {
+                buy.push(count.name);
+            }
         });
         setF(true);
         return buy;

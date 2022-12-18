@@ -66,7 +66,7 @@ function Dash() {
                 </Box>
             </Grid>
             <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
-            <Grid item xs={12} md={12} lg={6}>
+            <Grid item xs={12} md={12} lg={7}>
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 0 }}>
                         <Stack spacing={2}>
@@ -76,7 +76,7 @@ function Dash() {
                     <BestSellerr />
                 </MainCard>
             </Grid>
-            <Grid item xs={12} md={12} lg={6}>
+            <Grid item xs={12} md={12} lg={5}>
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 0 }}>
                         <Stack spacing={2}>
@@ -86,7 +86,7 @@ function Dash() {
                     <Income />
                 </MainCard>
             </Grid>
-            <Grid item xs={12} md={12} lg={6}>
+            <Grid item xs={12} md={12} lg={7}>
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 0 }}>
                         <Stack spacing={2}>
@@ -96,11 +96,11 @@ function Dash() {
                     <SellerPerMY />
                 </MainCard>
             </Grid>
-            <Grid item xs={12} md={12} lg={6}>
+            <Grid item xs={12} md={12} lg={5}>
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 0 }}>
                         <Stack spacing={2}>
-                            <Typography variant="h3">Game nhiều lượt mua nhất theo tháng</Typography>
+                            <Typography variant="h3">Thu nhập theo tháng</Typography>
                         </Stack>
                     </Box>
                     <IncomePerMY />
@@ -111,7 +111,7 @@ function Dash() {
                     <RecentOrder />
                 </Stack>
             </Grid>
-            <Grid item xs={12} md={6} lg={12}>
+            <Grid item xs={12} md={12} lg={12}>
                 <Stack spacing={1}>
                     <BestSeller />
                 </Stack>

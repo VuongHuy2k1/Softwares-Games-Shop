@@ -12,7 +12,7 @@ export const getGameTable = async (index, page) => {
 
 export const getGameBestSeller = async () => {
     try {
-        const res = await httpRequest.get(`Games/bestseller?PageIndex=1&PageSize=5`);
+        const res = await httpRequest.get(`Games/bestseller?PageIndex=1&PageSize=100`);
         return res;
     } catch (error) {
         console.log(error);
