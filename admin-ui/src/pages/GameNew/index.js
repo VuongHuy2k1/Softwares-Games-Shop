@@ -168,19 +168,23 @@ const NewGame = () => {
                             AdditionalNotes: values.SRRAdditionalNotes,
                             Soundcard: values.SRRSoundcard
                         };
-                        createGame(
-                            values.gameName,
-                            values.price,
-                            values.discount,
-                            values.description,
-                            values.gameplay,
-                            genreSelect,
-                            status,
-                            image,
-                            fileGame,
-                            values.SRM,
-                            values.SRR
-                        );
+                        if (genreSelect) {
+                            createGame(
+                                values.gameName,
+                                values.price,
+                                values.discount,
+                                values.description,
+                                values.gameplay,
+                                genreSelect,
+                                status,
+                                image,
+                                fileGame,
+                                values.SRM,
+                                values.SRR
+                            );
+                        } else {
+                            setNotify('Bạn chưa chọn thể loại');
+                        }
                         setStatus({ success: false });
                         setSubmitting(false);
                     } catch (err) {
@@ -310,9 +314,8 @@ const NewGame = () => {
 
                             <Grid item xs={4}>
                                 <Stack spacing={1}>
-                                    <InputLabel id="genre">Thể loại</InputLabel>
+                                    <InputLabel id="genre">Thể loại *</InputLabel>
                                     <FormControl fullWidth>
-                                        {/* <InputLabel id="genre">Genre</InputLabel> */}
                                         <Select
                                             labelId="genre"
                                             id="simple-select"
@@ -653,7 +656,9 @@ const NewGame = () => {
                             )}
                             {notify ? (
                                 <Grid item xs={12}>
-                                    <FormHelperText error>{notify}</FormHelperText>
+                                    <Box sx={{ color: 'chart.m5', display: 'inline', fontSize: 18 }}>
+                                        <strong>{notify}</strong>
+                                    </Box>
                                 </Grid>
                             ) : (
                                 <></>

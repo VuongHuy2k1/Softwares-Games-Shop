@@ -3,7 +3,8 @@ import { useTheme } from '@mui/material/styles';
 import ReactApexChart from 'react-apexcharts';
 
 import * as chartServices from 'services/chartServices';
-import { Box, InputLabel, MenuItem, FormControl, Select } from '@mui/material';
+import { Box, InputLabel, MenuItem, FormControl, Select, Grid, Stack, Typography, ImageListItem } from '@mui/material';
+import MainCard from 'components/MainCard';
 
 // ==============================|| MONTHLY BAR CHART ||============================== //
 var today = new Date();
@@ -25,6 +26,7 @@ const MonthlyBarChart = () => {
                 show: false
             }
         },
+
         plotOptions: {
             bar: {
                 columnWidth: '45%',
@@ -34,7 +36,6 @@ const MonthlyBarChart = () => {
         dataLabels: {
             enabled: true
         },
-
         xaxis: {
             categories: ['', '', '', '', ''],
             axisBorder: {
@@ -52,6 +53,10 @@ const MonthlyBarChart = () => {
         }
     });
 
+    const { m1, m2, m3, m4, m5, m6, m7, m8, m9 } = theme.palette.custom;
+    const info = theme.palette.chart.m6;
+    const info2 = theme.palette.chart.m3;
+
     useEffect(() => {
         const profileApi = async () => {
             const result = await chartServices.getBestSellerPerMonthSortbyBuy(year, month, 100);
@@ -63,6 +68,7 @@ const MonthlyBarChart = () => {
         setSeries([{ name: 'Lượt mua', data: buyCount }]);
         setOptions({
             ...options,
+
             xaxis: {
                 labels: {
                     style: {
@@ -78,18 +84,19 @@ const MonthlyBarChart = () => {
                 }
             }
         });
-    }, [f, year, month]);
+    }, [f, year, month, m1, m2, m3, m4, m5, m6, m7, m8, m9]);
 
     const handleChangeMonth = (event) => {
+        setF(!f);
         setMonth(event.target.value);
+        setF(!f);
     };
 
     const handleChangeYear = (event) => {
+        setF(!f);
         setYear(event.target.value);
+        setF(!f);
     };
-
-    const { m1, m2, m3, m4, m5, m6, m7, m8, m9 } = theme.palette.custom;
-    const info = theme.palette.chart.m1;
 
     const fillArrCount = (arr) => {
         const buy = [];
@@ -116,14 +123,8 @@ const MonthlyBarChart = () => {
     useEffect(() => {
         setOptions((prevState) => ({
             ...prevState,
-            colors: [m1, m2, m3, m4, m5, m6, m7, m8, m9],
-            xaxis: {
-                labels: {
-                    style: {
-                        colors: [m1, m2, m3, m4, m5, m6, m7, m8, m9]
-                    }
-                }
-            },
+            colors: [info],
+
             tooltip: {
                 theme: 'light'
             }
@@ -135,8 +136,8 @@ const MonthlyBarChart = () => {
             <FormControl sx={{ m: 1, minWidth: 120, ml: 4 }} size="small">
                 <InputLabel id="demo-select-small">Tháng</InputLabel>
                 <Select labelId="demo-select-small" id="demo-select-small" value={month} label="month" onChange={handleChangeMonth}>
-                    <MenuItem value="">
-                        <em>None</em>
+                    <MenuItem value={today.getMonth() + 1}>
+                        <em>Hiện tại</em>
                     </MenuItem>
                     <MenuItem value={1}>Tháng 1</MenuItem>
                     <MenuItem value={2}>Tháng 2</MenuItem>
@@ -155,15 +156,29 @@ const MonthlyBarChart = () => {
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel id="demo-select-medium">Năm</InputLabel>
                 <Select labelId="demo-select-medium" id="demo-select-medium" value={year} label="year" onChange={handleChangeYear}>
-                    <MenuItem value="">
-                        <em>None</em>
-                    </MenuItem>
-                    <MenuItem value={2020}>2020</MenuItem>
-                    <MenuItem value={2021}>2021</MenuItem>
-                    <MenuItem value={2022}>2022</MenuItem>
+                    <MenuItem value={today.getFullYear()}>{today.getFullYear()}</MenuItem>
+                    <MenuItem value={2023}>2023</MenuItem>
                 </Select>
             </FormControl>
-            <ReactApexChart options={options} series={series} type="bar" height={365} />
+
+            {buyCount.length > 0 ? (
+                <ReactApexChart options={options} series={series} type="bar" height={365} />
+            ) : (
+                <>
+                    <Grid container rowSpacing={4.5} columnSpacing={2.75} height={418}>
+                        <Box sx={{ p: 3, pb: 0, mt: 3, align: 'center', ml: 3 }}>
+                            <Stack spacing={2}>
+                                <Typography variant="h3">Không có game nào được bán ra trong tháng {month}</Typography>
+                                <ImageListItem sx={{ width: 280, height: 250 }}>
+                                    <img
+                                        src={`https://scontent.fsgn5-10.fna.fbcdn.net/v/t39.30808-6/251576195_208842638030538_3533206260411626160_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=1G0Z9MmRFdcAX8O5ueL&_nc_ht=scontent.fsgn5-10.fna&oh=00_AfBNQe8Dxqfkqq5QBAIOzvbOWAU4rW2zsX5LSJaEBGvhEg&oe=63A4290F`}
+                                    />
+                                </ImageListItem>
+                            </Stack>
+                        </Box>
+                    </Grid>
+                </>
+            )}
         </div>
     );
 };

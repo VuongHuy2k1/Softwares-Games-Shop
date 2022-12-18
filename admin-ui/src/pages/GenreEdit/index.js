@@ -80,6 +80,11 @@ const EditGenre = () => {
                         <Grid item xs={12}>
                             {loading ? (
                                 <Box sx={{ width: '100%' }}>
+                                    <Grid item xs={12}>
+                                        <Box sx={{ color: 'chart.ss', display: 'inline', fontSize: 18 }}>
+                                            <strong>Thành công</strong>
+                                        </Box>
+                                    </Grid>
                                     <LinearProgress />
                                 </Box>
                             ) : (
@@ -95,7 +100,6 @@ const EditGenre = () => {
                 </form>
             ) : (
                 <>
-                    Hi
                     <Box sx={{ width: '100%' }}>
                         <LinearProgress />
                     </Box>

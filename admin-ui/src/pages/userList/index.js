@@ -23,14 +23,15 @@ import * as userServices from 'services/userServices';
 import { AiOutlineDelete, AiOutlineEye, AiOutlineEdit } from 'react-icons/ai';
 import { GrUserAdmin } from 'react-icons/gr';
 
-function createData(id, firstName, lastName, phoneNumber, roleAssign, userName) {
+function createData(id, firstName, lastName, phoneNumber, roleAssign, userName, email) {
     return {
         id,
         firstName,
         lastName,
         phoneNumber,
         roleAssign,
-        userName
+        userName,
+        email
     };
 }
 
@@ -63,7 +64,7 @@ export default function UserTable() {
     }, [loading]);
 
     const rows = ro.map((value) => {
-        return createData(value.id, value.firstName, value.lastName, value.phoneNumber, value.roleAssign, value.userName);
+        return createData(value.id, value.firstName, value.lastName, value.phoneNumber, value.roleAssign, value.userName, value.email);
     });
 
     const handleRequestSort = (event, property) => {
@@ -139,6 +140,7 @@ export default function UserTable() {
                                             <TableCell align="right">{row.firstName}</TableCell>
                                             <TableCell align="right">{row.lastName}</TableCell>
                                             <TableCell align="right">{row.phoneNumber}</TableCell>
+                                            <TableCell align="right">{row.email}</TableCell>
                                             <TableCell align="right">
                                                 <IconButton onClick={(event) => handleClick(event, row.userName, row.id)}>
                                                     <AiOutlineDelete />

@@ -58,6 +58,12 @@ const headCells = [
         label: 'Số điện thoại'
     },
     {
+        id: 'email',
+        numeric: true,
+        disablePadding: false,
+        label: 'Email'
+    },
+    {
         id: 'xoa',
         numeric: true,
         disablePadding: false,
