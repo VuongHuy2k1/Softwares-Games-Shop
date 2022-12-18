@@ -20,15 +20,32 @@ function ProductItem({ data, isActive }) {
               <div className={cx('item-title')}>{data.name}</div>
               <div className={cx('item-category')}>{data.genreName.join(', ')}</div>
             </div>
-            <div className={cx('discount-prices')}>
-              {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
-              <div className={cx('prices')}>
-                {data.discount > 0 && <div className={cx('discount-orginal-price')}>{currencyFormat(data.price)}</div>}
-                <div className={cx('discount-final-price')}>
-                  {currencyFormat(data.price * (1 - data.discount / 100))}
+
+            {data.discount > 0 ? (
+              <>
+                {' '}
+                <div className={cx('discount-prices')}>
+                  {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
+                  <div className={cx('prices')}>
+                    {data.discount > 0 && (
+                      <div className={cx('discount-orginal-price')}>{currencyFormat(data.price)}</div>
+                    )}
+                    <div className={cx('discount-final-price')}>
+                      {currencyFormat(data.price * (1 - data.discount / 100))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </>
+            ) : (
+              <>
+                <div className={cx('discount-prices')}>
+                  {data.discount > 0 && <div className={cx('discount')}>-{data.discount}%</div>}
+                  <div className={cx('prices')}>
+                    <div className={cx('final-price')}>{currencyFormat(data.price * (1 - data.discount / 100))}</div>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </Link>
       </div>

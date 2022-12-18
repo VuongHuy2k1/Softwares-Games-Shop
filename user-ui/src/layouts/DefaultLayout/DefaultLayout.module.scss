@@ -1,13 +1,10 @@
 .wrapper {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
   display: grid;
   grid-template-areas:
     'top-bar'
     'main-view'
     'footer';
-  // grid-template-columns: 1fr;
+
   grid-template-rows: auto 1fr auto;
   height: auto;
   min-height: 100%;
@@ -16,11 +13,7 @@
   min-width: 100%;
   background: url(https://store.cloudflare.steamstatic.com/public/images/v6/colored_body_top.png?v=2) center top
     no-repeat #1b2838;
-
-  background-image: url(https://cdn.cloudflare.steamstatic.com/steam/clusters/frontpage/d31b807…/page_bg_vietnamese.jpg?t=1671128262);
-  background-size: contain;
 }
-
 .container {
   grid-area: main-view;
   display: flex;

@@ -95,7 +95,7 @@ export default function Sell() {
                             <div className={cx('detail-content')}>
                               <div className={cx('title')}>{item.name}</div>
                               <div className={cx('category-items')}>
-                                {item.genreName.map((category, index) => {
+                                {item.genreName.slice(0, 2).map((category, index) => {
                                   return (
                                     <div key={index} className={cx('category-item')}>
                                       {category}

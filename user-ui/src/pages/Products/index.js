@@ -7,6 +7,8 @@ import styles from './Products.module.scss';
 import Slider from '../components/Slider';
 import Sell from '../components/BestSell/Sell';
 import BrowseByTag from '../components/BrowseByTag';
+import ProductListII from '../components/ProductListII';
+
 function Products() {
   document.title = 'All product';
   const { keyword, page } = useParams();
@@ -43,7 +45,7 @@ function Products() {
     <>
       <StoreNav />
 
-      <ProductList pagination={true} typePage={'products'} title={`${title} - Trang ${page || 1}`} />
+      <ProductListII pagination={true} typePage={'products'} title={`${title} - Trang ${page || 1}`} />
     </>
   );
 }

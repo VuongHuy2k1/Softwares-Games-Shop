@@ -160,12 +160,15 @@
 }
 .detail-content {
   font-size: 2rem;
-
   font-weight: bold;
   letter-spacing: 0.1ch;
   color: white;
   text-shadow: 0 1px 3px rgb(0 0 0 / 50%);
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 90%;
 }
 
 .category-items {

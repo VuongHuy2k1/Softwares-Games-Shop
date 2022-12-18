@@ -6,7 +6,7 @@ import * as imageServices from 'src/services/imageServices';
 import { currencyFormat } from 'src/utils';
 // import config from 'src/config';
 
-import styles from './ProductListStyle.module.scss';
+import styles from './ProductList.module.scss';
 const cx = classNames.bind(styles);
 
 function ProductItemStyle({ data, isActive, isShow }) {
