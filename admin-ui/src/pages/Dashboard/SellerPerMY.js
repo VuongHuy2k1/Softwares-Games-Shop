@@ -3,8 +3,7 @@ import { useTheme } from '@mui/material/styles';
 import ReactApexChart from 'react-apexcharts';
 
 import * as chartServices from 'services/chartServices';
-import { Box, InputLabel, MenuItem, FormControl, Select, Grid, Stack, Typography, ImageListItem } from '@mui/material';
-import MainCard from 'components/MainCard';
+import { Box, InputLabel, MenuItem, FormControl, Select, Grid, Stack, Typography, ImageListItem, LinearProgress } from '@mui/material';
 
 // ==============================|| MONTHLY BAR CHART ||============================== //
 var today = new Date();
@@ -12,6 +11,7 @@ var today = new Date();
 const MonthlyBarChart = () => {
     const theme = useTheme();
     const [game, setGame] = useState();
+    const [loading, setLoading] = useState(true);
     const [gameName, setGameName] = useState(['', '', '', '', '']);
     const [f, setF] = useState(false);
     const [series, setSeries] = useState([]);
@@ -68,7 +68,6 @@ const MonthlyBarChart = () => {
         setSeries([{ name: 'Lượt mua', data: buyCount }]);
         setOptions({
             ...options,
-
             xaxis: {
                 labels: {
                     style: {
@@ -84,7 +83,11 @@ const MonthlyBarChart = () => {
                 }
             }
         });
-    }, [f, year, month, m1, m2, m3, m4, m5, m6, m7, m8, m9]);
+        const timerId = setTimeout(() => {
+            clearTimeout(timerId);
+            setLoading(false);
+        }, 700);
+    }, [f, year, month, m1, m2, m3, m4, m5, m6, m7, m8, m9, loading]);
 
     const handleChangeMonth = (event) => {
         setF(!f);
@@ -101,8 +104,10 @@ const MonthlyBarChart = () => {
     const fillArrCount = (arr) => {
         const buy = [];
         arr.map((count, i) => {
-            if (count.buyCount > 0) {
-                buy.push(count.buyCount);
+            if (i <= 4) {
+                if (count.buyCount > 0) {
+                    buy.push(count.buyCount);
+                }
             }
         });
         setF(true);
@@ -112,8 +117,14 @@ const MonthlyBarChart = () => {
     const fillArrName = (arr) => {
         const buy = [];
         arr.map((count, i) => {
-            if (count.buyCount > 0) {
-                buy.push(count.name);
+            if (i <= 4) {
+                if (count.buyCount > 0) {
+                    if (count.name.length > 20) {
+                        buy.push(count.name.slice(0, 20) + '...');
+                    } else {
+                        buy.push(count.name);
+                    }
+                }
             }
         });
         setF(true);
@@ -124,7 +135,6 @@ const MonthlyBarChart = () => {
         setOptions((prevState) => ({
             ...prevState,
             colors: [info],
-
             tooltip: {
                 theme: 'light'
             }
@@ -162,7 +172,21 @@ const MonthlyBarChart = () => {
             </FormControl>
 
             {buyCount.length > 0 ? (
-                <ReactApexChart options={options} series={series} type="bar" height={365} />
+                <>
+                    {!loading ? (
+                        <ReactApexChart options={options} series={series} type="bar" width="100%" height={365} />
+                    ) : (
+                        <Grid container rowSpacing={4.5} columnSpacing={2.75} height={365}>
+                            <Box sx={{ p: 3, pb: 0, mt: 3, align: 'center', ml: 3, width: '100%' }}>
+                                <Stack sx={{ width: '100%', color: 'grey.500', mt: 10 }} spacing={2}>
+                                    <LinearProgress color="secondary" />
+                                    <LinearProgress color="success" />
+                                    <LinearProgress color="inherit" />
+                                </Stack>
+                            </Box>
+                        </Grid>
+                    )}
+                </>
             ) : (
                 <>
                     <Grid container rowSpacing={4.5} columnSpacing={2.75} height={418}>

@@ -20,7 +20,7 @@ export default function BestSeller() {
                 <Grid item xs={1}></Grid>
                 <Grid item xs={12}>
                     <Typography variant="h1" component="h2">
-                        Game bán chạy nhất
+                        Số lượng bán game
                     </Typography>
                 </Grid>
                 <Grid item xs={1}></Grid>
@@ -42,7 +42,10 @@ export default function BestSeller() {
                                 </TableCell>
                                 <TableCell align="right">{row.buyCount}</TableCell>
                                 <TableCell align="right">
-                                    {Math.round((row.price - (row.price * row.discount) / 100) * row.buyCount)}
+                                    {Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 10 }).format(
+                                        Math.round((row.price - (row.price * row.discount) / 100) * row.buyCount)
+                                    )}{' '}
+                                    VNĐ
                                 </TableCell>
                             </TableRow>
                         ))}

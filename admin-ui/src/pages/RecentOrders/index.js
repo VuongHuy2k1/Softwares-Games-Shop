@@ -41,7 +41,9 @@ function Row(props) {
                 <TableCell component="th" scope="row">
                     {order[row]?.username}
                 </TableCell>
-                <TableCell align="right">{order[row]?.totalPrice}</TableCell>
+                <TableCell align="right">
+                    {Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 10 }).format(order[row]?.totalPrice)} VNĐ
+                </TableCell>
                 <TableCell align="right">
                     <div type="date">{order[row]?.purchasedate.slice(0, 10)}</div>
                 </TableCell>
@@ -65,11 +67,17 @@ function Row(props) {
                                     {order[row]?.listgame.map((gameRow) => (
                                         <TableRow key={gameRow.gameID}>
                                             <TableCell align="right"></TableCell>
-
                                             <TableCell>{gameRow.name}</TableCell>
-                                            <TableCell>{gameRow.price}</TableCell>
+                                            <TableCell>
+                                                {Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 10 }).format(gameRow.price)} VNĐ
+                                            </TableCell>
                                             <TableCell>{gameRow.discount} %</TableCell>
-                                            <TableCell>{Math.round(gameRow.price - (gameRow.price * gameRow.discount) / 100)}</TableCell>
+                                            <TableCell>
+                                                {Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 10 }).format(
+                                                    Math.round(gameRow.price - (gameRow.price * gameRow.discount) / 100)
+                                                )}{' '}
+                                                VNĐ
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>
@@ -103,7 +111,7 @@ export default function RecentOrder() {
                 <Grid item xs={12}></Grid>
                 <Grid item xs={12} lg={4}>
                     <Typography variant="h1" component="h2">
-                        Danh sách đơn hàng
+                        Danh sách hóa đơn
                     </Typography>
                 </Grid>
             </Grid>
@@ -121,9 +129,6 @@ export default function RecentOrder() {
                         {orderRecent?.map((row, index) => (
                             <Row key={row.cartID} row={index} />
                         ))}
-                        {/* <TableRow>
-                            <TableCell align="right">Total:</TableCell>
-                        </TableRow> */}
                     </TableBody>
                 </Table>
             </TableContainer>

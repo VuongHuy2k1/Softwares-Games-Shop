@@ -30,7 +30,7 @@ const pages = {
         },
         {
             id: 'recentOrders',
-            title: 'Danh sách đơn hàng',
+            title: 'Danh sách hóa đơn',
             type: 'item',
             url: '/recent-orders',
             icon: icons.RiMoneyDollarCircleLine,
