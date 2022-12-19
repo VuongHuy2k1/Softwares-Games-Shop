@@ -40,7 +40,7 @@ function Dash() {
         arr.map((ic) => {
             return (total += ic.totalPrice);
         });
-        return new Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 3 }).format(total).toString();
+        return new Intl.NumberFormat('vn-VN', { maximumSignificantDigits: 10 }).format(total).toString();
     };
 
     return (
@@ -57,7 +57,7 @@ function Dash() {
             </Grid>
             <Grid item xs={6} sm={6} md={3} lg={3}>
                 <Box sx={{ p: 2, bgcolor: 'custom.blue3', color: 'primary.contrastText', borderRadius: 2 }}>
-                    <AnalyticEcommerce title="Đơn hàng đã xuất" count={bill} />
+                    <AnalyticEcommerce title="Đơn mua" count={bill} />
                 </Box>
             </Grid>
             <Grid item xs={6} sm={6} md={3} lg={3}>
@@ -100,7 +100,7 @@ function Dash() {
                 <MainCard sx={{ mt: 2 }} content={false}>
                     <Box sx={{ p: 3, pb: 0 }}>
                         <Stack spacing={2}>
-                            <Typography variant="h3">Thu nhập theo tháng</Typography>
+                            <Typography variant="h3">Thu nhập từ game theo tháng</Typography>
                         </Stack>
                     </Box>
                     <IncomePerMY />

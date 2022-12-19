@@ -11,6 +11,7 @@ var today = new Date();
 const MonthlyBarChart = () => {
     const theme = useTheme();
     const [game, setGame] = useState();
+    const [loading, setLoading] = useState(true);
     const [gameName, setGameName] = useState(['', '', '', '', '']);
     const [f, setF] = useState(false);
     const [series, setSeries] = useState([]);
@@ -49,8 +50,10 @@ const MonthlyBarChart = () => {
         const buy = [];
 
         arr.map((count, i) => {
-            if (count.buyCount > 0) {
-                buy.push(count.total);
+            if (i <= 10) {
+                if (count.buyCount > 0) {
+                    buy.push(count.total);
+                }
             }
         });
         setF(true);
@@ -60,8 +63,14 @@ const MonthlyBarChart = () => {
     const fillArrName = (arr) => {
         const buy = [];
         arr.map((count, i) => {
-            if (count.buyCount > 0) {
-                buy.push(count.name);
+            if (i <= 10) {
+                if (count.buyCount > 0) {
+                    if (count.name.length < 20) {
+                        buy.push(count.name);
+                    } else {
+                        buy.push(count.name.slice(0, 20) + '...');
+                    }
+                }
             }
         });
         setF(true);
@@ -124,7 +133,7 @@ const MonthlyBarChart = () => {
                 <ReactApexChart options={options} series={series} type="pie" height={378} />
             ) : (
                 <>
-                    <Grid container rowSpacing={4.5} columnSpacing={2.75} height={418}>
+                    <Grid container rowSpacing={4.5} columnSpacing={2.75} height={378}>
                         <Box sx={{ p: 3, pb: 0, mt: 3, ml: 3 }}>
                             <Stack spacing={2}>
                                 <Typography variant="h3">Không có game nào được bán ra trong tháng {month}</Typography>
