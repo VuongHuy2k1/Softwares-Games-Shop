@@ -57,10 +57,10 @@ function DrawerRight() {
           <>
             <div className={cx('action-menu')}>
               <Button wishlist to={config.routes.wishlist} className={cx('action-menu-button')}>
-                {`WISHLIST (${wishlistData.length})`}
+                {`YÊU THÍCH (${wishlistData.length})`}
               </Button>
               <Button cart to={config.routes.cart} className={cx('action-menu-button')}>
-                {`CART (${cartData.length})`}
+                {`GIỎ HÀNG (${cartData.length})`}
               </Button>
             </div>
             <div className={cx('action-menu')}>
