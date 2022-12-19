@@ -62,49 +62,42 @@ const EditGenre = () => {
                 </Grid>
                 <Grid item xs={1}></Grid>
             </Grid>
-            {genre ? (
-                <form noValidate onSubmit={(e) => onSubmit(e)}>
-                    <Grid container spacing={3}>
-                        <Grid item xs={12}>
-                            <Stack spacing={1}>
-                                <InputLabel htmlFor="name">Tên</InputLabel>
-                                <Input
-                                    name="name"
-                                    value={genre ? genre : ''}
-                                    onChange={(e) => {
-                                        handleChange(e);
-                                    }}
-                                ></Input>
-                            </Stack>
-                        </Grid>
-                        <Grid item xs={12}>
-                            {loading ? (
-                                <Box sx={{ width: '100%' }}>
-                                    <Grid item xs={12}>
-                                        <Box sx={{ color: 'chart.ss', display: 'inline', fontSize: 18 }}>
-                                            <strong>Thành công</strong>
-                                        </Box>
-                                    </Grid>
-                                    <LinearProgress />
-                                </Box>
-                            ) : (
-                                <AnimateButton>
-                                    <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="primary">
-                                        Lưu
-                                    </Button>
-                                </AnimateButton>
-                            )}
-                        </Grid>
-                        <Grid item xs={12}></Grid>
+
+            <form noValidate onSubmit={(e) => onSubmit(e)}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Stack spacing={1}>
+                            <InputLabel htmlFor="name">Tên</InputLabel>
+                            <Input
+                                name="name"
+                                value={genre ? genre : ''}
+                                onChange={(e) => {
+                                    handleChange(e);
+                                }}
+                            ></Input>
+                        </Stack>
                     </Grid>
-                </form>
-            ) : (
-                <>
-                    <Box sx={{ width: '100%' }}>
-                        <LinearProgress />
-                    </Box>
-                </>
-            )}
+                    <Grid item xs={12}>
+                        {loading ? (
+                            <Box sx={{ width: '100%' }}>
+                                <Grid item xs={12}>
+                                    <Box sx={{ color: 'chart.ss', display: 'inline', fontSize: 18 }}>
+                                        <strong>Thành công</strong>
+                                    </Box>
+                                </Grid>
+                                <LinearProgress />
+                            </Box>
+                        ) : (
+                            <AnimateButton>
+                                <Button disableElevation fullWidth size="large" type="submit" variant="contained" color="primary">
+                                    Lưu
+                                </Button>
+                            </AnimateButton>
+                        )}
+                    </Grid>
+                    <Grid item xs={12}></Grid>
+                </Grid>
+            </form>
         </>
     );
 };

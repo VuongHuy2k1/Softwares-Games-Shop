@@ -16,7 +16,7 @@ export default function Sell() {
 
   useEffect(() => {
     const fetchApi = async () => {
-      const result = await productServices.getSalesProduct(1);
+      const result = await productServices.getSalesProduct(1, 100);
       setSlideValue(result.items);
     };
     fetchApi();
