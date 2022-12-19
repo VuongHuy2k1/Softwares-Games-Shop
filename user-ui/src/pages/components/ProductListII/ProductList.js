@@ -14,7 +14,6 @@ import styles from './ProductList.module.scss';
 const cx = classNames.bind(styles);
 function ProductListII({ pagination = false, typePage = '', type = '', title = 'List Product' }) {
   const navigate = useNavigate();
-
   const { genre, keyword, page } = useParams();
   const [reviewIndex, setReviewIndex] = useState(0);
   const [reviewValue, setReviewValue] = useState({});
@@ -23,7 +22,7 @@ function ProductListII({ pagination = false, typePage = '', type = '', title = '
   const [totalPages, setTotalPages] = useState(1000);
   const [valueCate, setValueCate] = useState([]);
   const [valueCheck, setValueCheck] = useState([]);
-  const [h, setH] = useState([]);
+
   useEffect(() => {
     const fetchApi = async () => {
       setIsLoaded(true);

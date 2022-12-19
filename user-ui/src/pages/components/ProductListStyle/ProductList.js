@@ -29,29 +29,29 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
       var result;
       switch (typePage) {
         case 'search': {
-          result = await productServices.getProductsByKeyword(keyword, page || 1);
+          result = await productServices.getProductsByKeyword(keyword, page || 1, 10);
           break;
         }
         case 'category': {
-          result = await productServices.getProductsByGenreId(genre, page || 1);
+          result = await productServices.getProductsByGenreId(genre, page || 1, 10);
           break;
         }
         case 'products': {
           switch (keyword) {
             case 'latest': {
-              result = await productServices.getLatestProduct(page || 1);
+              result = await productServices.getLatestProduct(page || 1, 10);
               break;
             }
             case 'best-seller': {
-              result = await productServices.getBestSellerProduct(page || 1);
+              result = await productServices.getBestSellerProduct(page || 1, 10);
               break;
             }
             case 'specials': {
-              result = await productServices.getSalesProduct(page || 1);
+              result = await productServices.getSalesProduct(page || 1, 10);
               break;
             }
             default: {
-              result = await productServices.getAllProduct(page || 1);
+              result = await productServices.getAllProduct(page || 1, 10);
               break;
             }
           }
@@ -60,19 +60,19 @@ function ProductListStyle({ pagination = false, typePage = '', type = '', title 
         default: {
           switch (type) {
             case 'latest': {
-              result = await productServices.getLatestProduct(page || 1);
+              result = await productServices.getLatestProduct(page || 1, 10);
               break;
             }
             case 'best-seller': {
-              result = await productServices.getBestSellerProduct(page || 1);
+              result = await productServices.getBestSellerProduct(page || 1, 10);
               break;
             }
             case 'specials': {
-              result = await productServices.getSalesProduct(page || 1);
+              result = await productServices.getSalesProduct(page || 1, 10);
               break;
             }
             default: {
-              result = await productServices.getAllProduct(page || 1);
+              result = await productServices.getAllProduct(page || 1, 10);
               break;
             }
           }

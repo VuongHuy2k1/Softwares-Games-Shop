@@ -574,6 +574,9 @@
     display: none;
     width: 0;
   }
+  .content {
+    justify-content: space-evenly;
+  }
   .wrapper-fills {
     display: none;
     width: 0;
@@ -582,7 +585,7 @@
     width: 100%;
   }
   .product {
-    zoom: 1.9;
+    zoom: 1.6;
   }
   .container {
     min-height: 160rem;
