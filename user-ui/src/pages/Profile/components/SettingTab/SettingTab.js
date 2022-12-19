@@ -1,8 +1,8 @@
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import MultiTab from 'src/pages/components/MultiTab';
 
+import MultiTabMini from 'src/pages/components/MultiTabMini';
 import styles from './SettingTab.module.scss';
 import { Items } from './Tabs';
 
@@ -17,7 +17,7 @@ function SettingTab() {
           cài đặt
         </h2>
         <div className={cx('container')}>
-          <MultiTab data={Items} />
+          <MultiTabMini data={Items} />
         </div>
       </div>
     </>

@@ -74,7 +74,7 @@ function Header() {
       case 'Store':
         return (
           <li
-            className={cx('navbar-item', 'u-hover--sparkle')}
+            className={cx('navbar-item', '')}
             key={item.id}
             onMouseEnter={() => setStoreDropdown(true)}
             onMouseLeave={() => setStoreDropdown(false)}
@@ -86,7 +86,7 @@ function Header() {
       case 'Community':
         return (
           <li
-            className={cx('navbar-item', 'u-hover--sparkle')}
+            className={cx('navbar-item')}
             key={item.id}
             onMouseEnter={() => setCommunityDropdown(true)}
             onMouseLeave={() => setCommunityDropdown(false)}
@@ -97,7 +97,7 @@ function Header() {
         );
       default:
         return (
-          <li className={cx('navbar-item', 'u-hover--sparkle')} key={item.id}>
+          <li className={cx('navbar-item')} key={item.id}>
             <Link to={item.path}>{item.title_vi}</Link>
           </li>
         );
@@ -145,7 +145,7 @@ function Header() {
             <>
               <div className={cx('action-menu')}>
                 <Button wishlist to={config.routes.wishlist} className={cx('action-menu-button')}>
-                  {`WISHLIST (${wishlistData.length})`}
+                  {`YÊU THÍCH (${wishlistData.length})`}
                 </Button>
                 <Button cart to={config.routes.cart} className={cx('action-menu-button')}>
                   {`GIỎ HÀNG (${cartData.length})`}

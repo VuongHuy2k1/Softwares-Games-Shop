@@ -32,7 +32,7 @@ export default function BrowseByTag() {
       console.log(slideValue);
       for (index = 0; index < arrayLength; index += chunk_size) {
         var myChunk = myArray.slice(index, index + chunk_size);
-        if (myChunk.length === 5 || myChunk.length === 4) {
+        if (myChunk.length === 5) {
           tempArray.push(myChunk);
         }
       }

@@ -293,6 +293,7 @@
     zoom: 4;
     background-color: transparent;
     padding: 2rem 0;
+    margin-top: 6rem;
   }
   .product-img {
     zoom: 2;
@@ -324,9 +325,6 @@
   .product-information {
     border-bottom: solid 4rem #162330;
   }
-  .action-container {
-    height: 4rem;
-  }
 
   .product-category,
   .category-item {
@@ -339,6 +337,8 @@
     zoom: 2;
     background-color: transparent;
     padding: 2rem 0;
+    margin-top: 5rem;
+    height: 4rem;
   }
   .product-description {
     zoom: 3;
