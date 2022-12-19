@@ -12,7 +12,12 @@ export const getUserData = async (id) => {
 
 export const editProfile = async (account) => {
   try {
-    const res = await httpRequest.put('Users/', account);
+    const jwt_token = Cookies.get('jwt');
+    const res = await httpRequest.put('Users/', account, {
+      headers: {
+        Authorization: `Bearer ${jwt_token}`,
+      },
+    });
     return res.data;
   } catch (error) {
     if (error.code === 'ERR_NETWORK') {

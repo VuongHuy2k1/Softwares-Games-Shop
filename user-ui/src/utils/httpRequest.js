@@ -16,8 +16,8 @@ export const post = async (path, data = {}, options = {}) => {
   return response;
 };
 
-export const put = async (path, options = {}) => {
-  const response = await httpRequest.put(path, options);
+export const put = async (path, data, options = {}) => {
+  const response = await httpRequest.put(path, data, options);
   return response;
 };
 

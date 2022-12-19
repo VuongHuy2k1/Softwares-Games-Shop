@@ -25,9 +25,24 @@ export default function BrowseByTag() {
   }, []);
 
   useEffect(() => {
+    const chunkArray = (myArray, chunk_size) => {
+      var index = 0;
+      var arrayLength = myArray.length;
+      var tempArray = [];
+      console.log(slideValue);
+      for (index = 0; index < arrayLength; index += chunk_size) {
+        var myChunk = myArray.slice(index, index + chunk_size);
+        if (myChunk.length === 5 || myChunk.length === 4) {
+          tempArray.push(myChunk);
+        }
+      }
+
+      return tempArray;
+    };
     var sliceValue = chunkArray(slideValue, 5);
     setSilceSlideValue(sliceValue);
   }, [slideValue]);
+
   const nextSlide = () => {
     if (slideIndex !== sliceSlideValue.length) {
       setSlideIndex(slideIndex + 1);
@@ -48,34 +63,19 @@ export default function BrowseByTag() {
     setSlideIndex(index);
   };
 
-  const chunkArray = (myArray, chunk_size) => {
-    var index = 0;
-    var arrayLength = myArray.length;
-    var tempArray = [];
-    console.log(slideValue);
-    for (index = 0; index < arrayLength; index += chunk_size) {
-      var myChunk = myArray.slice(index, index + chunk_size);
-      if (myChunk.length === 5 || myChunk.length === 4) {
-        tempArray.push(myChunk);
-      }
-    }
-
-    return tempArray;
-  };
-
   var myArray = [
-    'https://store.steampowered.com/categories/homepageimage/vr?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/multiplayer_coop?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/action?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/racing?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/vr?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/multiplayer_coop?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/action?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/racing?cc=us&l=vietnamese',
-    'https://store.steampowered.com/categories/homepageimage/category/anime?cc=us&l=vietnamese',
+    process.env.PUBLIC_URL + '/images/vr.png',
+    process.env.PUBLIC_URL + '/images/multiplayer.png',
+    process.env.PUBLIC_URL + '/images/anime.png',
+    process.env.PUBLIC_URL + '/images/action.png',
+    process.env.PUBLIC_URL + '/images/racing.png',
+    process.env.PUBLIC_URL + '/images/anime.png',
+    process.env.PUBLIC_URL + '/images/vr.png',
+    process.env.PUBLIC_URL + '/images/multiplayer.png',
+    process.env.PUBLIC_URL + '/images/anime.png',
+    process.env.PUBLIC_URL + '/images/action.png',
+    process.env.PUBLIC_URL + '/images/racing.png',
+    process.env.PUBLIC_URL + '/images/anime.png',
   ];
 
   var myArrayColor = [
