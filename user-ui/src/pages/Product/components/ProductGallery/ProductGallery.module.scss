@@ -55,9 +55,13 @@
 @media (min-width: 740px) and (max-width: 1023px) {
   .gallery-items {
     height: 50%;
+    background: transparent;
   }
   .gallery-item {
-    zoom: 1.2;
+    zoom: 1.4;
+    background: transparent;
+    /* margin-top: 0.2rem; */
+    margin: 0.1rem 2rem;
   }
   .screen-img {
     zoom: 1.2;
@@ -65,16 +69,26 @@
   .wrapper {
     zoom: 2;
   }
+  .screen {
+    background: transparent;
+  }
 }
 @media (max-width: 739px) {
+  .screen {
+    background: transparent;
+  }
   .gallery-items {
     height: 50%;
+    background: transparent;
   }
   .gallery-item {
-    zoom: 1.2;
+    zoom: 1.1;
+    margin-top: 0.2rem;
+    background: transparent;
   }
   .screen-img {
     zoom: 1.2;
+    min-height: 64rem;
   }
   .wrapper {
     zoom: 1.2;

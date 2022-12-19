@@ -5,7 +5,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: var(--form-bg-color);
+  background: -webkit-linear-gradient(top, rgb(42, 71, 94) 5%, rgba(42, 71, 94, 0) 300%);
   border: 1px solid var(--black);
   padding: 2rem 0;
   margin-bottom: 2rem;

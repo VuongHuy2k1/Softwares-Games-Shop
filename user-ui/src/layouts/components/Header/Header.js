@@ -74,7 +74,7 @@ function Header() {
       case 'Store':
         return (
           <li
-            className={cx('navbar-item')}
+            className={cx('navbar-item', 'u-hover--sparkle')}
             key={item.id}
             onMouseEnter={() => setStoreDropdown(true)}
             onMouseLeave={() => setStoreDropdown(false)}
@@ -86,7 +86,7 @@ function Header() {
       case 'Community':
         return (
           <li
-            className={cx('navbar-item')}
+            className={cx('navbar-item', 'u-hover--sparkle')}
             key={item.id}
             onMouseEnter={() => setCommunityDropdown(true)}
             onMouseLeave={() => setCommunityDropdown(false)}
@@ -97,7 +97,7 @@ function Header() {
         );
       default:
         return (
-          <li className={cx('navbar-item')} key={item.id}>
+          <li className={cx('navbar-item', 'u-hover--sparkle')} key={item.id}>
             <Link to={item.path}>{item.title_vi}</Link>
           </li>
         );

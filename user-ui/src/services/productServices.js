@@ -1,6 +1,6 @@
 import { httpRequest } from 'src/utils';
 
-export const getAllProduct = async (page, size = 10) => {
+export const getAllProduct = async (page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/paging?pageindex=${page}&pagesize=${size}`);
     return res;
@@ -18,7 +18,7 @@ export const search = async (q) => {
   }
 };
 
-export const getProductsByKeyword = async (q, page, size = 10) => {
+export const getProductsByKeyword = async (q, page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/paging?keyword=${q}&pageindex=${page}&pagesize=${size}`);
     return res;
@@ -27,7 +27,7 @@ export const getProductsByKeyword = async (q, page, size = 10) => {
   }
 };
 
-export const getProductsByGenreId = async (q, page, size = 10) => {
+export const getProductsByGenreId = async (q, page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/paging?GenreID=${q}&pageindex=${page}&pagesize=${size}`);
     return res;
@@ -45,7 +45,7 @@ export const getProductById = async (id) => {
   }
 };
 
-export const getLatestProduct = async (page, size = 10) => {
+export const getLatestProduct = async (page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/latest?pageindex=${page}&pagesize=${size}`);
     return res;
@@ -54,7 +54,7 @@ export const getLatestProduct = async (page, size = 10) => {
   }
 };
 
-export const getBestSellerProduct = async (page, size = 10) => {
+export const getBestSellerProduct = async (page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/bestseller?pageindex=${page}&pagesize=${size}`);
     return res;
@@ -63,7 +63,7 @@ export const getBestSellerProduct = async (page, size = 10) => {
   }
 };
 
-export const getSalesProduct = async (page, size = 10) => {
+export const getSalesProduct = async (page, size = 12) => {
   try {
     const res = await httpRequest.get(`games/getgamesale?pageindex=${page}&pagesize=${size}`);
     return res;

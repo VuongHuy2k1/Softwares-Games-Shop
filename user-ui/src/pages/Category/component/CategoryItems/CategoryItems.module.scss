@@ -33,8 +33,9 @@
     margin-top: 10rem;
     justify-content: flex-start;
     padding: 0;
-
+    height: auto;
     zoom: 1.8;
-    height: 110vh;
+    min-height: 110vh;
+    margin-bottom: 6rem;
   }
 }
