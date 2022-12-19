@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const jwt_token = Cookies.get('jwt');
+const jwt_token = Cookies.get('jwt-admin');
 
 const httpRequest = axios.create({
     baseURL: process.env.REACT_APP_BASE_URL,

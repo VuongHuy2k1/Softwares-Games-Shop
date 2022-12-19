@@ -144,29 +144,47 @@ const NewGame = () => {
                 }}
                 validationSchema={Yup.object().shape({
                     gameName: Yup.string().max(255).required('Bạn chưa nhập tên'),
-                    description: Yup.string().max(255).required('Bạn chưa nhập mô tả'),
-                    gameplay: Yup.string().max(255).required('Bạn chưa nhập lối chơi')
+                    description: Yup.string().required('Bạn chưa nhập mô tả'),
+                    gameplay: Yup.string().required('Bạn chưa nhập lối chơi')
                 })}
                 onSubmit={(values, { setErrors, setStatus, setSubmitting }) => {
                     try {
                         const status = active ? 1 : 0;
+                        // values.SRM = {
+                        //     OS: values.SRMOS,
+                        //     Processor: values.SRMProcessor,
+                        //     Memory: values.SRMMemory,
+                        //     Graphics: values.SRMGraphics,
+                        //     Storage: values.SRMStorage,
+                        //     AdditionalNotes: values.SRMAdditionalNotes,
+                        //     Soundcard: values.SRMSoundcard
+                        // };
+                        // values.SRR = {
+                        //     OS: values.SRROS,
+                        //     Processor: values.SRRProcessor,
+                        //     Memory: values.SRRMemory,
+                        //     Graphics: values.SRRGraphics,
+                        //     Storage: values.SRRStorage,
+                        //     AdditionalNotes: values.SRRAdditionalNotes,
+                        //     Soundcard: values.SRRSoundcard
+                        // };
                         values.SRM = {
-                            OS: values.SRMOS,
-                            Processor: values.SRMProcessor,
-                            Memory: values.SRMMemory,
-                            Graphics: values.SRMGraphics,
-                            Storage: values.SRMStorage,
-                            AdditionalNotes: values.SRMAdditionalNotes,
-                            Soundcard: values.SRMSoundcard
+                            OS: 'Windows® 10 64 Bit (latest update)',
+                            Processor: 'AMD FX 6300 @ 3.5 Ghz or Intel Core i5-2400 @ 3.1 Ghz.',
+                            Memory: '8 GB RAM',
+                            Graphics: 'AMD R9 280x (3 GB) or NVIDIA GeForce GTX 660 (2 GB)',
+                            Storage: '33 GB chỗ trống khả dụng',
+                            AdditionalNotes: 'Phiên bản 11',
+                            Soundcard: 'DirectX 9.0c compatible sound card with latest drivers'
                         };
                         values.SRR = {
-                            OS: values.SRROS,
-                            Processor: values.SRRProcessor,
-                            Memory: values.SRRMemory,
-                            Graphics: values.SRRGraphics,
-                            Storage: values.SRRStorage,
-                            AdditionalNotes: values.SRRAdditionalNotes,
-                            Soundcard: values.SRRSoundcard
+                            OS: 'Windows® 10 64 Bit (latest update)',
+                            Processor: 'AMD FX 6300 @ 3.5 Ghz or Intel Core i5-2400 @ 3.1 Ghz.',
+                            Memory: '8 GB RAM',
+                            Graphics: 'AMD R9 280x (3 GB) or NVIDIA GeForce GTX 660 (2 GB)',
+                            Storage: '33 GB chỗ trống khả dụng',
+                            AdditionalNotes: 'Phiên bản 11',
+                            Soundcard: 'DirectX 9.0c compatible sound card with latest drivers'
                         };
                         if (genreSelect) {
                             createGame(

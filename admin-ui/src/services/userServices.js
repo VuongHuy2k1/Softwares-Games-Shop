@@ -48,7 +48,7 @@ export const getRole = async () => {
 
 export const putRoleUser = async (id, role) => {
     try {
-        const jwt_token = Cookies.get('jwt');
+        const jwt_token = Cookies.get('jwt-admin');
         const res = await httpRequest.put(`Users/${id}/roles`, role, {
             headers: {
                 Authorization: `Bearer ${jwt_token}`

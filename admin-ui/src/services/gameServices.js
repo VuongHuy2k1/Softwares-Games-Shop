@@ -113,7 +113,7 @@ export const putGame = async (game) => {
 
 export const putGameGenre = async (id, genres) => {
     try {
-        const jwt_token = Cookies.get('jwt');
+        const jwt_token = Cookies.get('jwt-admin');
         const res = await httpRequest.put(`Games/${id}/genres`, genres, {
             headers: {
                 Authorization: `Bearer ${jwt_token}`
@@ -127,7 +127,7 @@ export const putGameGenre = async (id, genres) => {
 
 export const deleteGame = async (id) => {
     try {
-        const jwt_token = Cookies.get('jwt');
+        const jwt_token = Cookies.get('jwt-admin');
         const res = await httpRequest.remove(`Games/${id}`, {
             headers: {
                 Authorization: `Bearer ${jwt_token}`
