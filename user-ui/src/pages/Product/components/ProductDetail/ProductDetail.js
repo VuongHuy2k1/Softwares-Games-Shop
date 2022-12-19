@@ -121,7 +121,9 @@ function ProductDetail({ data }) {
                   </div> */}
                   <div className={cx('product-category')}>
                     <div className={cx('title')}>Nhà phát triển: </div>
-                    <div className={cx('product-description')}>{value.publisher ? value.publisheralue : 'Unknown'}</div>
+                    <div className={cx('product-description', 'pu')}>
+                      {value.publisheralue ? value.publisheralue : 'Chưa xác minh'}
+                    </div>
 
                     <div className={cx('title')}>Thể loại:</div>
                     <div className={cx('category-wrapper')}>

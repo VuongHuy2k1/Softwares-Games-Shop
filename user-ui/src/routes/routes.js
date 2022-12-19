@@ -1,7 +1,8 @@
 import config from 'src/config';
 
 // Layouts
-import { HeaderOnly } from 'src/layouts';
+import { HeaderOnly, HeaderOnlyProPlus } from 'src/layouts';
+import { HeaderOnlyPro } from 'src/layouts';
 
 // Pages
 import NotFound from 'src/pages/NotFound';
@@ -26,10 +27,10 @@ import DefaultLayoutPro from 'src/layouts/DefaultLayoutPro';
 const publicRoutes = [
   { path: config.routes.home, component: Home },
   { path: config.routes.notFound, component: NotFound, layout: HeaderOnly },
-  { path: config.routes.about, component: AboutPage, layout: HeaderOnly },
+  { path: config.routes.about, component: AboutPage, layout: HeaderOnlyPro },
   { path: config.routes.contact, component: Contact, layout: HeaderOnly },
 
-  { path: config.routes.product, component: Product, layout: HeaderOnly },
+  { path: config.routes.product, component: Product, layout: HeaderOnlyPro },
 
   { path: config.routes.products, component: Products, layout: DefaultLayoutPro },
   { path: config.routes.allProduct, component: Products, layout: DefaultLayoutPro },
@@ -43,16 +44,16 @@ const publicRoutes = [
   { path: config.routes.categoryWithPagination, component: Category, layout: DefaultLayoutPro },
   { path: config.routes.categoryWithDefaultPagination, component: Category, layout: DefaultLayoutPro },
   { path: config.routes.categoryWithGenre, component: Category, layout: DefaultLayoutPro },
-  { path: config.routes.category, component: Category, layout: HeaderOnly },
+  { path: config.routes.category, component: Category, layout: DefaultLayoutPro },
 ];
 
 // Private routes
 const privateRoutes = [
-  { path: config.routes.profile, component: Profile },
+  { path: config.routes.profile, component: Profile, layout: HeaderOnlyProPlus },
 
-  { path: config.routes.cart, component: CartPage },
-  { path: config.routes.wishlist, component: WishListPage },
-  { path: config.routes.checkout, component: CheckoutPage },
+  { path: config.routes.cart, component: CartPage, layout: HeaderOnlyPro },
+  { path: config.routes.wishlist, component: WishListPage, layout: HeaderOnlyPro },
+  { path: config.routes.checkout, component: CheckoutPage, layout: HeaderOnlyPro },
 ];
 
 // Auth routes

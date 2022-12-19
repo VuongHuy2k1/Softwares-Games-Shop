@@ -81,7 +81,7 @@
     top: 1rem;
     font-size: 1.6rem;
     color: var(--white);
-    background-color: var(--form-bg-color);
+    background: -webkit-linear-gradient(top, rgb(42, 71, 94) 60%, rgba(42, 71, 94, 0) 300%);
     letter-spacing: 2px;
     pointer-events: none;
     user-select: none;
@@ -134,7 +134,7 @@
   .wrapper {
     border: none;
     background-color: transparent;
-    margin-top: 16rem;
+
     zoom: 3;
   }
   .container {
@@ -163,7 +163,7 @@
   .wrapper {
     border: none;
     background-color: transparent;
-    margin-top: 16rem;
+
     zoom: 2;
   }
   .container {

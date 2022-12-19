@@ -64,7 +64,7 @@ function App() {
           })}
           {privateRoutes.map((route, index) => {
             const Page = route.component;
-            let Layout = HeaderOnly;
+            let Layout = route.layout;
             const isLoggedIn = authServices.isLoggedIn();
             // Chưa Loggin thì không vào được trang Profile, Cart, WishList, Checkout
             return (

@@ -64,7 +64,7 @@ function Payment() {
   return (
     <>
       <div className={cx('wrapper')}>
-        <h2 className={cx('title')}>Trang thanh toán</h2>
+        <h2 className={cx('title')}>Thanh toán</h2>
         <div className={cx('content')}>
           <div className={cx('payment-container')}>
             {cartData.length < 0 ? (

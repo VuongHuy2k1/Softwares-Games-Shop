@@ -13,11 +13,12 @@
 }
 
 .title {
-  font-size: 2rem;
-  font-weight: normal;
+  font-size: 4rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: var(--white);
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .cart-container {
@@ -28,7 +29,8 @@
   border: 1px solid var(--black);
   height: 45rem;
   overflow-y: overlay;
-
+  background: -webkit-linear-gradient(top, rgb(42, 71, 94) 5%, rgba(42, 71, 94, 0) 300%);
+  padding: 2rem;
   &::-webkit-scrollbar {
     border-radius: 0;
     width: 8px;
@@ -57,24 +59,25 @@
 }
 
 .total-price {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: var(--white);
   margin: 0 2rem;
   text-align: right;
 }
 
 .discount {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: var(--white);
   margin: 0 2rem;
   text-align: right;
 }
 
 .final-price {
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--white);
   margin: 0 2rem;
   text-align: right;
+  font-weight: 600;
 }
 
 .action {
@@ -148,6 +151,9 @@
     width: 99%;
     zoom: 1.4;
     height: fit-content;
+    background: transparent;
+    padding: 0;
+    border: none;
   }
   .cart-total-container {
     width: 100%;
@@ -186,6 +192,9 @@
     width: 99%;
     zoom: 1.4;
     height: fit-content;
+    background: transparent;
+    padding: 0;
+    border: none;
   }
   .cart-total-container {
     width: 100%;

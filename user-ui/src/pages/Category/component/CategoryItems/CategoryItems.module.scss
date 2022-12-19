@@ -1,10 +1,11 @@
 .wrapper {
   height: auto;
+
   width: 100%;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  background-color: var(--form-bg-color);
+  background: -webkit-linear-gradient(top, rgb(42, 71, 94) 60%, rgba(42, 71, 94, 0) 300%);
   padding: 4rem 0;
   margin-top: 3rem;
 }
@@ -13,12 +14,12 @@
     flex-direction: column;
     background-color: transparent;
     align-items: center;
-
+    background: transparent;
     justify-content: flex-start;
     padding: 0;
-    margin: 0;
+    margin: 6rem 0;
     zoom: 1.8;
-    height: 110vh;
+    min-height: 140vh;
     display: flex;
     flex-wrap: nowrap;
   }
@@ -27,11 +28,12 @@
   .wrapper {
     flex-direction: column;
     background-color: transparent;
+    background: transparent;
     align-items: center;
-
+    margin-top: 10rem;
     justify-content: flex-start;
     padding: 0;
-    margin: 0;
+
     zoom: 1.8;
     height: 110vh;
   }

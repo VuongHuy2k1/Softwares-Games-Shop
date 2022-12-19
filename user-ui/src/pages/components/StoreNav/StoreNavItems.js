@@ -29,7 +29,7 @@ export const storeNavItems = [
   {
     id: 2,
     title: 'New & Noteworthy',
-    title_vi: 'Mới & Đáng chú ý',
+    title_vi: 'Đáng chú ý',
     path: '/',
     subnav: [
       {
@@ -68,5 +68,11 @@ export const storeNavItems = [
     title: 'News',
     title_vi: 'Tin Tức',
     path: '/',
+  },
+  {
+    id: 5,
+    title: 'All Product',
+    title_vi: 'Tất cả sản phẩm',
+    path: '/products',
   },
 ];

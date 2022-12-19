@@ -12,6 +12,8 @@ import ToastPortal from 'src/components/ToastPortal';
 
 import styles from './CartItem.module.scss';
 import { currencyFormat } from 'src/utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 function CartItem({ data }) {
   const [loading, setLoading] = useState(false);
@@ -52,9 +54,12 @@ function CartItem({ data }) {
             </h2>
           </div>
           <div className={cx('item-price')}>
-            <span className={cx('price')}>{currencyFormat(data.price)}</span>
+            <span className={cx('price-origin')}>{currencyFormat(data.price)}</span>
+            <span className={cx('price')}> {currencyFormat(data.price * (1 - data.discount / 100))}</span>
+          </div>
+          <div className={cx('item-remove')}>
             <span className={cx('remove')} onClick={handleClick}>
-              {loading ? '' : 'Gỡ'}
+              {loading ? '' : <FontAwesomeIcon icon={faTrash} />}
             </span>
           </div>
         </div>
