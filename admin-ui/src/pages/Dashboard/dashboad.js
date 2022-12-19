@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import RecentOrder from 'pages/RecentOrders/index';
-import Contact from 'pages/Contact/index';
-import BestSeller from './bestseller';
+
+import BestSeller from './BestsellerTable';
 import { Grid, Typography, Stack, Box } from '@mui/material';
 
 import MainCard from 'components/MainCard';
 import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
-import BestSellerr from './BestSellerr';
+import BestSellerChart from './BestSellerChart';
 import SellerPerMY from './SellerPerMY';
 import Income from './Income';
 import IncomePerMY from './IncomePerMY';
@@ -73,7 +73,7 @@ function Dash() {
                             <Typography variant="h3">Game nhiều lượt mua nhất</Typography>
                         </Stack>
                     </Box>
-                    <BestSellerr />
+                    <BestSellerChart />
                 </MainCard>
             </Grid>
             <Grid item xs={12} md={12} lg={5}>

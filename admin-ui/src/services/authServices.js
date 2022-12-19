@@ -16,15 +16,15 @@ export const login = async (user) => {
 };
 
 export const logout = () => {
-    Cookies.remove('jwt');
+    Cookies.remove('jwt-admin');
     Cookies.remove('admin-id');
 };
 
 export const isLoggedIn = () => {
-    const jwt = Cookies.get('jwt');
+    const jwt = Cookies.get('jwt-admin');
     const userId = Cookies.get('admin-id');
     if (jwt === undefined || userId === undefined) {
-        Cookies.remove('jwt');
+        Cookies.remove('jwt-admin');
         Cookies.remove('admin-id');
         return false;
     }
@@ -34,12 +34,12 @@ export const isLoggedIn = () => {
         if (jwt_decode.NameIdentifier === userId) {
             return true;
         } else {
-            Cookies.remove('jwt');
+            Cookies.remove('jwt-admin');
             Cookies.remove('admin-id');
             return false;
         }
     } catch (error) {
-        Cookies.remove('jwt');
+        Cookies.remove('jwt-admin');
         Cookies.remove('admin-id');
         console.log(error);
         return false;

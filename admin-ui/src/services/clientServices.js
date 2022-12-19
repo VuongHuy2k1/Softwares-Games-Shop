@@ -12,7 +12,7 @@ export const getContact = async () => {
 
 export const getOrder = async () => {
     try {
-        const jwt_token = Cookies.get('jwt');
+        const jwt_token = Cookies.get('jwt-admin');
 
         const res = await httpRequest.get(`Checkouts/AllBill`, {
             headers: {
